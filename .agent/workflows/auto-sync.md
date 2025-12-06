@@ -22,10 +22,11 @@ git commit -m "Auto-commit: [descrição das alterações]"
 
 3. Push para o GitHub
 ```bash
-git push origin master
+git push origin main
 ```
 
 ## Notas:
 - As credenciais do GitHub já estão configuradas via HTTPS
 - O primeiro push já foi concluído com sucesso
+- A branch padrão é `main` (master foi deletada)
 - Os comandos rodam automaticamente após cada edição solicitada pelo usuário
