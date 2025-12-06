@@ -1,0 +1,22 @@
+/* Essência Artesanal - ajustes globais */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e8e4dc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 77, 163, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}

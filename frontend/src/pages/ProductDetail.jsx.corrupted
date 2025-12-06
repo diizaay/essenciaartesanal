@@ -1,0 +1,380 @@
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Heart, ShoppingBag, ArrowLeft, Trash2 } from 'lucide-react';
+import { getProductById, getProducts, getProductReviews, createProductReview, deleteReview, getProductRating, getMe } from '../services/api';
+import { useCart } from '../context/CartContext';
+import { useFavorites } from '../context/FavoritesContext';
+import ProductCard from '../components/ProductCard';
+import StarRating from '../components/StarRating';
+import { toast } from 'sonner';
+
+const ProductDetail = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const { addItem } = useCart();
+    const { toggleFavorite, isFavorite } = useFavorites();
+
+    const [product, setProduct] = useState(null);
+    const [suggestedProducts, setSuggestedProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [selectedImage, setSelectedImage] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const [selectedVariant, setSelectedVariant] = useState(null);  // Selected product variant
+    const [reviews, setReviews] = useState([]);
+    const [rating, setRating] = useState({ averageRating: 0, totalReviews: 0 });
+    const [currentUser, setCurrentUser] = useState(null);
+    const [newReview, setNewReview] = useState({ rating: 0, comment: '' });
+
+    useEffect(() => {
+        if (!id) {
+            setLoading(false);
+            return;
+        }
+
+        const loadProduct = async () => {
+            try {
+                setLoading(true);
+                const productData = await getProductById(id);
+                setProduct(productData);
+
+                // Load suggested products
+                if (productData?.category) {
+                    const allProducts = await getProducts({ category: productData.category });
+                    const suggested = allProducts.filter(p => p.id !== productData.id).slice(0, 4);
+                    setSuggestedProducts(suggested);
+                }
+
+                // Load reviews and rating
+                const [reviewsData, ratingData] = await Promise.all([
+                    getProductReviews(id),
+                    getProductRating(id)
+                ]);
+                setReviews(reviewsData);
+                setRating(ratingData);
+
+                // Get current user
+                try {
+                    const user = await getMe();
+                    setCurrentUser(user);
+                } catch (err) {
+                    setCurrentUser(null);
+                }
+            } catch (error) {
+                console.error('Error loading product:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        toggleFavorite({ ...product, image: images[selectedImage] });
+    };
+
+    const handleSubmitReview = async (e) => {
+        e.preventDefault();
+
+        if (!currentUser) {
+            toast.error('Por favor, faça login para avaliar');
+            navigate('/conta');
+            return;
+        }
+
+        if (!newReview.comment.trim()) {
+            toast.error('Por favor, adicione um comentário');
+            return;
+        }
+
+        if (newReview.rating === 0) {
+            toast.error('Por favor, selecione uma avaliação em estrelas');
+            return;
+        }
+
+        try {
+            await createProductReview(id, {
+                productId: id,
+                rating: newReview.rating,
+                comment: newReview.comment.trim()
+            });
+
+            const [reviewsData, ratingData] = await Promise.all([
+                getProductReviews(id),
+                getProductRating(id)
+            ]);
+            setReviews(reviewsData);
+            setRating(ratingData);
+            setNewReview({ rating: 0, comment: '' });
+
+            toast.success('Avaliação adicionada!');
+        } catch (error) {
+            console.error('Error submitting review:', error);
+            toast.error('Erro ao adicionar avaliação');
+        }
+    };
+
+    const handleDeleteReview = async (reviewId) => {
+        if (!window.confirm('Eliminar esta avaliação?')) return;
+
+        try {
+            await deleteReview(reviewId);
+            const [reviewsData, ratingData] = await Promise.all([
+                getProductReviews(id),
+                getProductRating(id)
+            ]);
+            setReviews(reviewsData);
+            setRating(ratingData);
+            toast.success('Avaliação eliminada');
+        } catch (error) {
+            console.error('Error deleting review:', error);
+            toast.error('Erro ao eliminar');
+        }
+    };
+
+    if (loading) {
+        return (
+            <div className="min-h-screen py-12 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-primary)] mx-auto mb-4"></div>
+                    <p className="text-gray-600" style={{ fontFamily: 'Poppins' }}>Carregando...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (!product) {
+        return (
+            <div className="min-h-screen py-12 flex items-center justify-center">
+                <div className="text-center">
+                    <p className="text-gray-600 mb-4">Produto não encontrado</p>
+                    <button
+                        onClick={() => navigate('/produtos')}
+                        className="bg-[var(--color-accent)] text-[var(--color-primary)] px-6 py-2 font-bold hover:bg-[var(--color-primary)] hover:text-white"
+                    >
+                        Ver Produtos
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    const images = product.images || [product.image];
+    const favorited = isFavorite(product.id);
+
+    return (
+        <div className="min-h-screen bg-white py-8">
+            <div className="max-w-[1200px] mx-auto px-4">
+                {/* Back Button */}
+                <button
+                    onClick={() => navigate('/produtos')}
+                    className="flex items-center gap-2 text-[var(--color-primary)] hover:underline mb-6"
+                >
+                    <ArrowLeft className="h-5 w-5" />
+                    Voltar aos Produtos
+                </button>
+
+                {/* Product Details */}
+                <div className="grid lg:grid-cols-2 gap-8 mb-12">
+                    {/* Images */}
+                    <div className="space-y-4">
+                        <div className="border-2 border-[var(--color-border)] overflow-hidden">
+                            <img
+                                src={images[selectedImage]}
+                                alt={product.name}
+                                className="w-full aspect-square object-cover"
+                            />
+                        </div>
+                        {images.length > 1 && (
+                            <div className="grid grid-cols-4 gap-2">
+                                {images.map((img, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setSelectedImage(index)}
+                                        className={`border-2 overflow-hidden ${selectedImage === index ? 'border-[var(--color-primary)]' : 'border-[var(--color-border)]'}`}
+                                    >
+                                        <img src={img} alt={`${product.name} ${index + 1}`} className="w-full aspect-square object-cover" />
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Info */}
+                    <div className="space-y-6">
+                        <div>
+                            <h1 className="text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins' }}>
+                                {product.name}
+                            </h1>
+                            <div className="flex items-center gap-4">
+                                <p className="text-3xl font-bold text-[var(--color-primary)]">
+                                    {Number.isInteger(currentPrice)
+                                        ? `${currentPrice.toLocaleString('pt-PT')} KZ`
+                                        : `${currentPrice.toFixed(2)} KZ`}
+                                </p>
+                                {product.discount && (
+                                    <span className="bg-[var(--color-primary)] text-white px-3 py-1 text-sm font-semibold">
+                                        -{product.discount}%
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+
+                        {product.description && (
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: 'Poppins' }}>Descrição</h3>
+                                <p className="text-gray-600 leading-relaxed">{product.description}</p>
+                            </div>
+                        )}
+
+                        {/* Quantity */}
+                        <div>
+                            <label className="block font-semibold mb-2">Quantidade</label>
+                            <div className="flex items-center gap-4">
+                                <button
+                                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                                    className="border-2 border-[var(--color-border)] px-4 py-2 font-bold hover:border-[var(--color-primary)]"
+                                >
+                                    -
+                                </button>
+                                <span className="text-xl font-bold w-12 text-center">{quantity}</span>
+                                <button
+                                    onClick={() => setQuantity(quantity + 1)}
+                                    className="border-2 border-[var(--color-border)] px-4 py-2 font-bold hover:border-[var(--color-primary)]"
+                                >
+                                    +
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="space-y-3">
+                            <button
+                                onClick={handleAddToCart}
+                                className="w-full bg-[var(--color-accent)] text-[var(--color-primary)] px-8 py-4 font-bold hover:bg-[var(--color-primary)] hover:text-white flex items-center justify-center gap-2"
+                            >
+                                <ShoppingBag className="h-5 w-5" />
+                                Adicionar ao Carrinho
+                            </button>
+                            <button
+                                onClick={() => {
+                                    handleAddToCart();
+                                    navigate('/checkout');
+                                }}
+                                className="w-full bg-[var(--color-primary)] text-white px-8 py-4 font-bold hover:opacity-90"
+                            >
+                                Finalizar Compra
+                            </button>
+                        </div>
+
+                        {/* Favorite */}
+                        <button
+                            onClick={handleToggleFavorite}
+                            className={`w-full flex items-center justify-center gap-2 border-2 py-3 ${favorited
+                                ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
+                                : 'bg-white text-[var(--color-primary)] border-[var(--color-border)] hover:border-[var(--color-primary)]'
+                                }`}
+                        >
+                            <Heart className={`h-5 w-5 ${favorited ? 'fill-current' : ''}`} />
+                            {favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Reviews Section - Compact */}
+                <div className="border-t-2 border-[var(--color-border)] pt-6 mb-12">
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins' }}>
+                            Avaliações
+                        </h2>
+                        <div className="flex items-center gap-2">
+                            <StarRating rating={rating.averageRating} size={18} />
+                            <span className="font-semibold">{rating.averageRating.toFixed(1)}</span>
+                            <span className="text-sm text-gray-500">({rating.totalReviews})</span>
+                        </div>
+                    </div>
+
+                    {/* Form */}
+                    {currentUser ? (
+                        <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-4 mb-4">
+                            <form onSubmit={handleSubmitReview} className="flex gap-3 items-start">
+                                <div className="flex-1">
+                                    <textarea
+                                        value={newReview.comment}
+                                        onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                                        required
+                                        rows="3"
+                                        placeholder="Deixe sua opinião..."
+                                        className="w-full px-3 py-2 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none resize-none text-sm"
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <StarRating
+                                        rating={newReview.rating}
+                                        size={22}
+                                        interactive
+                                        onRatingChange={(value) => setNewReview({ ...newReview, rating: value })}
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="bg-[var(--color-accent)] text-[var(--color-primary)] px-5 py-2 font-semibold hover:bg-[var(--color-primary)] hover:text-white transition-colors text-sm whitespace-nowrap"
+                                    >
+                                        Enviar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    ) : (
+                        <div className="bg-[var(--color-bg-soft)] p-3 mb-4 text-center text-sm">
+                            <a href="/conta" className="text-[var(--color-primary)] font-semibold hover:underline">Faça login</a> para avaliar
+                        </div>
+                    )}
+
+                    {/* List */}
+                    <div className="space-y-3">
+                        {reviews.length > 0 ? (
+                            reviews.slice(0, 3).map((review) => (
+                                <div key={review.id} className="border-2 border-[var(--color-border)] p-3">
+                                    <div className="flex items-center justify-between mb-1">
+                                        <div className="flex items-center gap-2">
+                                            <span className="font-semibold text-sm">{review.userName}</span>
+                                            <StarRating rating={review.rating} size={14} />
+                                            <span className="text-xs text-gray-500">
+                                                {new Date(review.createdAt).toLocaleDateString('pt-PT')}
+                                            </span>
+                                        </div>
+                                        {currentUser && (currentUser.id === review.userId || currentUser.isAdmin) && (
+                                            <button onClick={() => handleDeleteReview(review.id)} className="text-red-600 hover:text-red-700">
+                                                <Trash2 className="h-4 w-4" />
+                                            </button>
+                                        )}
+                                    </div>
+                                    <p className="text-sm text-gray-700">{review.comment}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="text-center py-4 text-gray-500 text-sm">Seja o primeiro a avaliar!</div>
+                        )}
+                        {reviews.length > 3 && (
+                            <p className="text-center text-xs text-gray-500">+{reviews.length - 3} avaliações</p>
+                        )}
+                    </div>
+                </div>
+
+                {/* Suggested Products */}
+                {suggestedProducts.length > 0 && (
+                    <div>
+                        <div className="border-t-2 border-[var(--color-border)] pt-8 mb-6">
+                            <h2 className="text-2xl font-bold text-[var(--color-primary)] mb-2" style={{ fontFamily: 'Poppins' }}>
+                                Produtos Sugeridos
+                            </h2>
+                            <p className="text-gray-600 text-sm">Outros produtos que pode gostar</p>
+                        </div>
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                            {suggestedProducts.map((suggestedProduct) => (
+                                <ProductCard key={suggestedProduct.id} product={suggestedProduct} />
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default ProductDetail;
