@@ -1,0 +1,10 @@
+cloudinary
+fastapi
+mangum
+motor
+python-dotenv
+pydantic
+python-multipart
+pydantic[email]
+passlib[bcrypt]
+PyJWT

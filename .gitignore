@@ -82,3 +82,8 @@ android-sdk/ -e
 # Environment files
 *.env
 *.env.*
+!.env.example
+
+# Vercel
+.vercel
+.vercel.json
