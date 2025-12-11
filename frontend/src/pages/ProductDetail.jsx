@@ -34,8 +34,19 @@ const ProductDetail = () => {
         const loadProduct = async () => {
             try {
                 setLoading(true);
-                const productData = await getProductById(id);
+
+                // Load all data in parallel for better performance
+                const [productData, reviewsData, ratingData, userData] = await Promise.all([
+                    getProductById(id),
+                    getProductReviews(id),
+                    getProductRating(id),
+                    getMe().catch(() => null) // User might not be logged in
+                ]);
+
                 setProduct(productData);
+                setReviews(reviewsData);
+                setRating(ratingData);
+                setCurrentUser(userData);
 
                 // Auto-select cheapest variant if product has variants
                 if (productData.variants && productData.variants.length > 0) {
@@ -52,23 +63,6 @@ const ProductDetail = () => {
                         .filter(p => p.id !== productData.id)
                         .slice(0, 4);
                     setSuggestedProducts(suggested);
-                }
-
-                // Load reviews and rating
-                const [reviewsData, ratingData] = await Promise.all([
-                    getProductReviews(id),
-                    getProductRating(id)
-                ]);
-                setReviews(reviewsData);
-                setRating(ratingData);
-
-                // Get current user
-                try {
-                    const user = await getMe();
-                    setCurrentUser(user);
-                } catch (err) {
-                    // User not logged in
-                    setCurrentUser(null);
                 }
             } catch (error) {
                 console.error('Error loading product:', error);
