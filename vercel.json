@@ -1,9 +1,15 @@
 {
     "version": 2,
-    "buildCommand": "cd frontend && npm install && npm run build",
+    "buildCommand": "cd frontend && rm -rf node_modules/.cache build && npm install && npm run build",
     "outputDirectory": "frontend/build",
     "installCommand": "pip install -r api/requirements.txt",
     "framework": null,
+    "build": {
+        "env": {
+            "CI": "false",
+            "GENERATE_SOURCEMAP": "false"
+        }
+    },
     "rewrites": [
         {
             "source": "/api/:path*",
