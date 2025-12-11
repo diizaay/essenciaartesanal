@@ -1,11 +1,18 @@
 """
 FastAPI Serverless Handler for Vercel
 """
+import sys
+import os
+from pathlib import Path
+
+# Add current directory to Python path for Vercel serverless
+current_dir = Path(__file__).parent
+sys.path.insert(0, str(current_dir))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 from motor.motor_asyncio import AsyncIOMotorClient
-import os
 from dotenv import load_dotenv
 from routes import router
 
