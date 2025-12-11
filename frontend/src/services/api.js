@@ -25,7 +25,8 @@ if (api) {
   });
 }
 
-const shouldUseMock = () => !api;
+const shouldUseMock = () => false; // Always use real API
+
 
 const safeRequest = async (requestFn, fallback) => {
   if (shouldUseMock()) {
