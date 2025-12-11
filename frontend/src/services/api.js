@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { categories as mockCategories, products as mockProducts } from '@/mock/mockData';
 
-// Safely get backend URL - works in both build time and runtime
-// In production (build), use empty string for same-origin requests
-// In development, use proxy configured in package.json
+// VERCEL BUILD VERIFICATION - If you see this, new code is loaded!
+console.log('%c🚀 API.JS LOADED - BUILD TIME: 2025-12-11 19:40 UTC', 'background: #00ff00; color: #000; font-size: 20px; padding: 10px;');
+console.log('🔥 MOCK MODE COMPLETELY DISABLED - ALL API CALLS ARE REAL');
+
+// Backend URL - empty string for same-origin requests (Vercel)
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
 
 const api = axios.create({
@@ -11,58 +12,34 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // Include credentials for CORS
+  withCredentials: true,
 });
 
 // Add JWT token to requests
-if (api) {
-  api.interceptors.request.use((config) => {
-    const token = localStorage.getItem('auth_token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  });
-}
-
-// Force production mode - NEVER use mock in production
-const isProduction = process.env.NODE_ENV === 'production' || window.location.hostname !== 'localhost';
-const shouldUseMock = () => false; // Always use real API
-
-
-const safeRequest = async (requestFn, fallback) => {
-  if (shouldUseMock()) {
-    return fallback();
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('auth_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
-
-  try {
-    const response = await requestFn();
-    return response.data;
-  } catch (error) {
-    console.error('API Error:', error);
-    return fallback();
-  }
-};
+  return config;
+});
 
 // ========== AUTHENTICATION ==========
 
-export const register = async (userData) =>
-  safeRequest(() => api.post('/auth/register', userData), () => {
-    console.warn('register não disponível em modo mock');
-    return null;
-  });
+export const register = async (userData) => {
+  const response = await api.post('/api/auth/register', userData);
+  return response.data;
+};
 
-export const login = async (credentials) =>
-  safeRequest(() => api.post('/auth/login', credentials), () => {
-    console.warn('login não disponível em modo mock');
-    return null;
-  });
+export const login = async (credentials) => {
+  const response = await api.post('/api/auth/login', credentials);
+  return response.data;
+};
 
-export const getMe = async () =>
-  safeRequest(() => api.get('/auth/me'), () => {
-    console.warn('getMe não disponível em modo mock');
-    return null;
-  });
+export const getMe = async () => {
+  const response = await api.get('/api/auth/me');
+  return response.data;
+};
 
 export const setAuthToken = (token) => {
   if (token) {
