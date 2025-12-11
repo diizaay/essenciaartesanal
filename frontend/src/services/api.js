@@ -142,51 +142,31 @@ export const clearCart = async () =>
   });
 
 // Get product by ID
-export const getProductById = async (productId) =>
-  safeRequest(() => api.get(`/products/${productId}`), () => {
-    console.warn('getProductById não disponível em modo mock');
-    return null;
-  });
+export const getProductById = async (productId) => {
+  const response = await api.get(`/products/${productId}`);
+  return response.data;
+};
 
 // Categories
-export const getCategories = async (store) =>
-  safeRequest(
-    () => api.get('/categories', { params: store ? { store } : {} }),
-    () => mockCategories,
-  );
+export const getCategories = async (store) => {
+  const response = await api.get('/categories', { params: store ? { store } : {} });
+  return response.data;
+};
 
-export const createCategory = async (category) =>
-  safeRequest(() => api.post('/categories', category), () => {
-    console.warn('createCategory not available in mock mode');
-    return category;
-  });
+export const createCategory = async (category) => {
+  const response = await api.post('/categories', category);
+  return response.data;
+};
 
 // Products
-export const getProducts = async (filters = {}) =>
-  safeRequest(
-    () => {
-      const params = new URLSearchParams();
-      if (filters.category) params.append('category', filters.category);
-      if (filters.featured !== undefined) params.append('featured', filters.featured);
-      if (filters.store) params.append('store', filters.store);
-      return api.get(`/products?${params.toString()}`);
-    },
-    () => {
-      let filtered = [...mockProducts];
-
-      if (filters.category) {
-        filtered = filtered.filter((product) => product.category === filters.category);
-      }
-
-      if (filters.featured !== undefined) {
-        filtered = filtered.filter(
-          (product) => Boolean(product.featured) === Boolean(filters.featured),
-        );
-      }
-
-      return filtered;
-    },
-  );
+export const getProducts = async (filters = {}) => {
+  const params = new URLSearchParams();
+  if (filters.category) params.append('category', filters.category);
+  if (filters.featured !== undefined) params.append('featured', filters.featured);
+  if (filters.store) params.append('store', filters.store);
+  const response = await api.get(`/products?${params.toString()}`);
+  return response.data;
+};
 
 export const getProductBySlug = async (slug) =>
   safeRequest(
@@ -271,9 +251,9 @@ export const getAllOrdersAdmin = async (status = null) => {
 export const getBlogPosts = async (publishedOnly = true) => {
   const params = publishedOnly ? { published: true } : {};
   return safeRequest(
-    () => api.get('/blog', { params }),
-    () => []
-  );
+  const params = publishedOnly ? '?published=true' : '';
+  const response = await api.get(`/blog${params}`);
+  return response.data;
 };
 
 export const getBlogPostById = async (postId) => {
