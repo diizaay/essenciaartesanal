@@ -65,4 +65,7 @@ async def shutdown_db_client():
         client.close()
 
 # Mangum handler for Vercel serverless
-handler = Mangum(app, lifespan="off")
+# Use a callable handler function instead of direct Mangum instance
+def handler(event, context):
+    asgi_handler = Mangum(app, lifespan="auto")
+    return asgi_handler(event, context)
