@@ -1,0 +1,887 @@
+[{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef27e"
+  },
+  "name": "Brincos de Caracol",
+  "slug": "brincos-de-caracol",
+  "store": null,
+  "category": "brincos",
+  "price": 3500,
+  "images": [
+    "/uploads/20251126_111501_WhatsApp Image 2025-11-26 at 11.13.23.jpeg",
+    "/uploads/20251126_111645_DSC_0052.webp"
+  ],
+  "description": "Brincos elegantes feitos à mão com formato de caracol. Perfeitos para ocasiões especiais.",
+  "inStock": true,
+  "featured": true,
+  "id": "2627cd1a-15b8-4388-b2b4-16987cdd6682",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-04T22:04:19.411Z"
+  },
+  "details": [
+    {
+      "label": "Materiais",
+      "value": "Prata",
+      "icon": null
+    }
+  ],
+  "isNew": false,
+  "variants": [
+    {
+      "id": "variant-1764885787146",
+      "name": "Normal",
+      "price": 2500
+    },
+    {
+      "id": "variant-1764885810483",
+      "name": "Anti alergico",
+      "price": 3000
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef27f"
+  },
+  "name": "Brincos Folha Prateados",
+  "slug": "brincos-folha-prateados",
+  "store": null,
+  "category": "brincos",
+  "price": 38.5,
+  "images": [
+    "https://images.unsplash.com/photo-1693212793204-bcea856c75fe?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1608508644127-ba99d7732fee?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Brincos delicados em formato de folha com acabamento prateado. Design minimalista e moderno.",
+  "inStock": true,
+  "featured": false,
+  "id": "220e406a-0510-470c-8130-822a687d2e66",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-04T22:41:09.211Z"
+  },
+  "details": [
+    {
+      "label": "Material",
+      "value": "ouro",
+      "icon": null
+    },
+    {
+      "label": "Dimensão",
+      "value": "4x6",
+      "icon": null
+    }
+  ],
+  "isNew": true,
+  "variants": [
+    {
+      "id": "variant-1764888026301",
+      "name": "Dourado",
+      "price": 5000
+    },
+    {
+      "id": "variant-1764888043340",
+      "name": "Prata",
+      "price": 4000
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef280"
+  },
+  "name": "Brincos Argola Dourados",
+  "slug": "brincos-argola-dourados",
+  "store": null,
+  "category": "brincos",
+  "price": 42,
+  "images": [
+    "https://images.unsplash.com/photo-1608508644127-ba99d7732fee?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?q=85"
+  ],
+  "description": "Argolas clássicas em banho de ouro, perfeitas para o dia a dia com estilo.",
+  "inStock": true,
+  "featured": true,
+  "id": "18465171-fa01-4af4-9998-02cebc75f0ef",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef281"
+  },
+  "name": "Brincos Tassel Azul",
+  "slug": "brincos-tassel-azul",
+  "store": null,
+  "category": "brincos",
+  "price": 35.9,
+  "images": [
+    "https://images.pexels.com/photos/1413420/pexels-photo-1413420.jpeg?q=85",
+    "https://images.unsplash.com/photo-1617038220319-276d3cfab638?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Brincos vibrantes com franjas azuis, perfeitos para um visual boho-chic.",
+  "inStock": true,
+  "featured": false,
+  "id": "d482f7fb-2deb-4c2b-856d-fcc6a9f47b97",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef282"
+  },
+  "name": "Brincos Minimalistas Dourados",
+  "slug": "brincos-minimalistas-dourados",
+  "store": null,
+  "category": "brincos",
+  "price": 32.9,
+  "images": [
+    "https://images.unsplash.com/photo-1617038220319-276d3cfab638?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Brincos minimalistas e elegantes, ideais para todos os momentos.",
+  "inStock": true,
+  "featured": false,
+  "id": "183d3d78-555f-481a-9b5b-a77a4f3a0470",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef283"
+  },
+  "name": "Brincos Geométricos Prateados",
+  "slug": "brincos-geometricos-prateados",
+  "store": null,
+  "category": "brincos",
+  "price": 40,
+  "images": [
+    "https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?q=85",
+    "https://images.unsplash.com/photo-1693212793204-bcea856c75fe?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Design geométrico moderno com acabamento em prata.",
+  "inStock": true,
+  "featured": false,
+  "id": "c53e2c36-725b-44a1-ba65-303be4b4b3a3",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef284"
+  },
+  "name": "Brincos de Couro Natural",
+  "slug": "brincos-couro-natural",
+  "store": null,
+  "category": "brincos",
+  "price": 29.9,
+  "images": [
+    "https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1608508644127-ba99d7732fee?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Brincos leves de couro natural, confortáveis para uso diário.",
+  "inStock": true,
+  "featured": true,
+  "id": "4d9b8b7f-630c-4433-9d06-ffb8ce61bfc4",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef285"
+  },
+  "name": "Brincos Círculo Duplo",
+  "slug": "brincos-circulo-duplo",
+  "store": null,
+  "category": "brincos",
+  "price": 44.5,
+  "images": [
+    "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1617038220319-276d3cfab638?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Brincos com círculos duplos entrelaçados, design sofisticado.",
+  "inStock": true,
+  "featured": false,
+  "id": "26b7beb3-e7d8-45ce-b138-8306b6f097df",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef286"
+  },
+  "name": "Colar Coração Prateado",
+  "slug": "colar-coracao-prateado",
+  "store": null,
+  "category": "colares",
+  "price": 55,
+  "images": [
+    "https://images.unsplash.com/photo-1613989999658-0075d1359836?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Colar delicado com pingente de coração em prata, romântico e elegante.",
+  "inStock": true,
+  "featured": true,
+  "id": "26ef46e1-4dde-49c7-b69d-fec4b662cf41",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef287"
+  },
+  "name": "Colar de Pérolas Lilás",
+  "slug": "colar-perolas-lilas",
+  "store": null,
+  "category": "colares",
+  "price": 68.9,
+  "images": [
+    "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1613989999658-0075d1359836?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Colar luxuoso com pérolas naturais em tons lilás. Peça única e especial.",
+  "inStock": true,
+  "featured": false,
+  "id": "1fb7666d-9d0d-4c6c-94c3-e8ec077700a8",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef288"
+  },
+  "name": "Colar Turquesa Artesanal",
+  "slug": "colar-turquesa-artesanal",
+  "store": null,
+  "category": "colares",
+  "price": 72,
+  "images": [
+    "https://images.pexels.com/photos/135486/pexels-photo-135486.jpeg?q=85",
+    "https://images.unsplash.com/photo-1613989999658-0075d1359836?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Colar com pedra turquesa natural, montado artesanalmente.",
+  "inStock": true,
+  "featured": true,
+  "id": "1c26f9de-90f2-4331-9bda-9520c8ea7d41",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef289"
+  },
+  "name": "Colar Minimalista Dourado",
+  "slug": "colar-minimalista-dourado",
+  "store": null,
+  "category": "colares",
+  "price": 48.5,
+  "images": [
+    "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.pexels.com/photos/135486/pexels-photo-135486.jpeg?q=85"
+  ],
+  "description": "Colar delicado com design minimalista em banho de ouro.",
+  "inStock": true,
+  "featured": false,
+  "id": "1307c375-6ecf-4ef6-832f-12a119aabd2f",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef28a"
+  },
+  "name": "Colar Longo Boho",
+  "slug": "colar-longo-boho",
+  "store": null,
+  "category": "colares",
+  "price": 58.9,
+  "images": [
+    "https://images.unsplash.com/photo-1613989999658-0075d1359836?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Colar longo estilo boho com diversos pingentes.",
+  "inStock": true,
+  "featured": false,
+  "id": "ec53382c-2f80-4e04-9764-9d6a46786e53",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef28b"
+  },
+  "name": "Colar Camadas Delicado",
+  "slug": "colar-camadas-delicado",
+  "store": null,
+  "category": "colares",
+  "price": 62,
+  "images": [
+    "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1613989999658-0075d1359836?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Colar com três camadas delicadas, moderno e elegante.",
+  "inStock": true,
+  "featured": true,
+  "id": "0ce600bd-7a1c-402a-8f7f-e7a9b17a684f",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef28c"
+  },
+  "name": "Pulseira de Contas Natural",
+  "slug": "pulseira-contas-natural",
+  "store": null,
+  "category": "pulseiras",
+  "price": 32.9,
+  "images": [
+    "https://images.unsplash.com/photo-1661009603404-200d20353dac?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1679590988898-50c20140aec0?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Pulseira de contas em tons naturais, estilo zen e harmonioso.",
+  "inStock": true,
+  "featured": false,
+  "id": "5bd6e94e-3dd0-4943-b99b-67df008b4d55",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef28d"
+  },
+  "name": "Pulseira Macramê Bege",
+  "slug": "pulseira-macrame-bege",
+  "store": null,
+  "category": "pulseiras",
+  "price": 28.5,
+  "images": [
+    "https://images.unsplash.com/photo-1679590988898-50c20140aec0?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.pexels.com/photos/34103995/pexels-photo-34103995.jpeg?q=85"
+  ],
+  "description": "Pulseira em macramê feita artesanalmente em tons bege.",
+  "inStock": true,
+  "featured": true,
+  "id": "85c400a5-34bd-47b2-bf82-7b019137f921",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef28e"
+  },
+  "name": "Pulseira Dourada Elegante",
+  "slug": "pulseira-dourada-elegante",
+  "store": null,
+  "category": "pulseiras",
+  "price": 45,
+  "images": [
+    "https://images.pexels.com/photos/34103995/pexels-photo-34103995.jpeg?q=85",
+    "https://images.unsplash.com/photo-1661009603404-200d20353dac?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Pulseira sofisticada com acabamento dourado.",
+  "inStock": true,
+  "featured": false,
+  "id": "a1873ee0-d58c-4968-ad5c-9fef2fcdd3bd",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef28f"
+  },
+  "name": "Pulseira de Pedras Naturais",
+  "slug": "pulseira-pedras-naturais",
+  "store": null,
+  "category": "pulseiras",
+  "price": 38.9,
+  "images": [
+    "https://images.unsplash.com/photo-1661009603404-200d20353dac?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1679590988898-50c20140aec0?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Pulseira com pedras naturais coloridas, energizante.",
+  "inStock": true,
+  "featured": true,
+  "id": "7ed201de-8d1d-4318-89de-cf2816f5d155",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef290"
+  },
+  "name": "Pulseira Trio Minimalista",
+  "slug": "pulseira-trio-minimalista",
+  "store": null,
+  "category": "pulseiras",
+  "price": 52,
+  "images": [
+    "https://images.unsplash.com/photo-1679590988898-50c20140aec0?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.pexels.com/photos/34103995/pexels-photo-34103995.jpeg?q=85"
+  ],
+  "description": "Conjunto de três pulseiras minimalistas para usar juntas.",
+  "inStock": true,
+  "featured": false,
+  "id": "cee99a99-1a2d-4a10-8bdd-cf9d04f6467a",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef291"
+  },
+  "name": "Anel Prata com Pedra",
+  "slug": "anel-prata-pedra",
+  "store": null,
+  "category": "aneis",
+  "price": 42.9,
+  "images": [
+    "https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1528797664208-e5a8c0b98881?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Anel delicado em prata com pedra natural incrustada.",
+  "inStock": true,
+  "featured": false,
+  "id": "adb3265b-7a4c-4e1f-a2ab-cb70c20e7d7d",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef292"
+  },
+  "name": "Anel Minimalista Dourado",
+  "slug": "anel-minimalista-dourado",
+  "store": null,
+  "category": "aneis",
+  "price": 35,
+  "images": [
+    "https://images.unsplash.com/photo-1528797664208-e5a8c0b98881?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Anel fino e elegante com banho de ouro.",
+  "inStock": true,
+  "featured": true,
+  "id": "c67cbfb0-b3f3-4c33-8eb4-6a69c92f90e9",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef293"
+  },
+  "name": "Anel Conjunto Trio",
+  "slug": "anel-conjunto-trio",
+  "store": null,
+  "category": "aneis",
+  "price": 58.9,
+  "images": [
+    "https://images.unsplash.com/photo-1528797664208-e5a8c0b98881?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Conjunto de três anéis para usar empilhados.",
+  "inStock": true,
+  "featured": false,
+  "id": "4317ac9f-35f2-4623-b410-371fa3f9b556",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef294"
+  },
+  "name": "Scrunchie Veludo Rosa",
+  "slug": "scrunchie-veludo-rosa",
+  "store": null,
+  "category": "acessorios-cabelo",
+  "price": 18.5,
+  "images": [
+    "https://images.unsplash.com/photo-1601938219471-fb3393955f15?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1606772016409-d4a55e32be6e?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Scrunchie macio de veludo em tom rosa delicado.",
+  "inStock": true,
+  "featured": true,
+  "id": "41b229a3-f838-4191-85b0-96228bcf1551",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef295"
+  },
+  "name": "Scrunchies Coloridos Kit",
+  "slug": "scrunchies-coloridos-kit",
+  "store": null,
+  "category": "acessorios-cabelo",
+  "price": 45,
+  "images": [
+    "https://images.unsplash.com/photo-1606772016409-d4a55e32be6e?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1601938219471-fb3393955f15?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Kit com 5 scrunchies em cores variadas.",
+  "inStock": true,
+  "featured": false,
+  "id": "ee87a2e8-e3ca-4f1f-b8b6-1c39833e1607",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef296"
+  },
+  "name": "Presilha Metálica Dourada",
+  "slug": "presilha-metalica-dourada",
+  "store": null,
+  "category": "acessorios-cabelo",
+  "price": 22.9,
+  "images": [
+    "https://images.unsplash.com/photo-1578220154766-1c39bcecc1dc?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1601938219471-fb3393955f15?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Presilha moderna com acabamento dourado.",
+  "inStock": true,
+  "featured": false,
+  "id": "b4607e0c-de36-4f2b-9178-aaccdcc003f6",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef297"
+  },
+  "name": "Tiara Acolchoada Bege",
+  "slug": "tiara-acolchoada-bege",
+  "store": null,
+  "category": "acessorios-cabelo",
+  "price": 28.5,
+  "images": [
+    "https://images.unsplash.com/photo-1606772016409-d4a55e32be6e?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1578220154766-1c39bcecc1dc?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Tiara confortável e elegante em tom bege.",
+  "inStock": true,
+  "featured": true,
+  "id": "a37fc96a-a169-42f6-aff3-f08309a0b930",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef298"
+  },
+  "name": "Sabonete Lavanda Natural",
+  "slug": "sabonete-lavanda-natural",
+  "store": null,
+  "category": "sabonetes",
+  "price": 22,
+  "images": [
+    "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1605264964528-06403738d6dc?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Sabonete artesanal de lavanda, relaxante e aromático.",
+  "inStock": true,
+  "featured": true,
+  "id": "2c371924-df01-499b-80c4-f4eecb84313d",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef299"
+  },
+  "name": "Kit Sabonetes Naturais",
+  "slug": "kit-sabonetes-naturais",
+  "store": null,
+  "category": "sabonetes",
+  "price": 58,
+  "images": [
+    "https://images.unsplash.com/photo-1605264964528-06403738d6dc?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1618840313409-66c0d92d6f26?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Kit com 4 sabonetes artesanais de aromas variados.",
+  "inStock": true,
+  "featured": false,
+  "id": "b6101691-d435-487a-94ec-25bc207ff12c",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef29a"
+  },
+  "name": "Sabonete Rosa Mosqueta",
+  "slug": "sabonete-rosa-mosqueta",
+  "store": null,
+  "category": "sabonetes",
+  "price": 24.9,
+  "images": [
+    "https://images.unsplash.com/photo-1618840313409-66c0d92d6f26?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.pexels.com/photos/773252/pexels-photo-773252.jpeg?q=85"
+  ],
+  "description": "Sabonete nutritivo com óleo de rosa mosqueta.",
+  "inStock": true,
+  "featured": false,
+  "id": "86fdb7f9-b42c-4408-bee6-dfe15ee2576c",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef29b"
+  },
+  "name": "Sabonete Presente Especial",
+  "slug": "sabonete-presente-especial",
+  "store": null,
+  "category": "sabonetes",
+  "price": 32,
+  "images": [
+    "https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Sabonete artesanal embalado para presente.",
+  "inStock": true,
+  "featured": true,
+  "id": "42d30a35-b2d0-4d5f-851c-aebfb0c0a7ba",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef29c"
+  },
+  "name": "Sabonete Mel e Aveia",
+  "slug": "sabonete-mel-aveia",
+  "store": null,
+  "category": "sabonetes",
+  "price": 21.5,
+  "images": [
+    "https://images.pexels.com/photos/773252/pexels-photo-773252.jpeg?q=85",
+    "https://images.unsplash.com/photo-1618840313409-66c0d92d6f26?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Sabonete esfoliante com mel e aveia natural.",
+  "inStock": true,
+  "featured": false,
+  "id": "ae4150a9-7300-4908-b221-4b34ee0b786c",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef29d"
+  },
+  "name": "Porta-chaves Couro Marrom",
+  "slug": "porta-chaves-couro-marrom",
+  "store": null,
+  "category": "porta-chaves",
+  "price": 25.9,
+  "images": [
+    "https://images.unsplash.com/photo-1675582090584-4ae9400f7326?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1675582122314-cabef1d757ec?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Porta-chaves artesanal em couro legítimo.",
+  "inStock": true,
+  "featured": false,
+  "id": "4c4b9788-58ec-4fba-a54e-af7c656f90a2",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef29e"
+  },
+  "name": "Porta-chaves Vintage",
+  "slug": "porta-chaves-vintage",
+  "store": null,
+  "category": "porta-chaves",
+  "price": 29.9,
+  "images": [
+    "https://images.unsplash.com/photo-1675582122314-cabef1d757ec?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.pexels.com/photos/16030463/pexels-photo-16030463.jpeg?q=85"
+  ],
+  "description": "Porta-chaves com design vintage e acabamento rústico.",
+  "inStock": true,
+  "featured": true,
+  "id": "0d1a03ae-c25e-4b53-82c7-9398612c332d",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef29f"
+  },
+  "name": "Porta-chaves Personalizado",
+  "slug": "porta-chaves-personalizado",
+  "store": null,
+  "category": "porta-chaves",
+  "price": 35,
+  "images": [
+    "https://images.pexels.com/photos/16030463/pexels-photo-16030463.jpeg?q=85",
+    "https://images.unsplash.com/photo-1675582090584-4ae9400f7326?crop=entropy&cs=srgb&fm=jpg&q=85"
+  ],
+  "description": "Porta-chaves que pode ser personalizado com iniciais.",
+  "inStock": true,
+  "featured": false,
+  "id": "fe2f0164-8c69-4626-b826-0502192c19b8",
+  "createdAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T21:53:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692717cadcde09cc317d1456"
+  },
+  "name": "Brincos com flores de crochê e búzios",
+  "slug": "brincos-com-flores-de-croche-e-buzios",
+  "store": null,
+  "category": "brincos",
+  "price": 2500,
+  "images": [
+    "/uploads/20251126_160740_WhatsApp Image 2025-11-26 at 16.06.37 (2).jpeg",
+    "/uploads/20251126_160740_WhatsApp Image 2025-11-26 at 16.06.37 (1).jpeg",
+    "/uploads/20251126_160740_WhatsApp Image 2025-11-26 at 16.06.37.jpeg"
+  ],
+  "description": "Feito a mão com materiais completamente natural",
+  "inStock": true,
+  "featured": true,
+  "isNew": true,
+  "id": "27cf93c7-80f3-41e5-8678-a5c390287dc1",
+  "createdAt": {
+    "$date": "2025-11-26T15:07:54.166Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-26T15:07:54.166Z"
+  }
+}]

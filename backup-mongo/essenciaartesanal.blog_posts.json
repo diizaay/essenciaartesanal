@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "692740e1f95ee9b91bd52c82"
+  },
+  "title": "teste",
+  "slug": "teste",
+  "excerpt": "teste",
+  "content": "teste",
+  "image": "/uploads/20251126_190306_android-chrome-192x192.png",
+  "author": "Admin",
+  "category": "Dicas",
+  "published": true,
+  "id": "9f84bf26-6202-43ab-86dc-bfa9822b682d",
+  "date": {
+    "$date": "2025-11-26T18:03:13.024Z"
+  },
+  "createdAt": {
+    "$date": "2025-11-26T18:03:13.024Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-26T18:03:13.024Z"
+  }
+}]

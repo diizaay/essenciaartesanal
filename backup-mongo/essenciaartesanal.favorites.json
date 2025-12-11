@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "692408da537dce30081e3e7d"
+  },
+  "id": "0d06abbd-f1ec-435d-bef7-614810ae9219",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "productId": "4d9b8b7f-630c-4433-9d06-ffb8ce61bfc4",
+  "createdAt": {
+    "$date": "2025-11-24T07:27:22.177Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692414b3537dce30081e3e7f"
+  },
+  "id": "39733b62-177f-4bc5-863e-9f30a61e5db1",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "productId": "220e406a-0510-470c-8130-822a687d2e66",
+  "createdAt": {
+    "$date": "2025-11-24T08:17:55.064Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "692414bc537dce30081e3e80"
+  },
+  "id": "65cf5dd4-d9c6-4b1a-9bb6-3dc7cff3d2e8",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "productId": "2627cd1a-15b8-4388-b2b4-16987cdd6682",
+  "createdAt": {
+    "$date": "2025-11-24T08:18:04.737Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69257cb8f590bb4fc311d5aa"
+  },
+  "id": "b716a43c-b2fa-481e-bb93-da608d365216",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "productId": "c53e2c36-725b-44a1-ba65-303be4b4b3a3",
+  "createdAt": {
+    "$date": "2025-11-25T09:54:00.236Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69257e59f590bb4fc311d5ab"
+  },
+  "id": "893f9735-00a3-40a6-8acd-88525a5f2575",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "productId": "26ef46e1-4dde-49c7-b69d-fec4b662cf41",
+  "createdAt": {
+    "$date": "2025-11-25T10:00:57.855Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69258991f590bb4fc311d5ac"
+  },
+  "id": "c2f21a6f-6dd4-4ccf-85db-058986f8aabe",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "productId": "18465171-fa01-4af4-9998-02cebc75f0ef",
+  "createdAt": {
+    "$date": "2025-11-25T10:48:49.773Z"
+  }
+}]

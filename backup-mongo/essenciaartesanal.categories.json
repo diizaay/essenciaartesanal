@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef274"
+  },
+  "name": "Brincos",
+  "slug": "brincos",
+  "image": "/uploads/20251126_163503_DSC_0027.webp",
+  "store": null,
+  "id": "9c533ce2-3237-4bc9-a40e-9eede83d4ede"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef275"
+  },
+  "name": "Colares",
+  "slug": "colares",
+  "image": "https://images.unsplash.com/photo-1613989999658-0075d1359836?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "2754f567-4272-47fd-9e4d-31cff6129667"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef276"
+  },
+  "name": "Pulseiras",
+  "slug": "pulseiras",
+  "image": "https://images.unsplash.com/photo-1661009603404-200d20353dac?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "9a9f0f01-6656-4d47-935f-e3179372b77e"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef277"
+  },
+  "name": "Anéis",
+  "slug": "aneis",
+  "image": "https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "05795ade-dfd5-495b-bfdd-2e923528781c"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef278"
+  },
+  "name": "Acessórios de Cabelo",
+  "slug": "acessorios-cabelo",
+  "image": "https://images.unsplash.com/photo-1601938219471-fb3393955f15?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "127cb2e6-727a-4a80-83ee-23966d8b184f"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef279"
+  },
+  "name": "Sabonetes Artesanais",
+  "slug": "sabonetes",
+  "image": "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "ea2fc9c2-e8f8-44b4-9934-a2c01e3bfa29"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef27a"
+  },
+  "name": "Porta-chaves",
+  "slug": "porta-chaves",
+  "image": "https://images.unsplash.com/photo-1675582090584-4ae9400f7326?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "3100f8f9-6735-4cc7-9534-bc18aa84427f"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef27b"
+  },
+  "name": "Bolsas",
+  "slug": "bolsas",
+  "image": "https://images.unsplash.com/photo-1528797664208-e5a8c0b98881?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "69d7a846-ad7c-4e2c-b210-45649b55d0e8"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef27c"
+  },
+  "name": "Velas Aromáticas",
+  "slug": "velas",
+  "image": "https://images.pexels.com/photos/773252/pexels-photo-773252.jpeg?q=85",
+  "store": null,
+  "id": "572f25ff-96b3-4001-868b-374138d63e7c"
+},
+{
+  "_id": {
+    "$oid": "692382647adb1f167c8ef27d"
+  },
+  "name": "Decoração",
+  "slug": "decoracao",
+  "image": "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=srgb&fm=jpg&q=85",
+  "store": null,
+  "id": "f7083793-1871-46fa-9924-ca69c6993b57"
+}]

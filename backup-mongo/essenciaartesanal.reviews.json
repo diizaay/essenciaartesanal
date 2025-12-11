@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "6931bf82170a20e2184a4ca5"
+  },
+  "productId": "220e406a-0510-470c-8130-822a687d2e66",
+  "rating": 5,
+  "comment": "Produto maravilhoso",
+  "userName": "Divaldo da Silva",
+  "id": "58b8b270-e8c0-4726-8d6b-50ec0b30484c",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "createdAt": {
+    "$date": "2025-12-04T17:06:10.833Z"
+  }
+}]

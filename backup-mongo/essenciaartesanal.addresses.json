@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "69238884537dce30081e3e7a"
+  },
+  "contactName": "Divaldo da Silva",
+  "phone": "955176214",
+  "province": "luanda",
+  "city": "Luanda",
+  "neighborhood": "viian",
+  "street": "Viana",
+  "isDefault": false,
+  "id": "a8936280-231f-406b-a69d-9d29e5288313",
+  "userId": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "createdAt": {
+    "$date": "2025-11-23T22:19:48.442Z"
+  }
+}]

@@ -25,6 +25,8 @@ if (api) {
   });
 }
 
+// Force production mode - NEVER use mock in production
+const isProduction = process.env.NODE_ENV === 'production' || window.location.hostname !== 'localhost';
 const shouldUseMock = () => false; // Always use real API
 
 

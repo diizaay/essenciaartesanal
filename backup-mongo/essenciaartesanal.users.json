@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "69238846537dce30081e3e79"
+  },
+  "email": "divaldo511@gmail.com",
+  "name": "Divaldo da Silva",
+  "phone": "955176214",
+  "id": "3ea4b095-6d40-4934-ad62-d3266a083328",
+  "passwordHash": "$2b$12$4uT/3VvGVt6iPMoppvS8Uusvt10gyZuHj5hWTPDuwCovd1x7kmwIa",
+  "createdAt": {
+    "$date": "2025-11-23T22:18:46.227Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T22:18:46.227Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6925d8a442e4eaca3652e8a2"
+  },
+  "email": "admin@essencia.com",
+  "name": "Admin Essência",
+  "phone": "+244 912 345 678",
+  "isAdmin": true,
+  "id": "0185c849-f1c3-43ec-9b34-ce714906d3de",
+  "passwordHash": "$2b$12$ahPw5hF6J5Z4tszV/gURt.KJAw0GcS8XqmJVsVWhaFsCinpLSgMBq",
+  "createdAt": {
+    "$date": "2025-11-25T16:26:12.787Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-25T16:26:12.787Z"
+  }
+}]
