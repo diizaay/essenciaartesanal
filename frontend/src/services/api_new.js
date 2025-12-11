@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-// VERCEL BUILD VERIFICATION - If you see this, new code is loaded!
-console.log('%c🚀 API.JS LOADED - BUILD TIME: 2025-12-11 19:40 UTC', 'background: #00ff00; color: #000; font-size: 20px; padding: 10px;');
-console.log('🔥 MOCK MODE COMPLETELY DISABLED - ALL API CALLS ARE REAL');
-
 // Backend URL - empty string for same-origin requests (Vercel)
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
 
@@ -27,17 +23,17 @@ api.interceptors.request.use((config) => {
 // ========== AUTHENTICATION ==========
 
 export const register = async (userData) => {
-  const response = await api.post('/auth/register', userData);
+  const response = await api.post('/api/auth/register', userData);
   return response.data;
 };
 
 export const login = async (credentials) => {
-  const response = await api.post('/auth/login', credentials);
+  const response = await api.post('/api/auth/login', credentials);
   return response.data;
 };
 
 export const getMe = async () => {
-  const response = await api.get('/auth/me');
+  const response = await api.get('/api/auth/me');
   return response.data;
 };
 
@@ -60,51 +56,93 @@ export const logout = () => {
 // ========== ADDRESSES ==========
 
 export const getAddresses = async () =>
-  async () => { const response = await api.get('/addresses'); return response.data; };
+  async () => { const response = await api.get('/addresses'), () => {
+    console.warn('getAddresses não disponível em modo mock');
+    return [];
+  });
 
 export const createAddress = async (address) =>
-  async () => { const response = await api.post('/addresses', address); return response.data; };
+  async () => { const response = await api.post('/addresses', address), () => {
+    console.warn('createAddress não disponível em modo mock');
+    return address;
+  });
 
 export const updateAddress = async (addressId, address) =>
-  async () => { const response = await api.put(`/addresses/${addressId}`, address); return response.data; };
+  async () => { const response = await api.put(`/addresses/${addressId}`, address), () => {
+    console.warn('updateAddress não disponível em modo mock');
+    return address;
+  });
 
 export const deleteAddress = async (id) =>
-  async () => { const response = await api.delete(`/addresses/${id}`); return response.data; };
+  async () => { const response = await api.delete(`/addresses/${id}`), () => {
+    console.warn('deleteAddress não disponível em modo mock');
+    return null;
+  });
 
 // ========== FAVORITES ==========
 
 export const getFavorites = async () =>
-  async () => { const response = await api.get('/favorites'); return response.data; };
+  async () => { const response = await api.get('/favorites'), () => {
+    console.warn('getFavorites não disponível em modo mock');
+    return [];
+  });
 
 export const addFavorite = async (productId) =>
-  async () => { const response = await api.post('/favorites', { productId }); return response.data; };
+  async () => { const response = await api.post('/favorites', { productId }), () => {
+    console.warn('addFavorite não disponível em modo mock');
+    return null;
+  });
 
 export const removeFavorite = async (productId) =>
-  async () => { const response = await api.delete(`/favorites/${productId}`); return response.data; };
+  async () => { const response = await api.delete(`/favorites/${productId}`), () => {
+    console.warn('removeFavorite não disponível em modo mock');
+    return null;
+  });
 
 export const checkFavorite = async (productId) =>
-  async () => { const response = await api.get(`/favorites/check/${productId}`); return response.data; };
+  async () => { const response = await api.get(`/favorites/check/${productId}`), () => {
+    console.warn('checkFavorite não disponível em modo mock');
+    return { isFavorite: false };
+  });
 
 // ========== CART ==========
 
 export const getCart = async () =>
-  async () => { const response = await api.get('/cart'); return response.data; };
+  async () => { const response = await api.get('/cart'), () => {
+    console.warn('getCart não disponível em modo mock');
+    return { items: [] };
+  });
 
 export const addToCart = async (productId, quantity = 1) =>
-  async () => { const response = await api.post('/cart/items', { productId, quantity }); return response.data; };
+  async () => { const response = await api.post('/cart/items', { productId, quantity }), () => {
+    console.warn('addToCart não disponível em modo mock');
+    return null;
+  });
 
 export const updateCartItem = async (productId, quantity) =>
-  async () => { const response = await api.put(`/cart/items/${productId}?quantity=${quantity}`); return response.data; };
+  async () => { const response = await api.put(`/cart/items/${productId}?quantity=${quantity}`), () => {
+    console.warn('updateCartItem não disponível em modo mock');
+    return null;
+  });
 
 export const removeFromCart = async (productId) =>
-  async () => { const response = await api.delete(`/cart/items/${productId}`); return response.data; };
+  async () => { const response = await api.delete(`/cart/items/${productId}`), () => {
+    console.warn('removeFromCart não disponível em modo mock');
+    return null;
+  });
 
 export const clearCart = async () =>
-  async () => { const response = await api.delete('/cart'); return response.data; };
+  async () => { const response = await api.delete('/cart'), () => {
+    console.warn('clearCart não disponível em modo mock');
+    return null;
+  });
 
 // Get product by ID
 export const getProductById = async (productId) =>
-  async () => { const response = await api.get(`/products/${productId}`); return response.data; };
+  async () => { const response = await api.get(`/products/${productId}`), () => {
+    console.warn('getProductById não disponível em modo mock');
+    return null;
+  });
 
 // Categories
 export const getCategories = async (store) =>
@@ -114,7 +152,10 @@ export const getCategories = async (store) =>
   );
 
 export const createCategory = async (category) =>
-  async () => { const response = await api.post('/categories', category); return response.data; };
+  async () => { const response = await api.post('/categories', category), () => {
+    console.warn('createCategory not available in mock mode');
+    return category;
+  });
 
 // Products
 export const getProducts = async (filters = {}) =>
@@ -144,7 +185,67 @@ export const getProducts = async (filters = {}) =>
   );
 
 export const getProductBySlug = async (slug) =>
-  async () => { const response = await api.get(`/products/${slug}`); return response.data; };
+  safeRequest(
+    () => api.get(`/products/${slug}`),
+    () => {
+      const product = mockProducts.find((item) => item.slug === slug);
+      if (!product) {
+        throw new Error('Produto n\u00e3o encontrado nos mocks.');
+      }
+      return product;
+    },
+  );
+
+export const createProduct = async (product) =>
+  async () => { const response = await api.post('/products', product), () => {
+    console.warn('createProduct n\u00e3o dispon\u00edvel em modo mock');
+    return product;
+  });
+
+// Orders
+export const createOrder = async (order) =>
+  async () => { const response = await api.post('/orders', order), () => {
+    console.warn('createOrder n\u00e3o dispon\u00edvel em modo mock');
+    return order;
+  });
+
+export const createWhatsappOrder = async (order) =>
+  async () => { const response = await api.post('/orders/whatsapp', order), () => {
+    console.warn('createWhatsappOrder n\u00e3o dispon\u00edvel em modo mock');
+    return order;
+  });
+
+export const getOrders = async () =>
+  async () => { const response = await api.get('/orders'), () => {
+    console.warn('getOrders n\u00e3o dispon\u00edvel em modo mock');
+    return [];
+  });
+
+export const getOrderById = async (orderId) =>
+  async () => { const response = await api.get(`/orders/${orderId}`), () => {
+    console.warn('getOrderById n\u00e3o dispon\u00edvel em modo mock');
+    return null;
+  });
+
+// Seed (development only)
+export const seedDatabase = async () =>
+  async () => { const response = await api.post('/seed'), () => {
+    console.warn('seedDatabase n\u00e3o dispon\u00edvel em modo mock');
+    return null;
+  });
+
+// ========== ADMIN ROUTES ==========
+
+export const getAdminStats = async () =>
+  async () => { const response = await api.get('/admin/stats'), () => {
+    console.warn('getAdminStats não disponível em modo mock');
+    return {
+      products: { total: 0 },
+      orders: { total: 0, pending: 0, completed: 0 },
+      users: { total: 0 },
+      revenue: { total: 0 }
+    };
+  });
 
 export const getAllUsers = async () => {
   return safeRequest(
@@ -231,19 +332,34 @@ export const getProductRating = async (productId) => {
 };
 
 export const updateProduct = async (productId, product) =>
-  async () => { const response = await api.put(`/products/${productId}`, product); return response.data; };
+  async () => { const response = await api.put(`/products/${productId}`, product), () => {
+    console.warn('updateProduct não disponível em modo mock');
+    return product;
+  });
 
 export const deleteProduct = async (productId) =>
-  async () => { const response = await api.delete(`/products/${productId}`); return response.data; };
+  async () => { const response = await api.delete(`/products/${productId}`), () => {
+    console.warn('deleteProduct não disponível em modo mock');
+    return null;
+  });
 
 export const updateCategory = async (categoryId, category) =>
-  async () => { const response = await api.put(`/categories/${categoryId}`, category); return response.data; };
+  async () => { const response = await api.put(`/categories/${categoryId}`, category), () => {
+    console.warn('updateCategory não disponível em modo mock');
+    return category;
+  });
 
 export const deleteCategory = async (categoryId) =>
-  async () => { const response = await api.delete(`/categories/${categoryId}`); return response.data; };
+  async () => { const response = await api.delete(`/categories/${categoryId}`), () => {
+    console.warn('deleteCategory não disponível em modo mock');
+    return null;
+  });
 
 export const updateOrderStatus = async (orderId, status) =>
-  async () => { const response = await api.put(`/orders/${orderId}/status?status=${status}`); return response.data; };
+  async () => { const response = await api.put(`/orders/${orderId}/status?status=${status}`), () => {
+    console.warn('updateOrderStatus não disponível em modo mock');
+    return null;
+  });
 
 export const uploadImage = async (file) => {
   if (shouldUseMock()) {

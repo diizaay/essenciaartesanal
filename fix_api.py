@@ -9,9 +9,7 @@ content = re.sub(
     r'const safeRequest = async \(requestFn, fallback\) => \{[^}]+\};',
     '', 
     content,
-    flags=re.DOT
-
-ALL
+    flags=re.DOTALL
 )
 
 # Pattern 1: Convert simple safeRequest calls
@@ -22,7 +20,7 @@ pattern1 = r"safeRequest\(\(\) => (api\.\w+\([^)]+\)), \(\) => \{[^}]+\}\)"
 replacement1 = r"async () => { const response = await \1; return response.data; }"
 content = re.sub(pattern1, replacement1, content)
 
-# Pattern 2: For multiline safe Request
+# Pattern 2: For multiline safeRequest
 pattern2 = r"safeRequest\(\s*\(\) => (api\.\w+\([^)]+\)),\s*\(\) => \{[\s\S]*?\}\s*\)"
 replacement2 = r"async () => { const response = await \1; return response.data; }"
 content = re.sub(pattern2, replacement2, content)
