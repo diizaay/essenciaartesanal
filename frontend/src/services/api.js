@@ -199,17 +199,15 @@ export const createWhatsappOrder = async (order) =>
     return order;
   });
 
-export const getOrders = async () =>
-  safeRequest(() => api.get('/orders'), () => {
-    console.warn('getOrders n\u00e3o dispon\u00edvel em modo mock');
-    return [];
-  });
+export const getOrders = async () => {
+  const response = await api.get('/orders');
+  return response.data;
+};
 
-export const getOrderById = async (orderId) =>
-  safeRequest(() => api.get(`/orders/${orderId}`), () => {
-    console.warn('getOrderById n\u00e3o dispon\u00edvel em modo mock');
-    return null;
-  });
+export const getOrderById = async (orderId) => {
+  const response = await api.get(`/orders/${orderId}`);
+  return response.data;
+};
 
 // Seed (development only)
 export const seedDatabase = async () =>
@@ -220,30 +218,20 @@ export const seedDatabase = async () =>
 
 // ========== ADMIN ROUTES ==========
 
-export const getAdminStats = async () =>
-  safeRequest(() => api.get('/admin/stats'), () => {
-    console.warn('getAdminStats não disponível em modo mock');
-    return {
-      products: { total: 0 },
-      orders: { total: 0, pending: 0, completed: 0 },
-      users: { total: 0 },
-      revenue: { total: 0 }
-    };
-  });
+export const getAdminStats = async () => {
+  const response = await api.get('/admin/stats');
+  return response.data;
+};
 
 export const getAllUsers = async () => {
-  return safeRequest(
-    () => api.get('/admin/users'),
-    () => []
-  );
+  const response = await api.get('/admin/users');
+  return response.data;
 };
 
 export const getAllOrdersAdmin = async (status = null) => {
   const params = status ? { status } : {};
-  return safeRequest(
-    () => api.get('/admin/orders', { params }),
-    () => []
-  );
+  const response = await api.get('/admin/orders', { params });
+  return response.data;
 };
 
 // ========== BLOG ==========
@@ -344,26 +332,13 @@ export const updateOrderStatus = async (orderId, status) =>
   });
 
 export const uploadImage = async (file) => {
-  if (shouldUseMock()) {
-    console.warn('uploadImage não disponível em modo mock');
-    return null;
-  }
+  const formData = new FormData();
+  formData.append('file', file);
 
-  try {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const response = await api.post('/admin/upload-image', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-
-    return response.data;
-  } catch (error) {
-    console.error('Upload error:', error);
-    throw error;
-  }
+  const response = await api.post('/admin/upload-image', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+  return response.data;
 };
 
 export default api;
