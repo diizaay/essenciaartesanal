@@ -7,7 +7,7 @@ from mangum import Mangum
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from dotenv import load_dotenv
-from routes import router
+from api.routes import router
 
 load_dotenv()
 
