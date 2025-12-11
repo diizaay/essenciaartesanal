@@ -249,8 +249,6 @@ export const getAllOrdersAdmin = async (status = null) => {
 // ========== BLOG ==========
 
 export const getBlogPosts = async (publishedOnly = true) => {
-  const params = publishedOnly ? { published: true } : {};
-  return safeRequest(
   const params = publishedOnly ? '?published=true' : '';
   const response = await api.get(`/blog${params}`);
   return response.data;
