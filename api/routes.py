@@ -3,7 +3,7 @@ from typing import List, Optional
 import shutil
 import os
 from pathlib import Path
-from models import (
+from .models import (
     Product, ProductCreate, Category, CategoryCreate, Order, OrderCreate,
     User, UserCreate, UserLogin, UserResponse, Token,
     Address, AddressCreate,
@@ -15,7 +15,7 @@ from models import (
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from dotenv import load_dotenv
-from auth import get_password_hash, verify_password, create_access_token, decode_access_token
+from .auth import get_password_hash, verify_password, create_access_token, decode_access_token
 
 load_dotenv()
 
@@ -545,7 +545,7 @@ async def seed_database():
         return {"message": "Database already seeded", "products": existing_products}
     
     # Import mock data
-    from seed_data import categories_data, products_data, admin_user_data
+    from .seed_data import categories_data, products_data, admin_user_data
     
     # Insert categories
     categories_to_insert = [Category(**cat).dict() for cat in categories_data]
@@ -573,7 +573,7 @@ async def seed_database():
 @router.post("/seed-admin")
 async def seed_admin():
     """Create admin user (can be called independently)"""
-    from seed_data import admin_user_data
+    from .seed_data import admin_user_data
     
     # Check if admin already exists
     existing_admin = await db.users.find_one({"email": admin_user_data["email"]})
@@ -662,7 +662,7 @@ async def get_all_orders_admin(status: Optional[str] = None, admin: User = Depen
 @router.post("/admin/upload-image")
 async def upload_image(file: UploadFile = File(...), admin: User = Depends(require_admin)):
     """Upload an image file to Cloudinary (admin only)"""
-    from cloudinary_helper import upload_image as cloudinary_upload
+    from .cloudinary_helper import upload_image as cloudinary_upload
     
     # Validate file type
     allowed_extensions = {".jpg", ".jpeg", ".png", ".webp"}
