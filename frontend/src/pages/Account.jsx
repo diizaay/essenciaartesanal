@@ -59,12 +59,12 @@ const Account = () => {
             }
         };
 
-        if (isLoggedIn) {
+        if (isAuthenticated) {
             loadAll();
         } else {
             setInitialLoading(false);
         }
-    }, [isLoggedIn]);
+    }, [isAuthenticated]);
 
     // Recarrega favoritos quando aba "Lista de desejos" é aberta
     useEffect(() => {
