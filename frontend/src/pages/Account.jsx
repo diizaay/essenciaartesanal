@@ -10,11 +10,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import * as api from '../services/api';
+import { useAuth } from '../hooks/useAuth';
 import { User, MapPin, Lock } from 'lucide-react';
 
 const Account = () => {
     const navigate = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('auth_token'));
+    const { logout: contextLogout, isAuthenticated } = useAuth();
+    const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
     const [initialLoading, setInitialLoading] = useState(true);
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', password: '' });
     const [addresses, setAddresses] = useState([]);
@@ -51,7 +53,8 @@ const Account = () => {
                 await loadFavoriteProducts();
             } catch (err) {
                 console.error('Erro ao carregar dados da conta:', err);
-                api.logout();
+                contextLogout();
+                navigate('/conta');
             } finally {
                 setInitialLoading(false);
             }
@@ -141,9 +144,10 @@ const Account = () => {
     };
 
     const handleLogout = () => {
-        api.logout();
+        console.log('🚪 Account: Logging out via AuthContext');
+        contextLogout();
         toast.success('Logout realizado!');
-        window.location.href = '/'; // limpa todos os contexts
+        navigate('/');
     };
 
     const handleAddAddress = async (e) => {
