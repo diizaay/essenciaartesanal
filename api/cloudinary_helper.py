@@ -27,9 +27,10 @@ def upload_image(file_content: bytes, filename: str, folder: str = "essencia-art
         Dict with 'url' and 'public_id'
     """
     try:
+        import io
         # Upload to Cloudinary
         result = cloudinary.uploader.upload(
-            file_content,
+            io.BytesIO(file_content),
             folder=folder,
             resource_type="image",
             format="auto",  # Auto-detect format

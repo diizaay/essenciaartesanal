@@ -18,8 +18,8 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       const [loadedCategories, loadedProducts] = await Promise.all([
-        getCategories(STORE_SLUG),
-        getProducts({ store: STORE_SLUG }),
+        getCategories(),
+        getProducts({ featured: true }),
       ]);
       setCategories(Array.isArray(loadedCategories) ? loadedCategories : []);
       setProducts(Array.isArray(loadedProducts) ? loadedProducts : []);
