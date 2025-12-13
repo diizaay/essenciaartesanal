@@ -69,10 +69,10 @@ const Account = () => {
 
     // Recarrega favoritos quando aba "Lista de desejos" é aberta
     useEffect(() => {
-        if (isLoggedIn && activeTab === 'desejos') {
+        if (isAuthenticated && activeTab === 'desejos') {
             loadFavoriteProducts();
         }
-    }, [activeTab, isLoggedIn]);
+    }, [activeTab, isAuthenticated]);
 
     const loadFavoriteProducts = async () => {
         try {
@@ -222,7 +222,7 @@ const Account = () => {
     // ---------------------------------------------------------------------
     // Renderização condicional
     // ---------------------------------------------------------------------
-    if (initialLoading) {
+    if (initialLoading || authLoading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
@@ -233,7 +233,7 @@ const Account = () => {
         );
     }
 
-    if (!isLoggedIn) {
+    if (!isAuthenticated) {
         return (
             <div className="min-h-screen bg-[var(--color-bg-soft)] py-12">
                 <div className="max-w-md mx-auto px-4">
