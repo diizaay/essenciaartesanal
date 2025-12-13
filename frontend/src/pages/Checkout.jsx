@@ -107,8 +107,8 @@ const Checkout = () => {
     };
 
     const generateWhatsAppMessage = () => {
-        let message = '*Olá! Gostaria de finalizar meu pedido:*%0A%0A';
-        message += '📦 *Itens:*%0A';
+        let message = '*Ola! Gostaria de finalizar meu pedido:*%0A%0A';
+        message += '*ITENS:*%0A';
 
         items.forEach((item, index) => {
             const price = item.price || 0;
@@ -116,18 +116,18 @@ const Checkout = () => {
             message += `${index + 1}. ${item.name} (${qty}x) - ${(price * qty).toFixed(2)} KZ%0A`;
         });
 
-        message += `%0A💰 *Total: ${cartTotal.toFixed(2)} KZ*%0A%0A`;
-        message += '👤 *Dados do Cliente:*%0A';
+        message += `%0A*TOTAL: ${cartTotal.toFixed(2)} KZ*%0A%0A`;
+        message += '*DADOS DO CLIENTE:*%0A';
         message += `Nome: ${formData.name}%0A`;
         message += `Email: ${formData.email}%0A`;
         message += `Telefone: ${formData.phone}%0A%0A`;
-        message += '📍 *Endereço de Entrega:*%0A';
+        message += '*ENDERECO DE ENTREGA:*%0A';
         message += `${formData.street}%0A`;
         message += `${formData.neighborhood}, ${formData.city}%0A`;
         message += `${formData.province}%0A`;
 
         if (formData.notes) {
-            message += `%0A📝 *Observações:* ${formData.notes}%0A`;
+            message += `%0A*OBSERVACOES:* ${formData.notes}%0A`;
         }
 
         return message;

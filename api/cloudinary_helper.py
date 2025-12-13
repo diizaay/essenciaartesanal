@@ -47,9 +47,7 @@ def upload_image(file_content: bytes, filename: str, folder: str = "essencia-art
             io.BytesIO(file_content),
             folder=folder,
             resource_type="image",
-            format="auto",  # Auto-detect format
-            quality="auto",  # Auto-optimize quality
-            fetch_format="auto"  # Best format for browser
+            quality="auto"  # Auto-optimize quality
         )
         
         return {
