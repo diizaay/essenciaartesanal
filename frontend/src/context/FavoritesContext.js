@@ -23,24 +23,24 @@ export const FavoritesProvider = ({ children }) => {
 
     // Listen for auth changes (login/logout)
     useEffect(() => {
-        const handleStorageChange = (e) => {
-            const token = api.getAuthToken();
-
-            if (e.key === 'auth_token' && !token) {
-                // User logged out - clear favorites
-                setFavorites([]);
-                localStorage.removeItem('favorites');
-            } else if (e.key === 'auth_token' && token) {
-                // User logged in - reload from backend
-                loadFavorites();
-            } else if (!e.key) {
-                // Custom storage event (from logout) - reload favorites
-                loadFavorites();
-            }
+        const handleLogout = () => {
+            console.log('🔴 Favorites: Clearing on logout');
+            setFavorites([]);
+            localStorage.removeItem('favorites');
         };
 
-        window.addEventListener('storage', handleStorageChange);
-        return () => window.removeEventListener('storage', handleStorageChange);
+        const handleLogin = () => {
+            console.log('🟢 Favorites: Reloading on login');
+            loadFavorites();
+        };
+
+        window.addEventListener('auth:logout', handleLogout);
+        window.addEventListener('auth:login', handleLogin);
+
+        return () => {
+            window.removeEventListener('auth:logout', handleLogout);
+            window.removeEventListener('auth:login', handleLogin);
+        };
     }, []);
 
     const loadFavorites = async () => {

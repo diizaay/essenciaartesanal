@@ -41,8 +41,8 @@ export const AuthProvider = ({ children }) => {
                 setUser(response.user);
                 setIsAuthenticated(true);
 
-                // Force reload cart and favorites from new user
-                window.dispatchEvent(new Event('storage'));
+                // Dispatch custom event to reload cart and favorites
+                window.dispatchEvent(new CustomEvent('auth:login'));
 
                 return { success: true, user: response.user };
             }
@@ -78,8 +78,8 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('essencia-cart');
         localStorage.removeItem('favorites');
 
-        // Notify contexts to clear their state
-        window.dispatchEvent(new Event('storage'));
+        // Dispatch custom event that works in same tab
+        window.dispatchEvent(new CustomEvent('auth:logout'));
     };
 
     const isAdmin = () => {
