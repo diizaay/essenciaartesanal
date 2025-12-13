@@ -108,11 +108,16 @@ const Account = () => {
                 toast.success('Login realizado com sucesso!');
                 window.location.href = '/conta'; // força recarregamento completo
             } else {
-                toast.error('Credenciais inválidas');
+                toast.error('Email ou senha incorretos');
             }
         } catch (err) {
             console.error('Login error:', err);
-            toast.error('Erro ao fazer login');
+            const errorMsg = err.response?.data?.detail || err.message;
+            if (errorMsg.toLowerCase().includes('not found') || errorMsg.toLowerCase().includes('invalid')) {
+                toast.error('Conta não encontrada. Verifique seu email ou crie uma conta.');
+            } else {
+                toast.error('Erro ao fazer login. Tente novamente.');
+            }
         } finally {
             setLoading(false);
         }
@@ -133,11 +138,18 @@ const Account = () => {
                 toast.success('Conta criada com sucesso!');
                 window.location.href = '/conta';
             } else {
-                toast.error('Erro ao criar conta');
+                toast.error('Erro ao criar conta. Tente novamente.');
             }
         } catch (err) {
             console.error('Register error:', err);
-            toast.error('Erro ao criar conta');
+            const errorMsg = err.response?.data?.detail || err.message;
+            if (errorMsg.toLowerCase().includes('already') || errorMsg.toLowerCase().includes('existe')) {
+                toast.error('Este email já está registrado. Faça login ou use outro email.');
+            } else if (errorMsg.toLowerCase().includes('phone')) {
+                toast.error('Este telefone já está registrado.');
+            } else {
+                toast.error('Erro ao criar conta. Verifique seus dados.');
+            }
         } finally {
             setLoading(false);
         }

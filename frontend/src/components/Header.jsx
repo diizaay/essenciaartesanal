@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Heart, Menu, Search, ShoppingBag, User, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Heart, Menu, Search, ShoppingBag, User, X, LogOut } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
+import { useAuth } from '../hooks/useAuth';
 import { getCategories } from '../services/api';
 import SearchModal from './SearchModal';
 
@@ -18,7 +19,9 @@ const navItems = [
 const Header = () => {
   const { totalQty } = useCart();
   const { totalFavorites } = useFavorites();
+  const { isAuthenticated, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -36,6 +39,11 @@ const Header = () => {
 
   const isActive = (to) =>
     location.pathname === new URL(to, 'https://dummy').pathname;
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[var(--color-border)]">
@@ -109,6 +117,16 @@ const Header = () => {
             >
               <User className="h-5 w-5" />
             </Link>
+            {isAuthenticated && (
+              <button
+                type="button"
+                onClick={handleLogout}
+                aria-label="Sair"
+                className="h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)] hover:text-red-600 hover:shadow-sm hover:-translate-y-0.5 transition"
+              >
+                <LogOut className="h-5 w-5" />
+              </button>
+            )}
           </div>
 
           {/* Mobile icons and menu button */}
