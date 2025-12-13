@@ -191,7 +191,12 @@ const Checkout = () => {
             setTimeout(() => navigate('/'), 2000);
         } catch (error) {
             console.error('Error creating order:', error);
-            toast.error('Erro ao criar pedido. Tente novamente.');
+            console.error('Error details:', {
+                message: error.message,
+                response: error.response?.data,
+                status: error.response?.status
+            });
+            toast.error(`Erro ao criar pedido: ${error.response?.data?.detail || error.message}`);
         }
     };
 
