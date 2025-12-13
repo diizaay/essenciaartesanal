@@ -35,7 +35,17 @@ export const CartProvider = ({ children }) => {
   // Reload cart when authentication changes
   useEffect(() => {
     const handleStorageChange = (e) => {
-      if (e.key === 'auth_token') {
+      const token = api.getAuthToken();
+      
+      if (e.key === 'auth_token' && !token) {
+        // User logged out - clear cart
+        setItems([]);
+        localStorage.removeItem(STORAGE_KEY);
+      } else if (e.key === 'auth_token' && token) {
+        // User logged in - reload from backend
+        loadCart();
+      } else if (!e.key) {
+        // Custom storage event (from logout) - reload cart
         loadCart();
       }
     };

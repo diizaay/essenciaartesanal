@@ -40,6 +40,10 @@ export const AuthProvider = ({ children }) => {
                 setAuthToken(response.access_token);
                 setUser(response.user);
                 setIsAuthenticated(true);
+
+                // Force reload cart and favorites from new user
+                window.dispatchEvent(new Event('storage'));
+
                 return { success: true, user: response.user };
             }
             return { success: false, error: 'Invalid response from server' };
@@ -69,6 +73,13 @@ export const AuthProvider = ({ children }) => {
         apiLogout();
         setUser(null);
         setIsAuthenticated(false);
+
+        // Clear cart and favorites from localStorage
+        localStorage.removeItem('essencia-cart');
+        localStorage.removeItem('favorites');
+
+        // Notify contexts to clear their state
+        window.dispatchEvent(new Event('storage'));
     };
 
     const isAdmin = () => {

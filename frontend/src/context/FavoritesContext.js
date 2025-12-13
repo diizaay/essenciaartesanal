@@ -21,6 +21,28 @@ export const FavoritesProvider = ({ children }) => {
         loadFavorites();
     }, []);
 
+    // Listen for auth changes (login/logout)
+    useEffect(() => {
+        const handleStorageChange = (e) => {
+            const token = api.getAuthToken();
+
+            if (e.key === 'auth_token' && !token) {
+                // User logged out - clear favorites
+                setFavorites([]);
+                localStorage.removeItem('favorites');
+            } else if (e.key === 'auth_token' && token) {
+                // User logged in - reload from backend
+                loadFavorites();
+            } else if (!e.key) {
+                // Custom storage event (from logout) - reload favorites
+                loadFavorites();
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
+
     const loadFavorites = async () => {
         const token = api.getAuthToken();
 
