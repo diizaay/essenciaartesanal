@@ -179,17 +179,15 @@ export const createProduct = async (product) => {
 };
 
 // Orders
-export const createOrder = async (order) =>
-  safeRequest(() => api.post('/orders', order), () => {
-    console.warn('createOrder n\u00e3o dispon\u00edvel em modo mock');
-    return order;
-  });
+export const createOrder = async (order) => {
+  const response = await api.post('/orders', order);
+  return response.data;
+};
 
-export const createWhatsappOrder = async (order) =>
-  safeRequest(() => api.post('/orders/whatsapp', order), () => {
-    console.warn('createWhatsappOrder n\u00e3o dispon\u00edvel em modo mock');
-    return order;
-  });
+export const createWhatsappOrder = async (order) => {
+  const response = await api.post('/orders/whatsapp', order);
+  return response.data;
+};
 
 export const getOrders = async () => {
   const response = await api.get('/orders');
@@ -234,10 +232,8 @@ export const getBlogPosts = async (publishedOnly = true) => {
 };
 
 export const getBlogPostById = async (postId) => {
-  return safeRequest(
-    () => api.get(`/blog/${postId}`),
-    () => null
-  );
+  const response = await api.get(`/blog/${postId}`);
+  return response.data;
 };
 
 export const createBlogPost = async (postData) => {
@@ -308,11 +304,10 @@ export const deleteCategory = async (categoryId) => {
   return response.data;
 };
 
-export const updateOrderStatus = async (orderId, status) =>
-  safeRequest(() => api.put(`/orders/${orderId}/status?status=${status}`), () => {
-    console.warn('updateOrderStatus não disponível em modo mock');
-    return null;
-  });
+export const updateOrderStatus = async (orderId, status) => {
+  const response = await api.put(`/orders/${orderId}/status?status=${status}`);
+  return response.data;
+};
 
 export const uploadImage = async (file) => {
   const formData = new FormData();
