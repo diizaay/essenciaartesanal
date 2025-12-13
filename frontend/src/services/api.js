@@ -96,6 +96,7 @@ export const removeFavorite = async (productId) => {
   return response.data;
 };
 
+// Fix possible syntax error here
 export const checkFavorite = async (productId) => {
   const response = await api.get(`/favorites/check/${productId}`);
   return response.data;
