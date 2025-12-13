@@ -38,6 +38,32 @@ app.add_middleware(
 # Include API router (all /api/* routes)
 app.include_router(router)
 
+@app.on_event("startup")
+async def startup_db_client():
+    from routes import db
+    # Create indexes for performance
+    try:
+        # Products
+        await db.products.create_index("id", unique=True)
+        await db.products.create_index("slug", unique=True)
+        await db.products.create_index("category")
+        await db.products.create_index("store")
+        
+        # Users
+        await db.users.create_index("id", unique=True)
+        await db.users.create_index("email", unique=True)
+        
+        # Orders
+        await db.orders.create_index("id", unique=True)
+        await db.orders.create_index("userId")
+        
+        # Others
+        await db.categories.create_index("id", unique=True)
+        await db.reviews.create_index("productId")
+        print("✅ Indexes created/verified!")
+    except Exception as e:
+        print(f"⚠️ Failed to create indexes: {e}")
+
 # Health check endpoint (helps prevent cold starts)
 @app.get("/")
 @app.get("/api")
