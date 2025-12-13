@@ -168,23 +168,15 @@ export const getProducts = async (filters = {}) => {
   return response.data;
 };
 
-export const getProductBySlug = async (slug) =>
-  safeRequest(
-    () => api.get(`/products/${slug}`),
-    () => {
-      const product = mockProducts.find((item) => item.slug === slug);
-      if (!product) {
-        throw new Error('Produto n\u00e3o encontrado nos mocks.');
-      }
-      return product;
-    },
-  );
+export const getProductBySlug = async (slug) => {
+  const response = await api.get(`/products/${slug}`);
+  return response.data;
+};
 
-export const createProduct = async (product) =>
-  safeRequest(() => api.post('/products', product), () => {
-    console.warn('createProduct n\u00e3o dispon\u00edvel em modo mock');
-    return product;
-  });
+export const createProduct = async (product) => {
+  const response = await api.post('/products', product);
+  return response.data;
+};
 
 // Orders
 export const createOrder = async (order) =>
@@ -301,17 +293,15 @@ export const getProductRating = async (productId) => {
   );
 };
 
-export const updateProduct = async (productId, product) =>
-  safeRequest(() => api.put(`/products/${productId}`, product), () => {
-    console.warn('updateProduct não disponível em modo mock');
-    return product;
-  });
+export const updateProduct = async (productId, product) => {
+  const response = await api.put(`/products/${productId}`, product);
+  return response.data;
+};
 
-export const deleteProduct = async (productId) =>
-  safeRequest(() => api.delete(`/products/${productId}`), () => {
-    console.warn('deleteProduct não disponível em modo mock');
-    return null;
-  });
+export const deleteProduct = async (productId) => {
+  const response = await api.delete(`/products/${productId}`);
+  return response.data;
+};
 
 export const updateCategory = async (categoryId, category) =>
   safeRequest(() => api.put(`/categories/${categoryId}`, category), () => {
