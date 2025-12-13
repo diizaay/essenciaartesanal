@@ -6,6 +6,16 @@ import cloudinary.uploader
 import os
 from typing import Optional, Dict, Any
 
+# Validate required env vars
+required_vars = ['CLOUDINARY_CLOUD_NAME', 'CLOUDINARY_API_KEY', 'CLOUDINARY_API_SECRET']
+missing_vars = [var for var in required_vars if not os.getenv(var)]
+
+if missing_vars:
+    print(f"⚠️  WARNING: Missing Cloudinary env vars: {', '.join(missing_vars)}")
+    print(f"📋 Available env vars: {list(os.environ.keys())}")
+else:
+    print(f"✅ All Cloudinary env vars present")
+
 # Configure Cloudinary (uses environment variables)
 cloudinary.config(
     cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
@@ -26,6 +36,10 @@ def upload_image(file_content: bytes, filename: str, folder: str = "essencia-art
     Returns:
         Dict with 'url' and 'public_id'
     """
+    # Check if Cloudinary is configured
+    if not all([os.getenv(var) for var in required_vars]):
+        raise Exception(f"Cloudinary not configured. Missing: {missing_vars}")
+    
     try:
         import io
         # Upload to Cloudinary
