@@ -54,7 +54,7 @@ const CategoryGrid = ({ categories }) => {
           {visibleCategories.map((category, index) => (
             <Link
               key={category.id}
-              to={`/produtos?categoria=${category.id}`}
+              to={`/produtos?categoria=${category.slug}`}
               className="block fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
