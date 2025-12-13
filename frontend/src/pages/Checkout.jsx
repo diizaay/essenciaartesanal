@@ -155,24 +155,14 @@ const Checkout = () => {
         try {
             // Create order in database
             const orderData = {
+                customerName: formData.name,
+                customerPhone: formData.phone,
+                customerAddress: `${formData.street}, ${formData.neighborhood}, ${formData.city}, ${formData.province}`,
                 items: items.map(item => ({
                     productId: item.id || item.productId,
-                    name: item.name,
-                    price: item.price || 0,
                     quantity: item.quantity || 1
                 })),
                 total: cartTotal,
-                customerInfo: {
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone
-                },
-                shippingAddress: {
-                    street: formData.street,
-                    neighborhood: formData.neighborhood,
-                    city: formData.city,
-                    province: formData.province
-                },
                 notes: formData.notes,
                 status: 'pending'
             };
