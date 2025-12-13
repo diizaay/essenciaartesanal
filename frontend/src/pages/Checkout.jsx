@@ -230,6 +230,25 @@ const Checkout = () => {
                 </div>
             </div>
 
+            {/* Payment Notice Banner */}
+            <div className="max-w-[1200px] mx-auto px-4 -mt-8 mb-8">
+                <div className="bg-blue-50 border-2 border-blue-200 p-6 rounded-lg">
+                    <div className="flex items-start gap-4">
+                        <MessageCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                        <div>
+                            <h3 className="font-bold text-blue-900 mb-2" style={{ fontFamily: 'Poppins' }}>
+                                Métodos de Pagamento em Desenvolvimento
+                            </h3>
+                            <p className="text-blue-800 text-sm leading-relaxed">
+                                Estamos trabalhando para oferecer múltiplas opções de pagamento online.
+                                Por enquanto, <strong>todos os pedidos serão finalizados via WhatsApp</strong>,
+                                onde você poderá confirmar seu pedido e escolher a melhor forma de pagamento com nossa equipe.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="max-w-[1200px] mx-auto px-4 py-16">
                 <form onSubmit={handleSubmit} className="grid lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2 space-y-6">
