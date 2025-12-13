@@ -663,6 +663,7 @@ async def get_all_orders_admin(status: Optional[str] = None, admin: User = Depen
 async def upload_image(file: UploadFile = File(...), admin: User = Depends(require_admin)):
     """Upload an image file to Cloudinary (admin only)"""
     from cloudinary_helper import upload_image as cloudinary_upload
+    import traceback
     
     # Validate file type
     allowed_extensions = {".jpg", ".jpeg", ".png", ".webp"}
@@ -677,18 +678,23 @@ async def upload_image(file: UploadFile = File(...), admin: User = Depends(requi
     # Read file content
     try:
         file_content = await file.read()
+        print(f"✅ File read successfully: {file.filename}, size: {len(file_content)} bytes")
     except Exception as e:
+        print(f"❌ Failed to read file: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to read file: {str(e)}")
     
     # Upload to Cloudinary
     try:
         result = cloudinary_upload(file_content, file.filename)
+        print(f"✅ Upload successful: {result['url']}")
         return {
             "filename": result["filename"],
             "url": result["url"],
             "public_id": result["public_id"]
         }
     except Exception as e:
+        error_detail = f"{str(e)}\n{traceback.format_exc()}"
+        print(f"❌ Cloudinary upload failed: {error_detail}")
         raise HTTPException(status_code=500, detail=f"Failed to upload to Cloudinary: {str(e)}")
 
 
