@@ -202,11 +202,10 @@ export const getOrderById = async (orderId) => {
 };
 
 // Seed (development only)
-export const seedDatabase = async () =>
-  safeRequest(() => api.post('/seed'), () => {
-    console.warn('seedDatabase n\u00e3o dispon\u00edvel em modo mock');
-    return null;
-  });
+export const seedDatabase = async () => {
+  const response = await api.post('/seed');
+  return response.data;
+};
 
 // ========== ADMIN ROUTES ==========
 
@@ -268,10 +267,8 @@ export const toggleBlogPostPublished = async (postId) => {
 // ========== PRODUCT REVIEWS ==========
 
 export const getProductReviews = async (productId) => {
-  return safeRequest(
-    () => api.get(`/products/${productId}/reviews`),
-    () => []
-  );
+  const response = await api.get(`/products/${productId}/reviews`);
+  return response.data;
 };
 
 export const createProductReview = async (productId, reviewData) => {
@@ -287,10 +284,8 @@ export const deleteReview = async (reviewId) => {
 };
 
 export const getProductRating = async (productId) => {
-  return safeRequest(
-    () => api.get(`/products/${productId}/rating`),
-    () => ({ averageRating: 0, totalReviews: 0 })
-  );
+  const response = await api.get(`/products/${productId}/rating`);
+  return response.data;
 };
 
 export const updateProduct = async (productId, product) => {
@@ -303,17 +298,15 @@ export const deleteProduct = async (productId) => {
   return response.data;
 };
 
-export const updateCategory = async (categoryId, category) =>
-  safeRequest(() => api.put(`/categories/${categoryId}`, category), () => {
-    console.warn('updateCategory não disponível em modo mock');
-    return category;
-  });
+export const updateCategory = async (categoryId, category) => {
+  const response = await api.put(`/categories/${categoryId}`, category);
+  return response.data;
+};
 
-export const deleteCategory = async (categoryId) =>
-  safeRequest(() => api.delete(`/categories/${categoryId}`), () => {
-    console.warn('deleteCategory não disponível em modo mock');
-    return null;
-  });
+export const deleteCategory = async (categoryId) => {
+  const response = await api.delete(`/categories/${categoryId}`);
+  return response.data;
+};
 
 export const updateOrderStatus = async (orderId, status) =>
   safeRequest(() => api.put(`/orders/${orderId}/status?status=${status}`), () => {
