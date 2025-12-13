@@ -59,87 +59,74 @@ export const logout = () => {
 
 // ========== ADDRESSES ==========
 
-export const getAddresses = async () =>
-  safeRequest(() => api.get('/addresses'), () => {
-    console.warn('getAddresses não disponível em modo mock');
-    return [];
-  });
+export const getAddresses = async () => {
+  const response = await api.get('/addresses');
+  return response.data;
+};
 
-export const createAddress = async (address) =>
-  safeRequest(() => api.post('/addresses', address), () => {
-    console.warn('createAddress não disponível em modo mock');
-    return address;
-  });
+export const createAddress = async (address) => {
+  const response = await api.post('/addresses', address);
+  return response.data;
+};
 
-export const updateAddress = async (addressId, address) =>
-  safeRequest(() => api.put(`/addresses/${addressId}`, address), () => {
-    console.warn('updateAddress não disponível em modo mock');
-    return address;
-  });
+export const updateAddress = async (addressId, address) => {
+  const response = await api.put(`/addresses/${addressId}`, address);
+  return response.data;
+};
 
-export const deleteAddress = async (id) =>
-  safeRequest(() => api.delete(`/addresses/${id}`), () => {
-    console.warn('deleteAddress não disponível em modo mock');
-    return null;
-  });
+export const deleteAddress = async (id) => {
+  const response = await api.delete(`/addresses/${id}`);
+  return response.data;
+};
 
 // ========== FAVORITES ==========
 
-export const getFavorites = async () =>
-  safeRequest(() => api.get('/favorites'), () => {
-    console.warn('getFavorites não disponível em modo mock');
-    return [];
-  });
+export const getFavorites = async () => {
+  const response = await api.get('/favorites');
+  return response.data;
+};
 
-export const addFavorite = async (productId) =>
-  safeRequest(() => api.post('/favorites', { productId }), () => {
-    console.warn('addFavorite não disponível em modo mock');
-    return null;
-  });
+export const addFavorite = async (productId) => {
+  const response = await api.post('/favorites', { productId });
+  return response.data;
+};
 
-export const removeFavorite = async (productId) =>
-  safeRequest(() => api.delete(`/favorites/${productId}`), () => {
-    console.warn('removeFavorite não disponível em modo mock');
-    return null;
-  });
+export const removeFavorite = async (productId) => {
+  const response = await api.delete(`/favorites/${productId}`);
+  return response.data;
+};
 
-export const checkFavorite = async (productId) =>
-  safeRequest(() => api.get(`/favorites/check/${productId}`), () => {
-    console.warn('checkFavorite não disponível em modo mock');
-    return { isFavorite: false };
-  });
+export const checkFavorite = async (productId) => {
+  const response = await api.get(`/favorites/check/${productId}`);
+  return response.data;
+};
 
 // ========== CART ==========
 
-export const getCart = async () =>
-  safeRequest(() => api.get('/cart'), () => {
-    console.warn('getCart não disponível em modo mock');
-    return { items: [] };
-  });
+export const getCart = async () => {
+  const response = await api.get('/cart');
+  return response.data;
+};
 
-export const addToCart = async (productId, quantity = 1) =>
-  safeRequest(() => api.post('/cart/items', { productId, quantity }), () => {
-    console.warn('addToCart não disponível em modo mock');
-    return null;
-  });
+export const addToCart = async (productId, quantity = 1) => {
+  const response = await api.post('/cart/items', { productId, quantity });
+  return response.data;
+};
 
-export const updateCartItem = async (productId, quantity) =>
-  safeRequest(() => api.put(`/cart/items/${productId}?quantity=${quantity}`), () => {
-    console.warn('updateCartItem não disponível em modo mock');
-    return null;
-  });
+export const updateCartItem = async (productId, quantity) => {
+  const response = await api.put(`/cart/items/${productId}?quantity=${quantity}`);
+  return response.data;
+};
 
-export const removeFromCart = async (productId) =>
-  safeRequest(() => api.delete(`/cart/items/${productId}`), () => {
-    console.warn('removeFromCart não disponível em modo mock');
-    return null;
-  });
+export const removeFromCart = async (productId) => {
+  const response = await api.delete(`/cart/items/${productId}`);
+  return response.data;
+};
 
-export const clearCart = async () =>
-  safeRequest(() => api.delete('/cart'), () => {
-    console.warn('clearCart não disponível em modo mock');
-    return null;
-  });
+export const clearCart = async () => {
+  const response = await api.delete('/cart');
+  return response.data;
+};
 
 // Get product by ID
 export const getProductById = async (productId) => {
