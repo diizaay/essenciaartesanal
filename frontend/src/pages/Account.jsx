@@ -15,8 +15,7 @@ import { User, MapPin, Lock } from 'lucide-react';
 
 const Account = () => {
     const navigate = useNavigate();
-    const { logout: contextLogout, isAuthenticated } = useAuth();
-    const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
+    const { logout: contextLogout, isAuthenticated, loading: authLoading } = useAuth();
     const [initialLoading, setInitialLoading] = useState(true);
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', password: '' });
     const [addresses, setAddresses] = useState([]);
