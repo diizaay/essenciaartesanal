@@ -872,9 +872,11 @@ async def create_delivery_zone(
             raise HTTPException(status_code=400, detail="Delivery zone already exists for this province/city")
         
         zone_dict = zone.model_dump()
+        zone_dict['id'] = str(uuid.uuid4())
+        zone_dict['createdAt'] = datetime.utcnow()
+        
         result = await db.delivery_zones.insert_one(zone_dict)
         zone_dict['_id'] = str(result.inserted_id)
-        zone_dict['id'] = zone_dict.get('id', str(result.inserted_id))
         return zone_dict
     except HTTPException:
         raise
