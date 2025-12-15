@@ -10,7 +10,8 @@ import {
     FileText,
     Menu,
     X,
-    LogOut
+    LogOut,
+    Truck
 } from 'lucide-react';
 
 const AdminLayout = ({ children }) => {
@@ -24,6 +25,7 @@ const AdminLayout = ({ children }) => {
         { path: '/admin/produtos', icon: Package, label: 'Produtos' },
         { path: '/admin/categorias', icon: FolderOpen, label: 'Categorias' },
         { path: '/admin/pedidos', icon: ShoppingCart, label: 'Pedidos' },
+        { path: '/admin/entregas', icon: Truck, label: 'Zonas de Entrega' },
         { path: '/admin/utilizadores', icon: Users, label: 'Utilizadores' },
         { path: '/admin/blog', icon: FileText, label: 'Blog' },
     ];
