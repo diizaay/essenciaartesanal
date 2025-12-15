@@ -39,6 +39,7 @@ import AdminCategories from "./pages/admin/CategoriesAdmin";
 import CategoryForm from "./pages/admin/CategoryForm";
 import BlogAdmin from "./pages/admin/BlogAdmin";
 import BlogForm from "./pages/admin/BlogForm";
+import DeliveryZonesAdmin from "./pages/admin/DeliveryZonesAdmin";
 
 function App() {
   return (
@@ -179,6 +180,14 @@ function AppContent() {
             element={
               <ProtectedRoute requireAdmin={true}>
                 <BlogForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/entregas"
+            element={
+              <ProtectedRoute requireAdmin={true}>
+                <DeliveryZonesAdmin />
               </ProtectedRoute>
             }
           />

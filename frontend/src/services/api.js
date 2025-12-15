@@ -308,3 +308,35 @@ export const uploadImage = async (file) => {
 };
 
 export default api;
+
+// ========== DELIVERY ZONES ==========
+
+// Public - Get delivery fee for province/city
+export const getDeliveryFee = async (province, city) => {
+  const response = await api.get('/delivery-fee', { params: { province, city } });
+  return response.data;
+};
+
+// Admin - Get all delivery zones
+export const getDeliveryZones = async () => {
+  const response = await api.get('/admin/delivery-zones');
+  return response.data;
+};
+
+// Admin - Create delivery zone
+export const createDeliveryZone = async (zone) => {
+  const response = await api.post('/admin/delivery-zones', zone);
+  return response.data;
+};
+
+// Admin - Update delivery zone
+export const updateDeliveryZone = async (zoneId, zone) => {
+  const response = await api.put(`/admin/delivery-zones/${zoneId}`, zone);
+  return response.data;
+};
+
+// Admin - Delete delivery zone
+export const deleteDeliveryZone = async (zoneId) => {
+  const response = await api.delete(`/admin/delivery-zones/${zoneId}`);
+  return response.data;
+};
