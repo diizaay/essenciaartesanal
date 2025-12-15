@@ -14,6 +14,8 @@ const Checkout = () => {
     const [addresses, setAddresses] = useState([]);
     const [selectedAddressId, setSelectedAddressId] = useState('');
     const [acceptedTerms, setAcceptedTerms] = useState(false);
+    const [deliveryFee, setDeliveryFee] = useState(0);
+    const [deliveryEstimate, setDeliveryEstimate] = useState('');
 
     const [formData, setFormData] = useState({
         name: '',
@@ -73,6 +75,28 @@ const Checkout = () => {
         loadUserData();
     }, [navigate]);
 
+    // Fetch delivery fee when province/city change
+    useEffect(() => {
+        const fetchDeliveryFee = async () => {
+            if (formData.province && formData.city) {
+                try {
+                    const data = await api.getDeliveryFee(formData.province, formData.city);
+                    setDeliveryFee(data.fee || 0);
+                    setDeliveryEstimate(data.estimatedDays || '');
+                } catch (error) {
+                    console.error('Error fetching delivery fee:', error);
+                    setDeliveryFee(0);
+                    setDeliveryEstimate('');
+                }
+            } else {
+                setDeliveryFee(0);
+                setDeliveryEstimate('');
+            }
+        };
+
+        fetchDeliveryFee();
+    }, [formData.province, formData.city]);
+
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
@@ -108,15 +132,33 @@ const Checkout = () => {
 
     const generateWhatsAppMessage = () => {
         let message = '*Ola! Gostaria de finalizar meu pedido:*%0A%0A';
-        message += '*ITENS:*%0A';
+        message += '*ITENS:*%0A%0A';
 
         items.forEach((item, index) => {
             const price = item.price || 0;
             const qty = item.quantity || 1;
-            message += `${index + 1}. ${item.name} (${qty}x) - ${(price * qty).toFixed(2)} KZ%0A`;
+
+            message += `[${index + 1}] ${item.name.toUpperCase()}%0A`;
+
+            // SKU if available
+            if (item.sku) {
+                message += `    » SKU: ${item.sku}%0A`;
+            }
+
+            // Variant if selected
+            if (item.selectedVariant && item.selectedVariant.name) {
+                message += `    » Variante: ${item.selectedVariant.name}%0A`;
+            }
+
+            // Quantity and prices
+            message += `    » Quantidade: ${qty}x%0A`;
+            message += `    » Preco: ${price.toFixed(2)} KZ cada%0A`;
+            message += `    » Subtotal: ${(price * qty).toFixed(2)} KZ%0A%0A`;
         });
 
-        message += `%0A*TOTAL: ${cartTotal.toFixed(2)} KZ*%0A%0A`;
+        message += `Subtotal Produtos: ${cartTotal.toFixed(2)} KZ%0A`;
+        message += `Taxa de Entrega: ${deliveryFee.toFixed(2)} KZ%0A`;
+        message += `*TOTAL: ${(cartTotal + deliveryFee).toFixed(2)} KZ*%0A%0A`;
         message += '*DADOS DO CLIENTE:*%0A';
         message += `Nome: ${formData.name}%0A`;
         message += `Email: ${formData.email}%0A`;
@@ -162,7 +204,8 @@ const Checkout = () => {
                     productId: item.id || item.productId,
                     quantity: item.quantity || 1
                 })),
-                total: cartTotal,
+                total: cartTotal + deliveryFee,
+                deliveryFee: deliveryFee,
                 notes: formData.notes,
                 status: 'pending'
             };
@@ -409,10 +452,26 @@ const Checkout = () => {
                                 ))}
                             </div>
 
-                            <div className="border-t-2 border-[var(--color-border)] pt-4 mb-6">
-                                <div className="flex justify-between text-xl font-bold text-[var(--color-primary)]">
-                                    <span>Total</span>
-                                    <span>{cartTotal.toFixed(2)} KZ</span>
+                            <div className="border-t-2 border-[var(--color-border)] pt-4 mb-6 space-y-2">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-600">Subtotal</span>
+                                    <span className="font-semibold">{cartTotal.toFixed(2)} KZ</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-600">Taxa de Entrega</span>
+                                    <span className="font-semibold">{deliveryFee.toFixed(2)} KZ</span>
+                                </div>
+                                {deliveryEstimate && (
+                                    <div className="flex justify-between text-xs text-gray-500">
+                                        <span>Prazo estimado</span>
+                                        <span>{deliveryEstimate}</span>
+                                    </div>
+                                )}
+                                <div className="border-t pt-2 mt-2">
+                                    <div className="flex justify-between text-xl font-bold text-[var(--color-primary)]">
+                                        <span>Total</span>
+                                        <span>{(cartTotal + deliveryFee).toFixed(2)} KZ</span>
+                                    </div>
                                 </div>
                                 <p className="text-xs text-gray-500 mt-2">
                                     {totalQty} {totalQty === 1 ? 'item' : 'itens'}
