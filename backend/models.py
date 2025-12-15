@@ -24,6 +24,7 @@ class ProductDetail(BaseModel):
 class ProductBase(BaseModel):
     name: str
     slug: str
+    sku: Optional[str] = None  # SKU/Reference code for admin identification
     store: Optional[str] = None
     category: str
     price: float
@@ -209,3 +210,23 @@ class Cart(BaseModel):
 
     class Config:
         from_attributes = True
+
+# ========== DELIVERY ZONE MODELS ==========
+
+class DeliveryZoneBase(BaseModel):
+    province: str  # "Luanda", "Benguela", etc
+    city: str      # "Luanda", "Viana", etc
+    fee: float     # Delivery fee in KZ
+    estimatedDays: str = "1-3 dias"  # Estimated delivery time
+    isActive: bool = True
+
+class DeliveryZoneCreate(DeliveryZoneBase):
+    pass
+
+class DeliveryZone(DeliveryZoneBase):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    createdAt: datetime = Field(default_factory=datetime.utcnow)
+
+    class Config:
+        from_attributes = True
+

@@ -10,7 +10,8 @@ from models import (
     Favorite, FavoriteCreate,
     Cart, CartItem,
     BlogPost, BlogPostCreate,
-    Review, ReviewCreate
+    Review, ReviewCreate,
+    DeliveryZone, DeliveryZoneCreate
 )
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
@@ -812,3 +813,117 @@ async def get_product_rating(product_id: str):
         "averageRating": round(average_rating, 1),
         "totalReviews": len(reviews)
     }
+
+# ========== DELIVERY ZONES ENDPOINTS ==========
+
+# Public endpoint - Get delivery fee for province/city
+@router.get("/delivery-fee")
+async def get_delivery_fee(province: str, city: str):
+    """Get delivery fee for a specific province and city"""
+    try:
+        zone = await db.delivery_zones.find_one({
+            "province": province,
+            "city": city,
+            "isActive": True
+        })
+        
+        if zone:
+            return {
+                "fee": zone["fee"],
+                "estimatedDays": zone.get("estimatedDays", "1-3 dias")
+            }
+        
+        # Default fallback if zone not found
+        return {"fee": 0, "estimatedDays": "A calcular"}
+    except Exception as e:
+        print(f"Error fetching delivery fee: {e}")
+        return {"fee": 0, "estimatedDays": "A calcular"}
+
+# Admin - Get all delivery zones
+@router.get("/admin/delivery-zones")
+async def get_delivery_zones(user_id: str = Depends(get_current_user_id), is_admin: bool = Depends(require_admin)):
+    """Get all delivery zones (admin only)"""
+    try:
+        zones = []
+        cursor = db.delivery_zones.find({})
+        async for zone in cursor:
+            zone['_id'] = str(zone['_id'])
+            zones.append(zone)
+        return zones
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Admin - Create delivery zone
+@router.post("/admin/delivery-zones")
+async def create_delivery_zone(
+    zone: DeliveryZoneCreate,
+    user_id: str = Depends(get_current_user_id),
+    is_admin: bool = Depends(require_admin)
+):
+    """Create a new delivery zone (admin only)"""
+    try:
+        # Check if zone already exists
+        existing = await db.delivery_zones.find_one({
+            "province": zone.province,
+            "city": zone.city
+        })
+        
+        if existing:
+            raise HTTPException(status_code=400, detail="Delivery zone already exists for this province/city")
+        
+        zone_dict = zone.model_dump()
+        result = await db.delivery_zones.insert_one(zone_dict)
+        zone_dict['_id'] = str(result.inserted_id)
+        zone_dict['id'] = zone_dict.get('id', str(result.inserted_id))
+        return zone_dict
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Admin - Update delivery zone
+@router.put("/admin/delivery-zones/{zone_id}")
+async def update_delivery_zone(
+    zone_id: str,
+    zone: DeliveryZoneCreate,
+    user_id: str = Depends(get_current_user_id),
+    is_admin: bool = Depends(require_admin)
+):
+    """Update a delivery zone (admin only)"""
+    try:
+        zone_dict = zone.model_dump()
+        result = await db.delivery_zones.update_one(
+            {"id": zone_id},
+            {"$set": zone_dict}
+        )
+        
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Delivery zone not found")
+        
+        zone_dict['id'] = zone_id
+        return zone_dict
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Admin - Delete delivery zone
+@router.delete("/admin/delivery-zones/{zone_id}")
+async def delete_delivery_zone(
+    zone_id: str,
+    user_id: str = Depends(get_current_user_id),
+    is_admin: bool = Depends(require_admin)
+):
+    """Delete a delivery zone (admin only)"""
+    try:
+        result = await db.delivery_zones.delete_one({"id": zone_id})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Delivery zone not found")
+        
+        return {"message": "Delivery zone deleted successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
