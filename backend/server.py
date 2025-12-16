@@ -44,11 +44,6 @@ app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 # Include API router (all /api/* routes)
 app.include_router(router)
 
-# Include delivery routes - no try/except to expose any errors
-from delivery_routes import router as delivery_router
-app.include_router(delivery_router)
-logger.info("Delivery routes loaded successfully")
-
 # API root endpoint
 @app.get("/api/")
 async def root():
