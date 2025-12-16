@@ -16,7 +16,6 @@ from models import (
     DeliveryZone, DeliveryZoneCreate
 )
 from motor.motor_asyncio import AsyncIOMotorClient
-import os
 from dotenv import load_dotenv
 from auth import get_password_hash, verify_password, create_access_token, decode_access_token
 
