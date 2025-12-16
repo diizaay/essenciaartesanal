@@ -1,11 +1,12 @@
-from fastapi import APIRouter, HTTPException, Depends
-from typing import List
+from fastapi import APIRouter, HTTPException, Depends, Header
+from typing import List, Optional
 from datetime import datetime
 import uuid
-from models import DeliveryZone, DeliveryZoneCreate
+from models import DeliveryZone, DeliveryZoneCreate, User
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from dotenv import load_dotenv
+from auth import decode_access_token
 
 load_dotenv()
 
@@ -14,8 +15,26 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Import auth dependencies from main routes
-from routes import get_current_user_id, require_admin
+# Auth dependencies (copied from routes.py to avoid circular import)
+async def get_current_user_id(authorization: Optional[str] = Header(None)) -> str:
+    """Get current user ID from JWT token"""
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    token = authorization.replace("Bearer ", "")
+    payload = decode_access_token(token)
+    
+    if not payload or 'user_id' not in payload:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    return payload['user_id']
+
+async def require_admin(user_id: str = Depends(get_current_user_id)) -> bool:
+    """Require user to be admin"""
+    user = await db.users.find_one({"id": user_id})
+    if not user or not user.get("isAdmin", False):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    return True
 
 router = APIRouter(prefix="/api", tags=["delivery"])
 
