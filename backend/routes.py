@@ -930,3 +930,9 @@ async def delete_delivery_zone(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+# TEST ENDPOINT - verificar se roteamento funciona
+@router.get("/test-delivery")
+async def test_delivery_endpoint():
+    """Test endpoint para debug"""
+    return {"status": "ok", "message": "Delivery routes are working!"}
+
