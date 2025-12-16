@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingBag, User, MapPin, MessageCircle, Truck, AlertCircle } from 'lucide-react';
+import { ShoppingBag, User, MapPin, MessageCircle, Truck, AlertCircle, ChevronDown } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { toast } from 'sonner';
 import * as api from '../services/api';
@@ -18,6 +18,7 @@ const Checkout = () => {
     const [deliveryEstimate, setDeliveryEstimate] = useState('');
     const [deliveryZones, setDeliveryZones] = useState([]);
     const [selectedZoneId, setSelectedZoneId] = useState('');
+    const [isZoneDropdownOpen, setIsZoneDropdownOpen] = useState(false);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -478,42 +479,71 @@ const Checkout = () => {
                                 </div>
                             </div>
 
-                            {/* Delivery Zone Selection */}
+                            {/* Delivery Zone Selection - Collapsible Dropdown */}
                             <div className="mb-4">
-                                <div className="flex items-center gap-2 mb-3">
+                                <div className="flex items-center gap-2 mb-2">
                                     <Truck className="h-5 w-5 text-[var(--color-primary)]" />
                                     <span className="font-semibold text-sm">Zona de Entrega</span>
                                 </div>
 
                                 {deliveryZones.length > 0 ? (
-                                    <div className="space-y-2 max-h-40 overflow-y-auto">
-                                        {deliveryZones.map(zone => (
-                                            <label
-                                                key={zone.id}
-                                                className={`flex items-center justify-between p-3 border-2 cursor-pointer transition-all text-sm ${selectedZoneId === zone.id
-                                                        ? 'border-[var(--color-primary)] bg-white'
-                                                        : 'border-gray-200 hover:border-gray-300'
-                                                    }`}
-                                            >
-                                                <div className="flex items-center gap-2">
-                                                    <input
-                                                        type="radio"
-                                                        name="deliveryZone"
-                                                        value={zone.id}
-                                                        checked={selectedZoneId === zone.id}
-                                                        onChange={() => handleZoneSelect(zone.id)}
-                                                        className="w-4 h-4 text-[var(--color-primary)]"
-                                                    />
-                                                    <div>
-                                                        <span className="font-medium block">{zone.province} - {zone.city}</span>
-                                                        <span className="text-xs text-gray-500">{zone.estimatedDays}</span>
-                                                    </div>
+                                    <div className="relative">
+                                        {/* Dropdown Toggle Button */}
+                                        <button
+                                            type="button"
+                                            onClick={() => setIsZoneDropdownOpen(!isZoneDropdownOpen)}
+                                            className={`w-full flex items-center justify-between p-3 border-2 text-sm text-left transition-all ${selectedZoneId
+                                                    ? 'border-[var(--color-primary)] bg-white'
+                                                    : 'border-gray-300 bg-white hover:border-gray-400'
+                                                }`}
+                                        >
+                                            {selectedZoneId ? (
+                                                <div className="flex-1">
+                                                    <span className="font-medium block">
+                                                        {deliveryZones.find(z => z.id === selectedZoneId)?.province} - {deliveryZones.find(z => z.id === selectedZoneId)?.city}
+                                                    </span>
+                                                    <span className="text-xs text-gray-500">
+                                                        {deliveryZones.find(z => z.id === selectedZoneId)?.estimatedDays}
+                                                    </span>
                                                 </div>
-                                                <span className="font-bold text-[var(--color-primary)]">
-                                                    {zone.fee > 0 ? `${zone.fee.toLocaleString()} KZ` : 'Grátis'}
-                                                </span>
-                                            </label>
-                                        ))}
+                                            ) : (
+                                                <span className="text-gray-500">Selecione sua zona de entrega...</span>
+                                            )}
+                                            <div className="flex items-center gap-2">
+                                                {selectedZoneId && (
+                                                    <span className="font-bold text-[var(--color-primary)]">
+                                                        {deliveryFee > 0 ? `${deliveryFee.toLocaleString()} KZ` : 'Grátis'}
+                                                    </span>
+                                                )}
+                                                <ChevronDown className={`h-5 w-5 text-gray-400 transition-transform ${isZoneDropdownOpen ? 'rotate-180' : ''}`} />
+                                            </div>
+                                        </button>
+
+                                        {/* Dropdown Options */}
+                                        {isZoneDropdownOpen && (
+                                            <div className="absolute z-10 w-full mt-1 bg-white border-2 border-gray-200 shadow-lg max-h-48 overflow-y-auto">
+                                                {deliveryZones.map(zone => (
+                                                    <button
+                                                        type="button"
+                                                        key={zone.id}
+                                                        onClick={() => {
+                                                            handleZoneSelect(zone.id);
+                                                            setIsZoneDropdownOpen(false);
+                                                        }}
+                                                        className={`w-full flex items-center justify-between p-3 text-sm text-left hover:bg-gray-50 transition-colors ${selectedZoneId === zone.id ? 'bg-[var(--color-bg-soft)]' : ''
+                                                            }`}
+                                                    >
+                                                        <div>
+                                                            <span className="font-medium block">{zone.province} - {zone.city}</span>
+                                                            <span className="text-xs text-gray-500">{zone.estimatedDays}</span>
+                                                        </div>
+                                                        <span className="font-bold text-[var(--color-primary)]">
+                                                            {zone.fee > 0 ? `${zone.fee.toLocaleString()} KZ` : 'Grátis'}
+                                                        </span>
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 ) : (
                                     <div className="flex items-center gap-2 p-3 bg-yellow-50 border border-yellow-200 text-yellow-800 text-sm">
