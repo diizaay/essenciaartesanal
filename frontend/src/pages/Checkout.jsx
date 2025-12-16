@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingBag, User, MapPin, MessageCircle } from 'lucide-react';
+import { ShoppingBag, User, MapPin, MessageCircle, Truck, AlertCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { toast } from 'sonner';
 import * as api from '../services/api';
@@ -16,6 +16,8 @@ const Checkout = () => {
     const [acceptedTerms, setAcceptedTerms] = useState(false);
     const [deliveryFee, setDeliveryFee] = useState(0);
     const [deliveryEstimate, setDeliveryEstimate] = useState('');
+    const [deliveryZones, setDeliveryZones] = useState([]);
+    const [selectedZoneId, setSelectedZoneId] = useState('');
 
     const [formData, setFormData] = useState({
         name: '',
@@ -39,6 +41,10 @@ const Checkout = () => {
             }
 
             try {
+                // Load delivery zones first
+                const zones = await api.getPublicDeliveryZones();
+                setDeliveryZones(zones || []);
+
                 const userData = await api.getMe();
                 if (userData) {
                     setFormData(prev => ({
@@ -61,6 +67,19 @@ const Checkout = () => {
                             neighborhood: defaultAddr.neighborhood || '',
                             street: defaultAddr.street || ''
                         }));
+
+                        // Try to auto-select matching zone
+                        if (zones && zones.length > 0) {
+                            const matchingZone = zones.find(z =>
+                                z.province.toLowerCase() === (defaultAddr.province || '').toLowerCase() &&
+                                z.city.toLowerCase() === (defaultAddr.city || '').toLowerCase()
+                            );
+                            if (matchingZone) {
+                                setSelectedZoneId(matchingZone.id);
+                                setDeliveryFee(matchingZone.fee);
+                                setDeliveryEstimate(matchingZone.estimatedDays);
+                            }
+                        }
                     }
                 }
             } catch (error) {
@@ -75,27 +94,25 @@ const Checkout = () => {
         loadUserData();
     }, [navigate]);
 
-    // Fetch delivery fee when province/city change
-    useEffect(() => {
-        const fetchDeliveryFee = async () => {
-            if (formData.province && formData.city) {
-                try {
-                    const data = await api.getDeliveryFee(formData.province, formData.city);
-                    setDeliveryFee(data.fee || 0);
-                    setDeliveryEstimate(data.estimatedDays || '');
-                } catch (error) {
-                    console.error('Error fetching delivery fee:', error);
-                    setDeliveryFee(0);
-                    setDeliveryEstimate('');
-                }
-            } else {
-                setDeliveryFee(0);
-                setDeliveryEstimate('');
+    // Handle zone selection
+    const handleZoneSelect = (zoneId) => {
+        setSelectedZoneId(zoneId);
+        if (zoneId) {
+            const zone = deliveryZones.find(z => z.id === zoneId);
+            if (zone) {
+                setDeliveryFee(zone.fee);
+                setDeliveryEstimate(zone.estimatedDays);
+                setFormData(prev => ({
+                    ...prev,
+                    province: zone.province,
+                    city: zone.city
+                }));
             }
-        };
-
-        fetchDeliveryFee();
-    }, [formData.province, formData.city]);
+        } else {
+            setDeliveryFee(0);
+            setDeliveryEstimate('');
+        }
+    };
 
     const handleInputChange = (e) => {
         setFormData({
@@ -183,8 +200,18 @@ const Checkout = () => {
             return;
         }
 
-        if (!formData.name || !formData.phone || !formData.province || !formData.city) {
-            toast.error('Por favor, preencha todos os campos obrigatórios');
+        if (!formData.name || !formData.phone) {
+            toast.error('Por favor, preencha nome e telefone');
+            return;
+        }
+
+        if (deliveryZones.length > 0 && !selectedZoneId) {
+            toast.error('Por favor, selecione uma zona de entrega');
+            return;
+        }
+
+        if (!formData.street) {
+            toast.error('Por favor, informe seu endereço completo');
             return;
         }
 
@@ -341,7 +368,7 @@ const Checkout = () => {
                             </div>
                         </div>
 
-                        {/* Endereço */}
+                        {/* Endereço e Zona de Entrega */}
                         <div className="border-2 border-[var(--color-border)] p-6">
                             <div className="flex items-center gap-2 mb-6">
                                 <MapPin className="h-6 w-6 text-[var(--color-primary)]" />
@@ -366,33 +393,56 @@ const Checkout = () => {
                                 </div>
                             )}
 
+                            {/* Zona de Entrega */}
+                            <div className="mb-6">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Truck className="h-5 w-5 text-[var(--color-primary)]" />
+                                    <label className="font-semibold">Zona de Entrega *</label>
+                                </div>
+
+                                {deliveryZones.length > 0 ? (
+                                    <div className="space-y-2">
+                                        {deliveryZones.map(zone => (
+                                            <label
+                                                key={zone.id}
+                                                className={`flex items-center justify-between p-4 border-2 cursor-pointer transition-all ${selectedZoneId === zone.id
+                                                    ? 'border-[var(--color-primary)] bg-[var(--color-bg-soft)]'
+                                                    : 'border-[var(--color-border)] hover:border-gray-400'
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <input
+                                                        type="radio"
+                                                        name="deliveryZone"
+                                                        value={zone.id}
+                                                        checked={selectedZoneId === zone.id}
+                                                        onChange={() => handleZoneSelect(zone.id)}
+                                                        className="w-4 h-4 text-[var(--color-primary)]"
+                                                    />
+                                                    <div>
+                                                        <span className="font-semibold">{zone.province} - {zone.city}</span>
+                                                        <span className="block text-sm text-gray-500">
+                                                            Prazo: {zone.estimatedDays}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <span className="font-bold text-[var(--color-primary)]">
+                                                    {zone.fee > 0 ? `${zone.fee.toLocaleString()} KZ` : 'Grátis'}
+                                                </span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="flex items-center gap-2 p-4 bg-yellow-50 border-2 border-yellow-200 text-yellow-800">
+                                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                                        <span className="text-sm">
+                                            Nenhuma zona de entrega disponível no momento. Entre em contato via WhatsApp para mais informações.
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+
                             <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block font-semibold mb-2">Província *</label>
-                                    <input
-                                        type="text"
-                                        name="province"
-                                        value={formData.province}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Ex: Luanda"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block font-semibold mb-2">Município *</label>
-                                    <input
-                                        type="text"
-                                        name="city"
-                                        value={formData.city}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Ex: Luanda"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
-                                    />
-                                </div>
-
                                 <div>
                                     <label className="block font-semibold mb-2">Bairro</label>
                                     <input
@@ -406,13 +456,14 @@ const Checkout = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block font-semibold mb-2">Rua</label>
+                                    <label className="block font-semibold mb-2">Rua / Endereço Completo *</label>
                                     <input
                                         type="text"
                                         name="street"
                                         value={formData.street}
                                         onChange={handleInputChange}
-                                        placeholder="Ex: Rua 123"
+                                        required
+                                        placeholder="Ex: Rua 123, Casa 45"
                                         className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     />
                                 </div>
@@ -424,7 +475,7 @@ const Checkout = () => {
                                         value={formData.notes}
                                         onChange={handleInputChange}
                                         rows="3"
-                                        placeholder="Informações adicionais..."
+                                        placeholder="Ponto de referência, instruções de entrega..."
                                         className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none resize-none"
                                     />
                                 </div>

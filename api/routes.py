@@ -81,6 +81,20 @@ async def get_delivery_fee(province: str, city: str):
     except:
         return {"fee": 0, "estimatedDays": "A calcular"}
 
+@router.get("/delivery-zones/public")
+async def get_public_delivery_zones():
+    """Get all active delivery zones (public - for checkout)"""
+    zones = []
+    async for zone in db.delivery_zones.find({"isActive": True}):
+        zones.append({
+            "id": zone.get("id"),
+            "province": zone.get("province"),
+            "city": zone.get("city"),
+            "fee": zone.get("fee", 0),
+            "estimatedDays": zone.get("estimatedDays", "1-3 dias")
+        })
+    return zones
+
 @router.get("/admin/delivery-zones")
 async def get_delivery_zones(user: User = Depends(require_admin)):
     """Get all delivery zones (admin)"""

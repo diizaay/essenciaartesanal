@@ -317,6 +317,12 @@ export const getDeliveryFee = async (province, city) => {
   return response.data;
 };
 
+// Public - Get all active delivery zones for checkout
+export const getPublicDeliveryZones = async () => {
+  const response = await api.get('/delivery-zones/public');
+  return response.data;
+};
+
 // Admin - Get all delivery zones
 export const getDeliveryZones = async () => {
   const response = await api.get('/admin/delivery-zones');
