@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Youtube, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Facebook, Music, MapPin, Phone, Mail } from 'lucide-react';
 
 const columns = [
   {
@@ -59,25 +59,31 @@ const Footer = () => (
           </div>
           <div className="flex items-center gap-4 pt-2">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/essencia_artesanal0ficial?igsh=aDF3aDM0d2V0anM0"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram Essência Artesanal"
               className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
             >
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=100095310111884"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook Essência Artesanal"
               className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
             >
               <Facebook className="h-5 w-5" />
             </a>
             <a
-              href="https://youtube.com"
-              aria-label="YouTube Essência Artesanal"
+              href="https://www.tiktok.com/@essenciaartesanal?_r=1&_t=ZG-92H2VrcoOmm"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok Essência Artesanal"
               className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
             >
-              <Youtube className="h-5 w-5" />
+              <Music className="h-5 w-5" />
             </a>
           </div>
         </div>
