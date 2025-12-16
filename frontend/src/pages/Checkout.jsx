@@ -174,16 +174,31 @@ const Checkout = () => {
         });
 
         message += `Subtotal Produtos: ${cartTotal.toFixed(2)} KZ%0A`;
-        message += `Taxa de Entrega: ${deliveryFee.toFixed(2)} KZ%0A`;
-        message += `*TOTAL: ${(cartTotal + deliveryFee).toFixed(2)} KZ*%0A%0A`;
+
+        // Include selected zone info
+        const selectedZone = deliveryZones.find(z => z.id === selectedZoneId);
+        if (selectedZone) {
+            message += `%0A*ZONA DE ENTREGA:*%0A`;
+            message += `Zona: ${selectedZone.province} - ${selectedZone.city}%0A`;
+            message += `Taxa de Entrega: ${deliveryFee.toFixed(2)} KZ%0A`;
+            message += `Prazo Estimado: ${selectedZone.estimatedDays}%0A`;
+        } else {
+            message += `Taxa de Entrega: ${deliveryFee.toFixed(2)} KZ%0A`;
+        }
+
+        message += `%0A*TOTAL: ${(cartTotal + deliveryFee).toFixed(2)} KZ*%0A%0A`;
         message += '*DADOS DO CLIENTE:*%0A';
         message += `Nome: ${formData.name}%0A`;
         message += `Email: ${formData.email}%0A`;
         message += `Telefone: ${formData.phone}%0A%0A`;
         message += '*ENDERECO DE ENTREGA:*%0A';
         message += `${formData.street}%0A`;
-        message += `${formData.neighborhood}, ${formData.city}%0A`;
-        message += `${formData.province}%0A`;
+        if (formData.neighborhood) {
+            message += `Bairro: ${formData.neighborhood}%0A`;
+        }
+        if (selectedZone) {
+            message += `${selectedZone.city}, ${selectedZone.province}%0A`;
+        }
 
         if (formData.notes) {
             message += `%0A*OBSERVACOES:* ${formData.notes}%0A`;
@@ -393,55 +408,6 @@ const Checkout = () => {
                                 </div>
                             )}
 
-                            {/* Zona de Entrega */}
-                            <div className="mb-6">
-                                <div className="flex items-center gap-2 mb-3">
-                                    <Truck className="h-5 w-5 text-[var(--color-primary)]" />
-                                    <label className="font-semibold">Zona de Entrega *</label>
-                                </div>
-
-                                {deliveryZones.length > 0 ? (
-                                    <div className="space-y-2">
-                                        {deliveryZones.map(zone => (
-                                            <label
-                                                key={zone.id}
-                                                className={`flex items-center justify-between p-4 border-2 cursor-pointer transition-all ${selectedZoneId === zone.id
-                                                    ? 'border-[var(--color-primary)] bg-[var(--color-bg-soft)]'
-                                                    : 'border-[var(--color-border)] hover:border-gray-400'
-                                                    }`}
-                                            >
-                                                <div className="flex items-center gap-3">
-                                                    <input
-                                                        type="radio"
-                                                        name="deliveryZone"
-                                                        value={zone.id}
-                                                        checked={selectedZoneId === zone.id}
-                                                        onChange={() => handleZoneSelect(zone.id)}
-                                                        className="w-4 h-4 text-[var(--color-primary)]"
-                                                    />
-                                                    <div>
-                                                        <span className="font-semibold">{zone.province} - {zone.city}</span>
-                                                        <span className="block text-sm text-gray-500">
-                                                            Prazo: {zone.estimatedDays}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <span className="font-bold text-[var(--color-primary)]">
-                                                    {zone.fee > 0 ? `${zone.fee.toLocaleString()} KZ` : 'Grátis'}
-                                                </span>
-                                            </label>
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center gap-2 p-4 bg-yellow-50 border-2 border-yellow-200 text-yellow-800">
-                                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
-                                        <span className="text-sm">
-                                            Nenhuma zona de entrega disponível no momento. Entre em contato via WhatsApp para mais informações.
-                                        </span>
-                                    </div>
-                                )}
-                            </div>
-
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block font-semibold mb-2">Bairro</label>
@@ -490,43 +456,93 @@ const Checkout = () => {
                                 Resumo do Pedido
                             </h2>
 
-                            <div className="space-y-3 mb-6 max-h-64 overflow-y-auto">
+                            {/* Products List */}
+                            <div className="space-y-3 mb-6 max-h-48 overflow-y-auto">
                                 {items.map((item) => (
                                     <div key={item.id || item.productId} className="flex justify-between text-sm">
                                         <span className="text-gray-600">
                                             {item.name} ({item.quantity}x)
                                         </span>
                                         <span className="font-semibold">
-                                            {((item.price || 0) * (item.quantity || 1)).toFixed(2)} KZ
+                                            {((item.price || 0) * (item.quantity || 1)).toLocaleString()} KZ
                                         </span>
                                     </div>
                                 ))}
                             </div>
 
+                            {/* Subtotal Products */}
+                            <div className="border-t-2 border-[var(--color-border)] pt-4 mb-4">
+                                <div className="flex justify-between text-sm mb-4">
+                                    <span className="text-gray-600">Subtotal ({totalQty} {totalQty === 1 ? 'item' : 'itens'})</span>
+                                    <span className="font-semibold">{cartTotal.toLocaleString()} KZ</span>
+                                </div>
+                            </div>
+
+                            {/* Delivery Zone Selection */}
+                            <div className="mb-4">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Truck className="h-5 w-5 text-[var(--color-primary)]" />
+                                    <span className="font-semibold text-sm">Zona de Entrega</span>
+                                </div>
+
+                                {deliveryZones.length > 0 ? (
+                                    <div className="space-y-2 max-h-40 overflow-y-auto">
+                                        {deliveryZones.map(zone => (
+                                            <label
+                                                key={zone.id}
+                                                className={`flex items-center justify-between p-3 border-2 cursor-pointer transition-all text-sm ${selectedZoneId === zone.id
+                                                        ? 'border-[var(--color-primary)] bg-white'
+                                                        : 'border-gray-200 hover:border-gray-300'
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <input
+                                                        type="radio"
+                                                        name="deliveryZone"
+                                                        value={zone.id}
+                                                        checked={selectedZoneId === zone.id}
+                                                        onChange={() => handleZoneSelect(zone.id)}
+                                                        className="w-4 h-4 text-[var(--color-primary)]"
+                                                    />
+                                                    <div>
+                                                        <span className="font-medium block">{zone.province} - {zone.city}</span>
+                                                        <span className="text-xs text-gray-500">{zone.estimatedDays}</span>
+                                                    </div>
+                                                </div>
+                                                <span className="font-bold text-[var(--color-primary)]">
+                                                    {zone.fee > 0 ? `${zone.fee.toLocaleString()} KZ` : 'Grátis'}
+                                                </span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="flex items-center gap-2 p-3 bg-yellow-50 border border-yellow-200 text-yellow-800 text-sm">
+                                        <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                                        <span>Nenhuma zona disponível. Contacte via WhatsApp.</span>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Totals */}
                             <div className="border-t-2 border-[var(--color-border)] pt-4 mb-6 space-y-2">
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-gray-600">Subtotal</span>
-                                    <span className="font-semibold">{cartTotal.toFixed(2)} KZ</span>
-                                </div>
-                                <div className="flex justify-between text-sm">
                                     <span className="text-gray-600">Taxa de Entrega</span>
-                                    <span className="font-semibold">{deliveryFee.toFixed(2)} KZ</span>
+                                    <span className="font-semibold">
+                                        {deliveryFee > 0 ? `${deliveryFee.toLocaleString()} KZ` : 'Selecione uma zona'}
+                                    </span>
                                 </div>
-                                {deliveryEstimate && (
+                                {selectedZoneId && deliveryEstimate && (
                                     <div className="flex justify-between text-xs text-gray-500">
                                         <span>Prazo estimado</span>
                                         <span>{deliveryEstimate}</span>
                                     </div>
                                 )}
-                                <div className="border-t pt-2 mt-2">
+                                <div className="border-t-2 border-[var(--color-primary)] pt-3 mt-3">
                                     <div className="flex justify-between text-xl font-bold text-[var(--color-primary)]">
-                                        <span>Total</span>
-                                        <span>{(cartTotal + deliveryFee).toFixed(2)} KZ</span>
+                                        <span>TOTAL</span>
+                                        <span>{(cartTotal + deliveryFee).toLocaleString()} KZ</span>
                                     </div>
                                 </div>
-                                <p className="text-xs text-gray-500 mt-2">
-                                    {totalQty} {totalQty === 1 ? 'item' : 'itens'}
-                                </p>
                             </div>
 
                             {/* Terms and Conditions */}
