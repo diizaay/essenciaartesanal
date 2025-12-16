@@ -89,8 +89,13 @@ if frontend_build_dir.exists():
         return {"error": "Not found"}
     
     # Catch-all: serve index.html for all other routes (React Router)
+    # IMPORTANT: Skip /api routes - they should be handled by the API router
     @app.get("/{full_path:path}")
     async def serve_react_app(full_path: str):
+        # Don't serve index.html for API routes or uploads
+        if full_path.startswith("api") or full_path.startswith("uploads"):
+            return {"error": "Not found", "detail": f"Route /{full_path} not found"}
+        
         index_file = frontend_build_dir / "index.html"
         if index_file.exists():
             return FileResponse(index_file)
