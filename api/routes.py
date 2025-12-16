@@ -1,5 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends, Header, UploadFile, File
 from typing import List, Optional
+from datetime import datetime
+import uuid
 import shutil
 import os
 from pathlib import Path
@@ -10,7 +12,8 @@ from models import (
     Favorite, FavoriteCreate,
     Cart, CartItem,
     BlogPost, BlogPostCreate,
-    Review, ReviewCreate
+    Review, ReviewCreate,
+    DeliveryZone, DeliveryZoneCreate
 )
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
@@ -61,7 +64,67 @@ async def require_admin(user: User = Depends(require_auth)) -> User:
         raise HTTPException(status_code=403, detail="Admin access required")
     return user
 
+# ========== DELIVERY ZONES ==========
+
+@router.get("/delivery-fee")
+async def get_delivery_fee(province: str, city: str):
+    """Get delivery fee for a specific province/city"""
+    try:
+        zone = await db.delivery_zones.find_one({
+            "province": province,
+            "city": city,
+            "isActive": True
+        })
+        if zone:
+            return {"fee": zone.get("fee", 0), "estimatedDays": zone.get("estimatedDays", "1-3 dias")}
+        return {"fee": 0, "estimatedDays": "A calcular"}
+    except:
+        return {"fee": 0, "estimatedDays": "A calcular"}
+
+@router.get("/admin/delivery-zones")
+async def get_delivery_zones(user: User = Depends(require_admin)):
+    """Get all delivery zones (admin)"""
+    zones = []
+    async for zone in db.delivery_zones.find({}):
+        zone['_id'] = str(zone['_id'])
+        zones.append(zone)
+    return zones
+
+@router.post("/admin/delivery-zones")
+async def create_delivery_zone(zone: DeliveryZoneCreate, user: User = Depends(require_admin)):
+    """Create new delivery zone (admin)"""
+    existing = await db.delivery_zones.find_one({"province": zone.province, "city": zone.city})
+    if existing:
+        raise HTTPException(status_code=400, detail="Zone already exists")
+    
+    zone_dict = zone.model_dump()
+    zone_dict['id'] = str(uuid.uuid4())
+    zone_dict['createdAt'] = datetime.utcnow()
+    await db.delivery_zones.insert_one(zone_dict)
+    zone_dict.pop('_id', None)
+    return zone_dict
+
+@router.put("/admin/delivery-zones/{zone_id}")
+async def update_delivery_zone(zone_id: str, zone: DeliveryZoneCreate, user: User = Depends(require_admin)):
+    """Update delivery zone (admin)"""
+    result = await db.delivery_zones.update_one({"id": zone_id}, {"$set": zone.model_dump()})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Zone not found")
+    updated = await db.delivery_zones.find_one({"id": zone_id})
+    if updated:
+        updated['_id'] = str(updated['_id'])
+    return updated
+
+@router.delete("/admin/delivery-zones/{zone_id}")
+async def delete_delivery_zone(zone_id: str, user: User = Depends(require_admin)):
+    """Delete delivery zone (admin)"""
+    result = await db.delivery_zones.delete_one({"id": zone_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Zone not found")
+    return {"message": "Zone deleted"}
+
 # ========== AUTHENTICATION ==========
+
 
 @router.post("/auth/register", response_model=Token)
 async def register(user_data: UserCreate):
