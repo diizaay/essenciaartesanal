@@ -148,9 +148,14 @@ const Checkout = () => {
         }
     };
 
-    const generateWhatsAppMessage = () => {
-        let message = '*Ola! Gostaria de finalizar meu pedido:*%0A%0A';
-        message += '*ITENS:*%0A%0A';
+    const generateWhatsAppMessage = (orderId) => {
+        // Admin URL for order verification
+        const adminOrderUrl = `https://essenciaartesanal.vercel.app/admin/pedidos`;
+
+        let message = `*🛒 NOVO PEDIDO #${orderId}*%0A`;
+        message += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+
+        message += '*ITENS DO PEDIDO:*%0A%0A';
 
         items.forEach((item, index) => {
             const price = item.price || 0;
@@ -170,29 +175,35 @@ const Checkout = () => {
 
             // Quantity and prices
             message += `    » Quantidade: ${qty}x%0A`;
-            message += `    » Preco: ${price.toFixed(2)} KZ cada%0A`;
-            message += `    » Subtotal: ${(price * qty).toFixed(2)} KZ%0A%0A`;
+            message += `    » Preço: ${price.toLocaleString()} KZ%0A`;
+            message += `    » Subtotal: ${(price * qty).toLocaleString()} KZ%0A%0A`;
         });
 
-        message += `Subtotal Produtos: ${cartTotal.toFixed(2)} KZ%0A`;
+        message += `━━━━━━━━━━━━━━━━━━━━%0A`;
+        message += `Subtotal Produtos: ${cartTotal.toLocaleString()} KZ%0A`;
 
         // Include selected zone info
         const selectedZone = deliveryZones.find(z => z.id === selectedZoneId);
         if (selectedZone) {
-            message += `%0A*ZONA DE ENTREGA:*%0A`;
+            message += `%0A*ENTREGA:*%0A`;
             message += `Zona: ${selectedZone.province} - ${selectedZone.city}%0A`;
-            message += `Taxa de Entrega: ${deliveryFee.toFixed(2)} KZ%0A`;
-            message += `Prazo Estimado: ${selectedZone.estimatedDays}%0A`;
+            message += `Taxa: ${deliveryFee.toLocaleString()} KZ%0A`;
+            message += `Prazo: ${selectedZone.estimatedDays}%0A`;
         } else {
-            message += `Taxa de Entrega: ${deliveryFee.toFixed(2)} KZ%0A`;
+            message += `Taxa de Entrega: ${deliveryFee.toLocaleString()} KZ%0A`;
         }
 
-        message += `%0A*TOTAL: ${(cartTotal + deliveryFee).toFixed(2)} KZ*%0A%0A`;
+        message += `%0A*💰 TOTAL: ${(cartTotal + deliveryFee).toLocaleString()} KZ*%0A`;
+        message += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+
         message += '*DADOS DO CLIENTE:*%0A';
         message += `Nome: ${formData.name}%0A`;
-        message += `Email: ${formData.email}%0A`;
+        if (formData.email) {
+            message += `Email: ${formData.email}%0A`;
+        }
         message += `Telefone: ${formData.phone}%0A%0A`;
-        message += '*ENDERECO DE ENTREGA:*%0A';
+
+        message += '*ENDEREÇO DE ENTREGA:*%0A';
         message += `${formData.street}%0A`;
         if (formData.neighborhood) {
             message += `Bairro: ${formData.neighborhood}%0A`;
@@ -202,8 +213,16 @@ const Checkout = () => {
         }
 
         if (formData.notes) {
-            message += `%0A*OBSERVACOES:* ${formData.notes}%0A`;
+            message += `%0A*OBSERVAÇÕES:* ${formData.notes}%0A`;
         }
+
+        // Verification warning for admin
+        message += `%0A━━━━━━━━━━━━━━━━━━━━%0A`;
+        message += `%0A⚠️ *AVISO IMPORTANTE*%0A`;
+        message += `Este pedido foi registado no sistema.%0A`;
+        message += `ID do Pedido: *${orderId}*%0A%0A`;
+        message += `🔒 *Antes de processar, verifique os dados reais no painel admin:*%0A`;
+        message += `${adminOrderUrl}%0A`;
 
         return message;
     };
@@ -238,7 +257,7 @@ const Checkout = () => {
         }
 
         try {
-            // Create order in database
+            // Create order in database FIRST
             const orderData = {
                 customerName: formData.name,
                 customerPhone: formData.phone,
@@ -253,17 +272,19 @@ const Checkout = () => {
                 status: 'pending'
             };
 
-            await api.createOrder(orderData);
+            // Create order and get the order ID
+            const createdOrder = await api.createOrder(orderData);
+            const orderId = createdOrder.id;
 
-            // Generate WhatsApp message and open
-            const message = generateWhatsAppMessage();
+            // Generate WhatsApp message with the real order ID
+            const message = generateWhatsAppMessage(orderId);
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
             window.open(whatsappUrl, '_blank');
 
             // Clear cart
             clearCart();
 
-            toast.success('Pedido criado e enviado para WhatsApp!');
+            toast.success(`Pedido #${orderId.slice(-8).toUpperCase()} criado com sucesso!`);
             setTimeout(() => navigate('/'), 2000);
         } catch (error) {
             console.error('Error creating order:', error);
@@ -493,8 +514,8 @@ const Checkout = () => {
                                             type="button"
                                             onClick={() => setIsZoneDropdownOpen(!isZoneDropdownOpen)}
                                             className={`w-full flex items-center justify-between p-3 border-2 text-sm text-left transition-all ${selectedZoneId
-                                                    ? 'border-[var(--color-primary)] bg-white'
-                                                    : 'border-gray-300 bg-white hover:border-gray-400'
+                                                ? 'border-[var(--color-primary)] bg-white'
+                                                : 'border-gray-300 bg-white hover:border-gray-400'
                                                 }`}
                                         >
                                             {selectedZoneId ? (
