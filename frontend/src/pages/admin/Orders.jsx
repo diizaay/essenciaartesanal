@@ -57,12 +57,14 @@ const Orders = () => {
 
     const getStatusBadge = (status) => {
         const badges = {
+            draft: 'bg-orange-100 text-orange-800 border border-orange-300',
             pending: 'bg-yellow-100 text-yellow-800',
             confirmed: 'bg-blue-100 text-blue-800',
             completed: 'bg-green-100 text-green-800',
             cancelled: 'bg-red-100 text-red-800',
         };
         const labels = {
+            draft: '📝 Rascunho',
             pending: 'Pendente',
             confirmed: 'Confirmado',
             completed: 'Completo',
@@ -105,8 +107,8 @@ const Orders = () => {
             </div>
 
             {/* Filter Tabs */}
-            <div className="mb-6 bg-white rounded-lg shadow-md p-2 inline-flex gap-2">
-                {['all', 'pending', 'confirmed', 'completed', 'cancelled'].map((status) => (
+            <div className="mb-6 bg-white rounded-lg shadow-md p-2 inline-flex gap-2 flex-wrap">
+                {['all', 'draft', 'pending', 'confirmed', 'completed', 'cancelled'].map((status) => (
                     <button
                         key={status}
                         onClick={() => setFilter(status)}
@@ -115,7 +117,7 @@ const Orders = () => {
                                 : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
-                        {status === 'all' ? 'Todos' : status === 'pending' ? 'Pendentes' : status === 'confirmed' ? 'Confirmados' : status === 'completed' ? 'Completos' : 'Cancelados'}
+                        {status === 'all' ? 'Todos' : status === 'draft' ? '📝 Rascunhos' : status === 'pending' ? 'Pendentes' : status === 'confirmed' ? 'Confirmados' : status === 'completed' ? 'Completos' : 'Cancelados'}
                     </button>
                 ))}
             </div>
@@ -156,6 +158,7 @@ const Orders = () => {
                                                 onChange={(e) => handleStatusChange(order.id, e.target.value)}
                                                 className="text-sm border-gray-300 rounded-lg font-['Poppins'] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]"
                                             >
+                                                <option value="draft">📝 Rascunho</option>
                                                 <option value="pending">Pendente</option>
                                                 <option value="confirmed">Confirmado</option>
                                                 <option value="completed">Completo</option>

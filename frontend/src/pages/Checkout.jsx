@@ -269,7 +269,7 @@ const Checkout = () => {
                 total: cartTotal + deliveryFee,
                 deliveryFee: deliveryFee,
                 notes: formData.notes,
-                status: 'pending'
+                status: 'draft'
             };
 
             // Create order and get the order ID
