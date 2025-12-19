@@ -152,84 +152,39 @@ const Checkout = () => {
         // Use short order ID (last 8 chars uppercase)
         const shortOrderId = orderId ? orderId.slice(-8).toUpperCase() : 'N/A';
 
-        // Build message with newlines (will be encoded at the end)
         let lines = [];
 
-        lines.push(`*NOVO PEDIDO #${shortOrderId}*`);
-        lines.push('================================');
+        lines.push(`*PEDIDO #${shortOrderId}*`);
         lines.push('');
-        lines.push('*ITENS DO PEDIDO:*');
-        lines.push('');
+        lines.push('*Itens:*');
 
         items.forEach((item, index) => {
             const price = item.price || 0;
             const qty = item.quantity || 1;
 
-            lines.push(`[${index + 1}] ${item.name.toUpperCase()}`);
-
-            if (item.sku) {
-                lines.push(`    SKU: ${item.sku}`);
-            }
-
-            if (item.selectedVariant && item.selectedVariant.name) {
-                lines.push(`    Variante: ${item.selectedVariant.name}`);
-            }
-
-            lines.push(`    Qtd: ${qty}x @ ${price.toLocaleString()} KZ`);
-            lines.push(`    Subtotal: ${(price * qty).toLocaleString()} KZ`);
-            lines.push('');
+            lines.push(`${index + 1}. ${item.name} (${qty}x) - ${(price * qty).toLocaleString()} KZ`);
         });
 
-        lines.push('================================');
-        lines.push(`Subtotal Produtos: ${cartTotal.toLocaleString()} KZ`);
+        lines.push('');
+        lines.push(`Subtotal: ${cartTotal.toLocaleString()} KZ`);
 
         const selectedZone = deliveryZones.find(z => z.id === selectedZoneId);
         if (selectedZone) {
-            lines.push('');
-            lines.push('*ENTREGA:*');
-            lines.push(`Zona: ${selectedZone.province} - ${selectedZone.city}`);
-            lines.push(`Taxa: ${deliveryFee.toLocaleString()} KZ`);
-            lines.push(`Prazo: ${selectedZone.estimatedDays}`);
+            lines.push(`Entrega (${selectedZone.province} - ${selectedZone.city}): ${deliveryFee.toLocaleString()} KZ`);
         } else if (deliveryFee > 0) {
-            lines.push(`Taxa de Entrega: ${deliveryFee.toLocaleString()} KZ`);
+            lines.push(`Entrega: ${deliveryFee.toLocaleString()} KZ`);
         }
 
+        lines.push(`*Total: ${(cartTotal + deliveryFee).toLocaleString()} KZ*`);
         lines.push('');
-        lines.push(`*TOTAL A PAGAR: ${(cartTotal + deliveryFee).toLocaleString()} KZ*`);
-        lines.push('================================');
-        lines.push('');
-        lines.push('*DADOS DO CLIENTE:*');
-        lines.push(`Nome: ${formData.name}`);
-        if (formData.email) {
-            lines.push(`Email: ${formData.email}`);
-        }
-        lines.push(`Telefone: ${formData.phone}`);
-        lines.push('');
-        lines.push('*ENDERECO DE ENTREGA:*');
-        lines.push(`${formData.street}`);
-        if (formData.neighborhood) {
-            lines.push(`Bairro: ${formData.neighborhood}`);
-        }
-        if (selectedZone) {
-            lines.push(`${selectedZone.city}, ${selectedZone.province}`);
-        }
+        lines.push(`*Cliente:* ${formData.name}`);
+        lines.push(`*Tel:* ${formData.phone}`);
+        lines.push(`*Endereco:* ${formData.street}${formData.neighborhood ? ', ' + formData.neighborhood : ''}${selectedZone ? ', ' + selectedZone.city : ''}`);
 
         if (formData.notes) {
-            lines.push('');
             lines.push(`*Obs:* ${formData.notes}`);
         }
 
-        lines.push('');
-        lines.push('================================');
-        lines.push('');
-        lines.push('*AVISO AO ADMIN:*');
-        lines.push(`Pedido registado no sistema.`);
-        lines.push(`ID: ${shortOrderId}`);
-        lines.push('');
-        lines.push('Verifique no painel antes de processar:');
-        lines.push('https://essenciaartesanal.vercel.app/admin/pedidos');
-
-        // Join with newlines and encode for URL
         return encodeURIComponent(lines.join('\n'));
     };
 
