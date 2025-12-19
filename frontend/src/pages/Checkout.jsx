@@ -149,82 +149,88 @@ const Checkout = () => {
     };
 
     const generateWhatsAppMessage = (orderId) => {
-        // Admin URL for order verification
-        const adminOrderUrl = `https://essenciaartesanal.vercel.app/admin/pedidos`;
+        // Use short order ID (last 8 chars uppercase)
+        const shortOrderId = orderId ? orderId.slice(-8).toUpperCase() : 'N/A';
 
-        let message = `*🛒 NOVO PEDIDO #${orderId}*%0A`;
-        message += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+        // Build message with newlines (will be encoded at the end)
+        let lines = [];
 
-        message += '*ITENS DO PEDIDO:*%0A%0A';
+        lines.push(`*NOVO PEDIDO #${shortOrderId}*`);
+        lines.push('================================');
+        lines.push('');
+        lines.push('*ITENS DO PEDIDO:*');
+        lines.push('');
 
         items.forEach((item, index) => {
             const price = item.price || 0;
             const qty = item.quantity || 1;
 
-            message += `[${index + 1}] ${item.name.toUpperCase()}%0A`;
+            lines.push(`[${index + 1}] ${item.name.toUpperCase()}`);
 
-            // SKU if available
             if (item.sku) {
-                message += `    » SKU: ${item.sku}%0A`;
+                lines.push(`    SKU: ${item.sku}`);
             }
 
-            // Variant if selected
             if (item.selectedVariant && item.selectedVariant.name) {
-                message += `    » Variante: ${item.selectedVariant.name}%0A`;
+                lines.push(`    Variante: ${item.selectedVariant.name}`);
             }
 
-            // Quantity and prices
-            message += `    » Quantidade: ${qty}x%0A`;
-            message += `    » Preço: ${price.toLocaleString()} KZ%0A`;
-            message += `    » Subtotal: ${(price * qty).toLocaleString()} KZ%0A%0A`;
+            lines.push(`    Qtd: ${qty}x @ ${price.toLocaleString()} KZ`);
+            lines.push(`    Subtotal: ${(price * qty).toLocaleString()} KZ`);
+            lines.push('');
         });
 
-        message += `━━━━━━━━━━━━━━━━━━━━%0A`;
-        message += `Subtotal Produtos: ${cartTotal.toLocaleString()} KZ%0A`;
+        lines.push('================================');
+        lines.push(`Subtotal Produtos: ${cartTotal.toLocaleString()} KZ`);
 
-        // Include selected zone info
         const selectedZone = deliveryZones.find(z => z.id === selectedZoneId);
         if (selectedZone) {
-            message += `%0A*ENTREGA:*%0A`;
-            message += `Zona: ${selectedZone.province} - ${selectedZone.city}%0A`;
-            message += `Taxa: ${deliveryFee.toLocaleString()} KZ%0A`;
-            message += `Prazo: ${selectedZone.estimatedDays}%0A`;
-        } else {
-            message += `Taxa de Entrega: ${deliveryFee.toLocaleString()} KZ%0A`;
+            lines.push('');
+            lines.push('*ENTREGA:*');
+            lines.push(`Zona: ${selectedZone.province} - ${selectedZone.city}`);
+            lines.push(`Taxa: ${deliveryFee.toLocaleString()} KZ`);
+            lines.push(`Prazo: ${selectedZone.estimatedDays}`);
+        } else if (deliveryFee > 0) {
+            lines.push(`Taxa de Entrega: ${deliveryFee.toLocaleString()} KZ`);
         }
 
-        message += `%0A*💰 TOTAL: ${(cartTotal + deliveryFee).toLocaleString()} KZ*%0A`;
-        message += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
-
-        message += '*DADOS DO CLIENTE:*%0A';
-        message += `Nome: ${formData.name}%0A`;
+        lines.push('');
+        lines.push(`*TOTAL A PAGAR: ${(cartTotal + deliveryFee).toLocaleString()} KZ*`);
+        lines.push('================================');
+        lines.push('');
+        lines.push('*DADOS DO CLIENTE:*');
+        lines.push(`Nome: ${formData.name}`);
         if (formData.email) {
-            message += `Email: ${formData.email}%0A`;
+            lines.push(`Email: ${formData.email}`);
         }
-        message += `Telefone: ${formData.phone}%0A%0A`;
-
-        message += '*ENDEREÇO DE ENTREGA:*%0A';
-        message += `${formData.street}%0A`;
+        lines.push(`Telefone: ${formData.phone}`);
+        lines.push('');
+        lines.push('*ENDERECO DE ENTREGA:*');
+        lines.push(`${formData.street}`);
         if (formData.neighborhood) {
-            message += `Bairro: ${formData.neighborhood}%0A`;
+            lines.push(`Bairro: ${formData.neighborhood}`);
         }
         if (selectedZone) {
-            message += `${selectedZone.city}, ${selectedZone.province}%0A`;
+            lines.push(`${selectedZone.city}, ${selectedZone.province}`);
         }
 
         if (formData.notes) {
-            message += `%0A*OBSERVAÇÕES:* ${formData.notes}%0A`;
+            lines.push('');
+            lines.push(`*Obs:* ${formData.notes}`);
         }
 
-        // Verification warning for admin
-        message += `%0A━━━━━━━━━━━━━━━━━━━━%0A`;
-        message += `%0A⚠️ *AVISO IMPORTANTE*%0A`;
-        message += `Este pedido foi registado no sistema.%0A`;
-        message += `ID do Pedido: *${orderId}*%0A%0A`;
-        message += `🔒 *Antes de processar, verifique os dados reais no painel admin:*%0A`;
-        message += `${adminOrderUrl}%0A`;
+        lines.push('');
+        lines.push('================================');
+        lines.push('');
+        lines.push('*AVISO AO ADMIN:*');
+        lines.push(`Pedido registado no sistema.`);
+        lines.push(`ID: ${shortOrderId}`);
+        lines.push('');
+        lines.push('Verifique no painel antes de processar:');
+        lines.push('https://essenciaartesanal.vercel.app/admin/pedidos');
 
-        return message;
+        // Join with newlines and encode for URL
+        return encodeURIComponent(lines.join('\n'));
     };
 
     const handleSubmit = async (e) => {
