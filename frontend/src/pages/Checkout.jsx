@@ -222,10 +222,13 @@ const Checkout = () => {
             const orderData = {
                 customerName: formData.name,
                 customerPhone: formData.phone,
-                customerAddress: `${formData.street}, ${formData.neighborhood}, ${formData.city}, ${formData.province}`,
+                customerAddress: `${formData.street}${formData.neighborhood ? ', ' + formData.neighborhood : ''}${formData.city ? ', ' + formData.city : ''}${formData.province ? ', ' + formData.province : ''}`,
                 items: items.map(item => ({
                     productId: item.id || item.productId,
-                    quantity: item.quantity || 1
+                    productName: item.name || 'Produto',
+                    price: item.price || 0,
+                    quantity: item.quantity || 1,
+                    variant: item.selectedVariant?.name || null
                 })),
                 total: cartTotal + deliveryFee,
                 deliveryFee: deliveryFee,
