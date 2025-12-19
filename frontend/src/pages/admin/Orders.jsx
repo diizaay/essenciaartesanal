@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import AdminLayout from '../../components/admin/AdminLayout';
 import { getAllOrdersAdmin, updateOrderStatus } from '../../services/api';
 import { toast } from 'sonner';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw, ChevronDown, ChevronUp, Package, MapPin, Phone, User } from 'lucide-react';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('all');
+    const [expandedOrderId, setExpandedOrderId] = useState(null);
 
     useEffect(() => {
         fetchOrders();
@@ -38,11 +39,15 @@ const Orders = () => {
         }
     };
 
+    const toggleExpand = (orderId) => {
+        setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
+    };
+
     const formatCurrency = (value) => {
         return new Intl.NumberFormat('pt-AO', {
             style: 'currency',
             currency: 'AOA',
-        }).format(value);
+        }).format(value || 0);
     };
 
     const formatDate = (dateString) => {
@@ -64,7 +69,7 @@ const Orders = () => {
             cancelled: 'bg-red-100 text-red-800',
         };
         const labels = {
-            draft: '📝 Rascunho',
+            draft: 'Rascunho',
             pending: 'Pendente',
             confirmed: 'Confirmado',
             completed: 'Completo',
@@ -75,6 +80,10 @@ const Orders = () => {
                 {labels[status] || status}
             </span>
         );
+    };
+
+    const getShortId = (id) => {
+        return id ? id.slice(-8).toUpperCase() : 'N/A';
     };
 
     if (loading) {
@@ -117,60 +126,148 @@ const Orders = () => {
                                 : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
-                        {status === 'all' ? 'Todos' : status === 'draft' ? '📝 Rascunhos' : status === 'pending' ? 'Pendentes' : status === 'confirmed' ? 'Confirmados' : status === 'completed' ? 'Completos' : 'Cancelados'}
+                        {status === 'all' ? 'Todos' : status === 'draft' ? 'Rascunhos' : status === 'pending' ? 'Pendentes' : status === 'confirmed' ? 'Confirmados' : status === 'completed' ? 'Completos' : 'Cancelados'}
                     </button>
                 ))}
             </div>
 
-            {/* Orders Table */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="overflow-x-auto">
-                    <table className="w-full">
-                        <thead className="bg-gray-50">
-                            <tr>
-                                <th className="px-6 py-3 text-left text-xs font-['Poppins'] font-medium text-gray-500 uppercase">Cliente</th>
-                                <th className="px-6 py-3 text-left text-xs font-['Poppins'] font-medium text-gray-500 uppercase">Data</th>
-                                <th className="px-6 py-3 text-left text-xs font-['Poppins'] font-medium text-gray-500 uppercase">Total</th>
-                                <th className="px-6 py-3 text-left text-xs font-['Poppins'] font-medium text-gray-500 uppercase">Status</th>
-                                <th className="px-6 py-3 text-left text-xs font-['Poppins'] font-medium text-gray-500 uppercase">Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                            {orders.length === 0 ? (
-                                <tr>
-                                    <td colSpan="5" className="px-6 py-8 text-center text-gray-500 font-['Poppins']">
-                                        Nenhum pedido encontrado
-                                    </td>
-                                </tr>
-                            ) : (
-                                orders.map((order) => (
-                                    <tr key={order.id} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4">
-                                            <div className="text-sm font-['Poppins'] font-medium text-gray-900">{order.customerName}</div>
+            {/* Orders List */}
+            <div className="space-y-4">
+                {orders.length === 0 ? (
+                    <div className="bg-white rounded-xl shadow-md p-8 text-center text-gray-500 font-['Poppins']">
+                        Nenhum pedido encontrado
+                    </div>
+                ) : (
+                    orders.map((order) => (
+                        <div key={order.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+                            {/* Order Header - Clickable */}
+                            <div
+                                className="p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+                                onClick={() => toggleExpand(order.id)}
+                            >
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div className="flex items-center gap-4">
+                                        <div className="text-center">
+                                            <div className="text-xs text-gray-500 font-['Poppins']">ID</div>
+                                            <div className="font-bold text-[var(--color-primary)] font-['Poppins']">#{getShortId(order.id)}</div>
+                                        </div>
+                                        <div>
+                                            <div className="font-semibold text-gray-900 font-['Poppins']">{order.customerName}</div>
                                             <div className="text-sm text-gray-500">{order.customerPhone}</div>
-                                        </td>
-                                        <td className="px-6 py-4 text-sm text-gray-500 font-['Poppins']">{formatDate(order.createdAt)}</td>
-                                        <td className="px-6 py-4 text-sm font-['Poppins'] font-medium text-gray-900">{formatCurrency(order.total)}</td>
-                                        <td className="px-6 py-4">{getStatusBadge(order.status)}</td>
-                                        <td className="px-6 py-4">
-                                            <select
-                                                value={order.status}
-                                                onChange={(e) => handleStatusChange(order.id, e.target.value)}
-                                                className="text-sm border-gray-300 rounded-lg font-['Poppins'] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]"
-                                            >
-                                                <option value="draft">📝 Rascunho</option>
-                                                <option value="pending">Pendente</option>
-                                                <option value="confirmed">Confirmado</option>
-                                                <option value="completed">Completo</option>
-                                                <option value="cancelled">Cancelado</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                ))
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="text-right">
+                                            <div className="text-xs text-gray-500">{formatDate(order.createdAt)}</div>
+                                            <div className="font-bold text-lg font-['Poppins']">{formatCurrency(order.total)}</div>
+                                        </div>
+                                        {getStatusBadge(order.status)}
+                                        {expandedOrderId === order.id ? (
+                                            <ChevronUp className="w-5 h-5 text-gray-400" />
+                                        ) : (
+                                            <ChevronDown className="w-5 h-5 text-gray-400" />
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Expanded Details */}
+                            {expandedOrderId === order.id && (
+                                <div className="border-t border-gray-200 bg-gray-50 p-4">
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        {/* Items */}
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900 font-['Poppins'] mb-3 flex items-center gap-2">
+                                                <Package className="w-4 h-4" /> Itens do Pedido
+                                            </h4>
+                                            <div className="space-y-2">
+                                                {order.items && order.items.length > 0 ? (
+                                                    order.items.map((item, idx) => (
+                                                        <div key={idx} className="flex justify-between text-sm bg-white p-2 rounded">
+                                                            <span>
+                                                                {item.productName || item.name || `Produto ${item.productId}`}
+                                                                <span className="text-gray-500 ml-1">x{item.quantity}</span>
+                                                            </span>
+                                                            <span className="font-medium">
+                                                                {formatCurrency((item.price || 0) * (item.quantity || 1))}
+                                                            </span>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    <div className="text-sm text-gray-500">Sem itens detalhados</div>
+                                                )}
+                                            </div>
+
+                                            {/* Totals */}
+                                            <div className="mt-3 pt-3 border-t space-y-1">
+                                                <div className="flex justify-between text-sm">
+                                                    <span className="text-gray-500">Subtotal:</span>
+                                                    <span>{formatCurrency((order.total || 0) - (order.deliveryFee || 0))}</span>
+                                                </div>
+                                                {order.deliveryFee > 0 && (
+                                                    <div className="flex justify-between text-sm">
+                                                        <span className="text-gray-500">Taxa de Entrega:</span>
+                                                        <span>{formatCurrency(order.deliveryFee)}</span>
+                                                    </div>
+                                                )}
+                                                <div className="flex justify-between font-bold text-[var(--color-primary)]">
+                                                    <span>Total:</span>
+                                                    <span>{formatCurrency(order.total)}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Customer & Delivery Info */}
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900 font-['Poppins'] mb-3 flex items-center gap-2">
+                                                <User className="w-4 h-4" /> Dados do Cliente
+                                            </h4>
+                                            <div className="space-y-2 text-sm">
+                                                <div className="flex items-center gap-2">
+                                                    <User className="w-4 h-4 text-gray-400" />
+                                                    <span>{order.customerName}</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <Phone className="w-4 h-4 text-gray-400" />
+                                                    <span>{order.customerPhone}</span>
+                                                </div>
+                                                <div className="flex items-start gap-2">
+                                                    <MapPin className="w-4 h-4 text-gray-400 mt-0.5" />
+                                                    <span>{order.customerAddress || 'Sem endereço'}</span>
+                                                </div>
+                                            </div>
+
+                                            {order.notes && (
+                                                <div className="mt-4">
+                                                    <h4 className="font-semibold text-gray-900 font-['Poppins'] mb-2">Observações</h4>
+                                                    <div className="text-sm bg-yellow-50 p-2 rounded border border-yellow-200">
+                                                        {order.notes}
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {/* Status Change */}
+                                            <div className="mt-4">
+                                                <h4 className="font-semibold text-gray-900 font-['Poppins'] mb-2">Alterar Status</h4>
+                                                <select
+                                                    value={order.status}
+                                                    onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                                                    className="w-full text-sm border-gray-300 rounded-lg font-['Poppins'] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] p-2"
+                                                >
+                                                    <option value="draft">Rascunho</option>
+                                                    <option value="pending">Pendente</option>
+                                                    <option value="confirmed">Confirmado</option>
+                                                    <option value="completed">Completo</option>
+                                                    <option value="cancelled">Cancelado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             )}
-                        </tbody>
-                    </table>
-                </div>
+                        </div>
+                    ))
+                )}
             </div>
         </AdminLayout>
     );
