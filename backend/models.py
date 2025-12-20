@@ -105,6 +105,13 @@ class CartItem(BaseModel):
     productId: str
     quantity: int
 
+class OrderItem(BaseModel):
+    productId: str
+    productName: str = "Produto"
+    price: float = 0
+    quantity: int = 1
+    variant: Optional[str] = None
+
 class OrderBase(BaseModel):
     channel: str = "web"
     store: Optional[str] = None
@@ -112,8 +119,9 @@ class OrderBase(BaseModel):
     customerPhone: str
     customerAddress: str
     notes: Optional[str] = None
-    items: List[CartItem]
+    items: List[OrderItem]
     total: float
+    deliveryFee: float = 0
     userId: Optional[str] = None
 
 class OrderCreate(OrderBase):
