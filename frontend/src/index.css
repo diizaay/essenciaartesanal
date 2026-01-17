@@ -4,14 +4,14 @@
 
 :root {
   /* Paleta de Cores Correta */
-  --color-primary: #9D2235;
-  --color-accent: #FFE5E5;
+  --color-primary: #560B18;
+  --color-accent: #d3af37;
   --color-bg: #FFFFFF;
   --color-bg-soft: #FFF9F9;
   --color-bg-soft-2: #FFEAE7;
   --color-text: #2C2C2C;
   --color-muted: #6B6B6B;
-  --color-border: #FFD6D6;
+  --color-border: #d3af37;
   --color-success: #4CAF50;
   --color-warning: #FF9800;
 }
@@ -39,19 +39,19 @@ code {
     --card-foreground: 0 0% 17%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 17%;
-    --primary: 0 52% 39%;
+    --primary: 353 76% 21%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 6 100% 86%;
-    --secondary-foreground: 0 52% 39%;
+    --secondary: 46 65% 52%;
+    --secondary-foreground: 353 76% 21%;
     --muted: 0 0% 42%;
     --muted-foreground: 0 0% 42%;
-    --accent: 6 100% 86%;
-    --accent-foreground: 0 52% 39%;
+    --accent: 46 65% 52%;
+    --accent-foreground: 353 76% 21%;
     --destructive: 0 70% 42%;
     --destructive-foreground: 0 0% 100%;
-    --border: 6 67% 93%;
-    --input: 6 67% 93%;
-    --ring: 0 52% 39%;
+    --border: 46 65% 62%;
+    --input: 46 65% 62%;
+    --ring: 353 76% 21%;
     --radius: 1.5rem;
   }
 

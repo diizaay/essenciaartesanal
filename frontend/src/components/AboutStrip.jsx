@@ -16,7 +16,7 @@ const AboutStrip = () => (
           Parte de cada compra apoia artesãos independentes e iniciativas locais. Consumir com propósito significa fortalecer comunidades criativas.
         </p>
         <Link to="/sobre" className="inline-flex self-start">
-          <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110 active:scale-95 uppercase tracking-wide shadow-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Descubra mais
             <ArrowRight className="h-4 w-4" />
           </button>

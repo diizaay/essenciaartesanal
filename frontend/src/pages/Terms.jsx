@@ -48,7 +48,7 @@ const Terms = () => {
         {
             icon: Scale,
             title: '6. Propriedade intelectual',
-            content: 'Todo o conteúdo deste website, incluindo textos, gráficos, logotipos, imagens, fotografias, vídeos e software, é propriedade da Essência Artesanal e está protegido pelas leis de direitos autorais, marcas registadas e outras leis de propriedade intelectual.'
+            content: 'Todo o conteúdo deste website, incluindo textos, gráficos, logotipos, imagens, fotografias, vídeos e software, é propriedade da Lia e está protegido pelas leis de direitos autorais, marcas registadas e outras leis de propriedade intelectual.'
         },
         {
             icon: Shield,
@@ -59,7 +59,7 @@ const Terms = () => {
         {
             icon: Bell,
             title: '8. Alterações destes Termos',
-            content: 'A Essência Artesanal reserva-se o direito de modificar estes Termos e Condições a qualquer momento sem aviso prévio. Quaisquer alterações entrarão em vigor imediatamente após a publicação no website. Recomendamos que reveja periodicamente estes termos para manter-se informado sobre quaisquer mudanças.'
+            content: 'A Lia reserva-se o direito de modificar estes Termos e Condições a qualquer momento sem aviso prévio. Quaisquer alterações entrarão em vigor imediatamente após a publicação no website. Recomendamos que reveja periodicamente estes termos para manter-se informado sobre quaisquer mudanças.'
         }
     ];
 
@@ -74,7 +74,7 @@ const Terms = () => {
                         </span>
                     </div>
                     <h1 className="text-5xl md:text-5xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        Termos de utilização da Essência Artesanal
+                        Termos de utilização da Lia
                     </h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
                         Ao utilizar o nosso site e fazer um pedido, você concorda com os termos abaixo.<br />Lê com atenção - queremos que a tua compra seja informada desde o início.

@@ -28,13 +28,13 @@ const DoublePromo = () => (
           key={promo.title}
           as="article"
           delay={index * 100}
-          className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] border border-[#ead9ce] bg-[var(--color-bg-soft)] rounded-[28px] overflow-hidden shadow-sm"
+          className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] border border-[var(--color-border)] bg-[var(--color-bg-soft)] rounded-[28px] overflow-hidden shadow-sm"
         >
           <div className="p-8 sm:p-10 flex flex-col gap-4 justify-center">
-            <h3 className="text-2xl font-semibold text-[#CA1818]">{promo.title}</h3>
-            <p className="text-sm text-[#777777]">{promo.description}</p>
+            <h3 className="text-2xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>{promo.title}</h3>
+            <p className="text-sm text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>{promo.description}</p>
             <Link to="/produtos" className="inline-flex">
-              <button className="inline-flex items-center gap-2 rounded-full border border-[#CA1818] px-6 py-3 text-xs tracking-[0.3em] uppercase text-[#CA1818] transition-colors hover:bg-[#CA1818] hover:text-white">
+              <button className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3 text-xs tracking-[0.3em] uppercase text-white transition-all duration-300 hover:brightness-110 active:scale-95 font-bold shadow-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 {promo.cta}
                 <ArrowRight className="h-4 w-4" />
               </button>

@@ -52,7 +52,7 @@ const Newsletter = () => {
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wide"
+              className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110 active:scale-95 uppercase tracking-wide shadow-md"
               style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Inscrever-se

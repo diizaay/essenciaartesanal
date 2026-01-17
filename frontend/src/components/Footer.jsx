@@ -121,7 +121,7 @@ const Footer = () => (
             className="font-semibold hover:underline transition-all"
             style={{ color: '#0853A6' }}
           >
-            Ponto Criativo
+            CriaTec
           </a>
         </p>
       </div>

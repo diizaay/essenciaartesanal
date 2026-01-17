@@ -33,7 +33,7 @@ const Help = () => (
                             Perguntas Frequentes
                         </h3>
                         <p className="text-sm text-gray-500 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                            Vê as dúvidas mais comuns sobre entregas, pagamentos e utilização da Essência Artesanal
+                            Vê as dúvidas mais comuns sobre entregas, pagamentos e utilização da Lia
                         </p>
                         <span className="text-[var(--color-primary)] font-semibold text-sm flex items-center gap-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             Ver FAQ <ChevronRight className="h-4 w-4" />
@@ -69,7 +69,7 @@ const Help = () => (
                             Tempo médio de resposta
                         </h3>
                         <p className="text-sm text-gray-500 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                            Em dias úteis, a maioria das mensagens enviadas pela Essência Artesanal é respondida em menos de 2 horas
+                            Em dias úteis, a maioria das mensagens enviadas pela Lia é respondida em menos de 2 horas
                         </p>
                         <span className="text-[var(--color-primary)] font-semibold text-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             Para pedidos urgentes, menciona isso na mensagem

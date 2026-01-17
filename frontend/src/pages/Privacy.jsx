@@ -6,7 +6,7 @@ const Privacy = () => {
         {
             icon: Shield,
             title: '1. Introdução',
-            content: 'Esta Política de Privacidade explica como a Essência Artesanal recolhe, usa e protege as tuas informações. Ao aceder ao site ou fazer um pedido, concordas em partilhar os teus dados pessoais conosco. Queremos que te sintas seguro — a privacidade e transparência são muito importantes para nós.'
+            content: 'Esta Política de Privacidade explica como a Lia recolhe, usa e protege as tuas informações. Ao aceder ao site ou fazer um pedido, concordas em partilhar os teus dados pessoais conosco. Queremos que te sintas seguro — a privacidade e transparência são muito importantes para nós.'
         },
         {
             icon: Database,
@@ -94,7 +94,7 @@ const Privacy = () => {
                         Política de Privacidade
                     </h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        A tua privacidade é prioridade para nós da Essência Artesanal. Explicámos aqui como recolhemos,<br />tratamos e protegemos os teus dados pessoais ao utilizar este website.
+                        A tua privacidade é prioridade para nós da Lia. Explicámos aqui como recolhemos,<br />tratamos e protegemos os teus dados pessoais ao utilizar este website.
                     </p>
                     <p className="text-sm text-gray-500 mt-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
                         Última actualização: {new Date().toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' })}

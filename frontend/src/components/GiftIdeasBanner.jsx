@@ -32,7 +32,7 @@ const GiftIdeasBanner = () => (
           </p>
 
           <Link to="/produtos" className="inline-flex self-start">
-            <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white hover:-translate-y-1 hover:shadow-lg uppercase tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110 active:scale-95 uppercase tracking-wide shadow-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Vamos lá
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>

@@ -12,7 +12,7 @@ const About = () => (
           </span>
         </div>
         <h1 className="text-5xl md:text-5xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          A Essência Artesanal
+          A Lia
         </h1>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
           Nasceu para fazer a sua casa brilhar. Cada peça é feita à mão com paixão e<br />qualidade premium, trazendo autenticidade e elegância ao seu lar.
@@ -176,7 +176,7 @@ const About = () => (
               Pronto para descobrir peças únicas?
             </h3>
             <p className="text-white/90 text-sm mb-6 leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Explore nossa coleção e traga a essência artesanal para o seu lar.
+              Explore nossa coleção e traga a Lia para o seu lar.
             </p>
             <div className="space-y-3">
               <a

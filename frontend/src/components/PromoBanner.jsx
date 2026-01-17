@@ -23,7 +23,7 @@ const PromoBanner = () => (
       </div>
 
       <Link to="/produtos?tag=oferta" className="inline-flex relative z-10">
-        <button className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[#7d2626] px-10 py-4 text-sm font-bold uppercase text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:scale-105 tracking-wide group">
+        <button className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent)] px-10 py-4 text-sm font-bold uppercase text-white shadow-lg transition-all duration-300 hover:brightness-110 hover:-translate-y-1 hover:shadow-xl hover:scale-105 tracking-wide group">
           Explorar
           <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
         </button>

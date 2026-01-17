@@ -12,7 +12,7 @@ const Shipping = () => (
                     </span>
                 </div>
                 <h1 className="text-5xl md:text-5xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    Como funcionam os envios da Essência Artesanal
+                    Como funcionam os envios da Lia
                 </h1>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     Aqui encontras as informações sobre prazos, zonas de entrega e condições especiais<br />para pedidos neon. Se ainda tiveres dúvidas, podes sempre falar com a nossa equipa de apoio ao cliente.

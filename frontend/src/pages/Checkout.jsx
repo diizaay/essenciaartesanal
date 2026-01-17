@@ -578,7 +578,7 @@ const Checkout = () => {
                                         >
                                             Termos e Condições
                                         </Link>
-                                        {' '}da Essência Artesanal *
+                                        {' '}da Lia *
                                     </span>
                                 </label>
                             </div>

@@ -1,4 +1,4 @@
-// Mock Data para Essência Artesanal
+// Mock Data para Lia
 
 export const categories = [
   { id: '1', name: 'Brincos', slug: 'brincos', image: 'https://images.unsplash.com/photo-1629224316810-9d8805b95e76?crop=entropy&cs=srgb&fm=jpg&q=85' },

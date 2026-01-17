@@ -58,7 +58,7 @@ const AdminLayout = ({ children }) => {
                     {/* Logo / Header */}
                     <div className="p-6 border-b-2 border-[var(--color-border)]">
                         <Link to="/" className="block">
-                            <img src="/logo.png" alt="Essência Artesanal" className="h-10 w-auto" />
+                            <img src="/logo.png" alt="Lia" className="h-10 w-auto" />
                         </Link>
                         <button
                             onClick={() => setSidebarOpen(false)}

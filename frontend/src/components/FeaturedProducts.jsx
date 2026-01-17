@@ -31,7 +31,7 @@ const FeaturedProducts = ({ products }) => {
                 <div className="text-center mt-12">
                     <a
                         href="/produtos"
-                        className="inline-block bg-[var(--color-accent)] text-[var(--color-primary)] px-8 py-3 font-bold text-sm transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wide"
+                        className="inline-block bg-[var(--color-accent)] text-white px-8 py-3 font-bold text-sm transition-all duration-300 hover:brightness-110 active:scale-95 uppercase tracking-wide shadow-md"
                         style={{ fontFamily: 'Poppins, sans-serif' }}
                     >
                         Ver Todos os Produtos

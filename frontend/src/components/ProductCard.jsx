@@ -43,7 +43,7 @@ const ProductCard = ({ product, featured, hideTags = false }) => {
         <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-2 opacity-0 translate-y-3 transition-all group-hover:opacity-100 group-hover:translate-y-0">
           <button
             onClick={(e) => { e.stopPropagation(); handleAdd(e); }}
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] text-[var(--color-primary)] px-4 py-2 text-[12px] font-semibold hover:bg-[var(--color-primary)] hover:text-white transition-all shadow-sm"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] text-white px-4 py-2 text-[12px] font-bold transition-all duration-300 hover:brightness-110 active:scale-95 shadow-sm"
             aria-label={`Adicionar ${product.name} ao carrinho`}
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >

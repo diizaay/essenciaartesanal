@@ -48,7 +48,7 @@ const AdminLogin = () => {
                         Painel Administrativo
                     </h1>
                     <p className="text-[var(--color-muted)] font-['Poppins']">
-                        Essência Artesanal
+                        Lia
                     </p>
                 </div>
 

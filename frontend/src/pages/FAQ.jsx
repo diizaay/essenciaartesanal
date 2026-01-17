@@ -101,7 +101,7 @@ const FAQ = () => {
                     answer: 'Pode contactar-nos por email, WhatsApp ou através da página "Fala Connosco". Respondemos normalmente em menos de 2 horas em dias úteis.'
                 },
                 {
-                    question: 'A Essência Artesanal atende empresas e eventos?',
+                    question: 'A Lia atende empresas e eventos?',
                     answer: 'Sim, trabalhamos com empresas e eventos. Para orçamentos personalizados e grandes quantidades, entre em contacto directo com a nossa equipa comercial.'
                 }
             ]
@@ -119,7 +119,7 @@ const FAQ = () => {
                         </span>
                     </div>
                     <h1 className="text-5xl md:text-5xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        Perguntas frequentes sobre a Essência Artesanal
+                        Perguntas frequentes sobre a Lia
                     </h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
                         Reunimos as dúvidas mais comuns sobre pagamentos, entregas, produtos e suporte<br />para facilitar a tua experiência. Se não encontrares a resposta aqui, a nossa equipa está pronta para ajudar.
