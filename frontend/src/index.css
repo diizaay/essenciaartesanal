@@ -12,6 +12,7 @@
   --color-text: #2C2C2C;
   --color-muted: #6B6B6B;
   --color-border: #d3af37;
+  --color-border-soft: rgba(211, 175, 55, 0.2);
   --color-success: #4CAF50;
   --color-warning: #FF9800;
 }

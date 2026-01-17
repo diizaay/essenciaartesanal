@@ -28,7 +28,7 @@ const DoublePromo = () => (
           key={promo.title}
           as="article"
           delay={index * 100}
-          className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] border border-[var(--color-border)] bg-[var(--color-bg-soft)] rounded-[28px] overflow-hidden shadow-sm"
+          className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] border border-[var(--color-border-soft)] bg-[var(--color-bg-soft)] rounded-[28px] overflow-hidden shadow-sm"
         >
           <div className="p-8 sm:p-10 flex flex-col gap-4 justify-center">
             <h3 className="text-2xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>{promo.title}</h3>

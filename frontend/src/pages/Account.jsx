@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import * as api from '../services/api';
 import { useAuth } from '../hooks/useAuth';
-import { User, MapPin, Lock } from 'lucide-react';
+import { User, MapPin, Lock, Heart, ShoppingBag } from 'lucide-react';
 
 const Account = () => {
     const navigate = useNavigate();
@@ -236,7 +236,7 @@ const Account = () => {
         return (
             <div className="min-h-screen bg-[var(--color-bg-soft)] py-12">
                 <div className="max-w-md mx-auto px-4">
-                    <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                    <div className="bg-white border border-[var(--color-border-soft)] p-8 shadow-sm rounded-lg">
                         {/* Logo/Title */}
                         <div className="text-center mb-8">
                             <h1 className="text-3xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins' }}>
@@ -248,8 +248,8 @@ const Account = () => {
                         <div className="flex gap-4 mb-8">
                             <button
                                 onClick={() => setActiveView('login')}
-                                className={`flex-1 py-3 font-bold transition-all ${activeView === 'login'
-                                    ? 'bg-[var(--color-primary)] text-white'
+                                className={`flex-1 py-3 font-bold transition-all rounded-md ${activeView === 'login'
+                                    ? 'bg-[var(--color-accent)] text-white'
                                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                     }`}
                             >
@@ -257,8 +257,8 @@ const Account = () => {
                             </button>
                             <button
                                 onClick={() => setActiveView('register')}
-                                className={`flex-1 py-3 font-bold transition-all ${activeView === 'register'
-                                    ? 'bg-[var(--color-primary)] text-white'
+                                className={`flex-1 py-3 font-bold transition-all rounded-md ${activeView === 'register'
+                                    ? 'bg-[var(--color-accent)] text-white'
                                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                     }`}
                             >
@@ -278,7 +278,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="seu@email.com"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none transition-colors rounded-md"
                                     />
                                 </div>
                                 <div>
@@ -290,13 +290,13 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="••••••••"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none transition-colors rounded-md"
                                     />
                                 </div>
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full bg-[var(--color-accent)] text-[var(--color-primary)] py-3 font-bold hover:bg-[var(--color-primary)] hover:text-white transition-colors disabled:opacity-50"
+                                    className="w-full bg-[var(--color-accent)] text-white py-3 font-bold hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 rounded-md shadow-md"
                                 >
                                     {loading ? 'Entrando...' : 'Entrar'}
                                 </button>
@@ -325,7 +325,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="Seu nome"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none transition-colors rounded-md"
                                     />
                                 </div>
                                 <div>
@@ -348,7 +348,7 @@ const Account = () => {
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         placeholder="+244 900 000 000"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none transition-colors rounded-md"
                                     />
                                 </div>
                                 <div>
@@ -360,13 +360,13 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="Mínimo 6 caracteres"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none transition-colors rounded-md"
                                     />
                                 </div>
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full bg-[var(--color-accent)] text-[var(--color-primary)] py-3 font-bold hover:bg-[var(--color-primary)] hover:text-white transition-colors disabled:opacity-50"
+                                    className="w-full bg-[var(--color-accent)] text-white py-3 font-bold hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 rounded-md shadow-md"
                                 >
                                     {loading ? 'Criando...' : 'Criar Conta'}
                                 </button>
@@ -395,7 +395,7 @@ const Account = () => {
         <div className="min-h-screen bg-white py-12">
             <div className="max-w-[1200px] mx-auto px-4">
                 {/* Header do usuário */}
-                <div className="bg-white border-2 border-[var(--color-border)] p-6 mb-8 flex items-center justify-between">
+                <div className="bg-white border border-[var(--color-border-soft)] p-6 mb-8 flex items-center justify-between shadow-sm rounded-lg">
                     <div className="flex items-center gap-4">
                         <div className="w-16 h-16 bg-[var(--color-primary)] flex items-center justify-center text-white text-2xl font-bold">
                             {formData.name ? formData.name.charAt(0).toUpperCase() : 'U'}
@@ -407,7 +407,7 @@ const Account = () => {
                             <p className="text-sm text-gray-600">{formData.email}</p>
                         </div>
                     </div>
-                    <button onClick={handleLogout} className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 font-bold hover:opacity-90">
+                    <button onClick={handleLogout} className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-6 py-3 font-bold hover:brightness-110 transition-all rounded-md shadow-md">
                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7" /></svg>
                         Sair
                     </button>
@@ -418,41 +418,41 @@ const Account = () => {
                     <div className="space-y-2">
                         <button
                             onClick={() => setActiveTab('dados')}
-                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'dados'
-                                ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold transition-all rounded-md mb-2 ${activeTab === 'dados'
+                                ? 'bg-[var(--color-accent)] text-white shadow-md'
+                                : 'bg-white border border-[var(--color-border-soft)] text-gray-700 hover:border-[var(--color-accent)]'}`}
                         >
                             <User className="h-5 w-5" /> Dados pessoais
                         </button>
                         <button
                             onClick={() => setActiveTab('enderecos')}
-                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'enderecos'
-                                ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold transition-all rounded-md mb-2 ${activeTab === 'enderecos'
+                                ? 'bg-[var(--color-accent)] text-white shadow-md'
+                                : 'bg-white border border-[var(--color-border-soft)] text-gray-700 hover:border-[var(--color-accent)]'}`}
                         >
                             <MapPin className="h-5 w-5" /> Endereços
                         </button>
                         <button
                             onClick={() => setActiveTab('seguranca')}
-                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'seguranca'
-                                ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold transition-all rounded-md mb-2 ${activeTab === 'seguranca'
+                                ? 'bg-[var(--color-accent)] text-white shadow-md'
+                                : 'bg-white border border-[var(--color-border-soft)] text-gray-700 hover:border-[var(--color-accent)]'}`}
                         >
                             <Lock className="h-5 w-5" /> Segurança
                         </button>
                         <button
                             onClick={() => setActiveTab('desejos')}
-                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'desejos'
-                                ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                            className={`w-full flex items-center gap-3 px-4 py-3 font-semibold transition-all rounded-md ${activeTab === 'desejos'
+                                ? 'bg-[var(--color-accent)] text-white shadow-md'
+                                : 'bg-white border border-[var(--color-border-soft)] text-gray-700 hover:border-[var(--color-accent)]'}`}
                         >
-                            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                            <Heart className="h-5 w-5" />
                             Lista de desejos
                         </button>
                     </div>
 
                     {/* Conteúdo principal */}
-                    <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                    <div className="bg-white border border-[var(--color-border-soft)] p-8 rounded-lg shadow-sm">
                         {/* Dados pessoais */}
                         {activeTab === 'dados' && (
                             <div>
@@ -460,15 +460,15 @@ const Account = () => {
                                 <div className="space-y-4">
                                     <div>
                                         <label className="block font-semibold mb-2">Nome</label>
-                                        <input type="text" value={formData.name} disabled className="w-full px-4 py-3 border-2 border-[var(--color-border)] bg-gray-50" />
+                                        <input type="text" value={formData.name} disabled className="w-full px-4 py-3 border border-[var(--color-border-soft)] bg-gray-50 rounded-md" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Email</label>
-                                        <input type="email" value={formData.email} disabled className="w-full px-4 py-3 border-2 border-[var(--color-border)] bg-gray-50" />
+                                        <input type="email" value={formData.email} disabled className="w-full px-4 py-3 border border-[var(--color-border-soft)] bg-gray-50 rounded-md" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Telefone</label>
-                                        <input type="tel" value={formData.phone} disabled className="w-full px-4 py-3 border-2 border-[var(--color-border)] bg-gray-50" />
+                                        <input type="tel" value={formData.phone} disabled className="w-full px-4 py-3 border border-[var(--color-border-soft)] bg-gray-50 rounded-md" />
                                     </div>
                                 </div>
                             </div>
@@ -480,7 +480,7 @@ const Account = () => {
                                 <h2 className="text-2xl font-bold mb-4">Meus Endereços</h2>
                                 <div className="space-y-4 mb-8">
                                     {addresses.map((addr) => (
-                                        <div key={addr.id} className="border-2 border-[var(--color-border)] p-4 flex justify-between">
+                                        <div key={addr.id} className="border border-[var(--color-border-soft)] p-4 flex justify-between rounded-md shadow-sm">
                                             <div>
                                                 <p className="font-bold">{addr.contactName}</p>
                                                 <p>{addr.street}, {addr.neighborhood}</p>
@@ -493,35 +493,35 @@ const Account = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <form onSubmit={handleAddAddress} className="space-y-4 border-t-2 pt-4">
+                                <form onSubmit={handleAddAddress} className="space-y-4 border-t border-[var(--color-border-soft)] pt-4">
                                     <h3 className="font-bold text-lg">Adicionar Novo Endereço</h3>
                                     <div className="grid md:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block font-semibold mb-2">Nome Contato</label>
-                                            <input type="text" name="contactName" value={newAddress.contactName} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="contactName" value={newAddress.contactName} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Telefone</label>
-                                            <input type="tel" name="phone" value={newAddress.phone} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="tel" name="phone" value={newAddress.phone} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Província</label>
-                                            <input type="text" name="province" value={newAddress.province} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="province" value={newAddress.province} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Município</label>
-                                            <input type="text" name="city" value={newAddress.city} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="city" value={newAddress.city} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Bairro</label>
-                                            <input type="text" name="neighborhood" value={newAddress.neighborhood} onChange={handleAddressInputChange} className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="neighborhood" value={newAddress.neighborhood} onChange={handleAddressInputChange} className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Rua</label>
-                                            <input type="text" name="street" value={newAddress.street} onChange={handleAddressInputChange} className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="street" value={newAddress.street} onChange={handleAddressInputChange} className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                         </div>
                                     </div>
-                                    <button type="submit" disabled={loading} className="bg-[var(--color-accent)] text-[var(--color-primary)] px-8 py-3 font-bold hover:bg-[var(--color-primary)] hover:text-white">
+                                    <button type="submit" disabled={loading} className="bg-[var(--color-accent)] text-white px-8 py-3 font-bold hover:brightness-110 transition-all rounded-md shadow-md active:scale-[0.98]">
                                         {loading ? 'Adicionando...' : 'Adicionar Endereço'}
                                     </button>
                                 </form>
@@ -536,17 +536,17 @@ const Account = () => {
                                 <form onSubmit={handlePasswordChange} className="space-y-4 max-w-md">
                                     <div>
                                         <label className="block font-semibold mb-2">Senha atual</label>
-                                        <input type="password" name="currentPassword" value={passwordData.currentPassword} onChange={(e) => setPasswordData({ ...passwordData, currentPassword: e.target.value })} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                        <input type="password" name="currentPassword" value={passwordData.currentPassword} onChange={(e) => setPasswordData({ ...passwordData, currentPassword: e.target.value })} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Nova senha</label>
-                                        <input type="password" name="newPassword" value={passwordData.newPassword} onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                        <input type="password" name="newPassword" value={passwordData.newPassword} onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Confirmar nova senha</label>
-                                        <input type="password" name="confirmPassword" value={passwordData.confirmPassword} onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                        <input type="password" name="confirmPassword" value={passwordData.confirmPassword} onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })} required className="w-full px-4 py-3 border border-[var(--color-border-soft)] focus:border-[var(--color-accent)] outline-none rounded-md" />
                                     </div>
-                                    <button type="submit" disabled={loading} className="bg-[var(--color-primary)] text-white px-6 py-2 font-bold hover:opacity-90">
+                                    <button type="submit" disabled={loading} className="bg-[var(--color-accent)] text-white px-8 py-3 font-bold hover:brightness-110 transition-all rounded-md shadow-md active:scale-[0.98]">
                                         {loading ? 'Alterando...' : 'Alterar senha'}
                                     </button>
                                 </form>
@@ -561,11 +561,11 @@ const Account = () => {
                                 {favoriteProducts.length > 0 ? (
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {favoriteProducts.map((product) => (
-                                            <div key={product.id} className="border-2 border-[var(--color-border)] p-4 hover:shadow-lg transition-shadow">
+                                            <div key={product.id} className="border border-[var(--color-border-soft)] p-4 hover:shadow-lg transition-all rounded-lg bg-white">
                                                 <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4" />
                                                 <h3 className="font-bold text-lg mb-2">{product.name}</h3>
                                                 <p className="text-[var(--color-primary)] font-bold text-xl mb-4">{product.price.toFixed(2)} KZ</p>
-                                                <button onClick={() => navigate(`/produtos/${product.id}`)} className="w-full bg-[var(--color-accent)] text-[var(--color-primary)] py-2 font-bold hover:bg-[var(--color-primary)] hover:text-white">
+                                                <button onClick={() => navigate(`/produtos/${product.id}`)} className="w-full bg-[var(--color-accent)] text-white py-3 font-bold hover:brightness-110 transition-all rounded-md shadow-sm">
                                                     Ver Produto
                                                 </button>
                                             </div>

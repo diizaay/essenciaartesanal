@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const PromoBanner = () => (
   <section className="px-4 sm:px-6 lg:px-8 py-12">
-    <div className="max-w-[1200px] mx-auto bg-gradient-to-br from-[var(--color-bg-soft)] via-white to-[var(--color-bg-soft-2)] border-2 border-[var(--color-accent)]/30 rounded-3xl px-8 py-12 sm:px-12 sm:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 shadow-xl hover:shadow-2xl transition-all duration-500 fade-in relative overflow-hidden">
+    <div className="max-w-[1200px] mx-auto bg-gradient-to-br from-[var(--color-bg-soft)] via-white to-[var(--color-bg-soft-2)] border border-[var(--color-border-soft)] rounded-3xl px-8 py-12 sm:px-12 sm:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 shadow-xl hover:shadow-2xl transition-all duration-500 fade-in relative overflow-hidden">
 
       {/* Decorative pink blob */}
       <div className="absolute -top-20 -right-20 w-64 h-64 bg-[var(--color-accent)]/20 rounded-full blur-3xl" />
