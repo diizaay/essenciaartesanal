@@ -122,8 +122,8 @@ const Orders = () => {
                         key={status}
                         onClick={() => setFilter(status)}
                         className={`px-4 py-2 rounded-lg font-['Poppins'] font-medium transition-colors ${filter === status
-                                ? 'bg-[var(--color-primary)] text-white'
-                                : 'text-gray-600 hover:bg-gray-100'
+                            ? 'bg-[var(--color-primary)] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
                         {status === 'all' ? 'Todos' : status === 'draft' ? 'Rascunhos' : status === 'pending' ? 'Pendentes' : status === 'confirmed' ? 'Confirmados' : status === 'completed' ? 'Completos' : 'Cancelados'}
@@ -139,7 +139,7 @@ const Orders = () => {
                     </div>
                 ) : (
                     orders.map((order) => (
-                        <div key={order.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div key={order.id} className="bg-white shadow-md overflow-hidden">
                             {/* Order Header - Clickable */}
                             <div
                                 className="p-4 cursor-pointer hover:bg-gray-50 transition-colors"

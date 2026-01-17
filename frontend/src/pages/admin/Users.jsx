@@ -53,7 +53,7 @@ const Users = () => {
                 <p className="text-gray-500 font-['Poppins'] mt-1">{users.length} utilizadores no total</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div className="bg-white shadow-md overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead className="bg-gray-50">
@@ -95,8 +95,8 @@ const Users = () => {
                                         <td className="px-6 py-4">
                                             <span
                                                 className={`px-3 py-1 rounded-full text-xs font-['Poppins'] font-medium ${user.isAdmin
-                                                        ? 'bg-purple-100 text-purple-800'
-                                                        : 'bg-blue-100 text-blue-800'
+                                                    ? 'bg-purple-100 text-purple-800'
+                                                    : 'bg-blue-100 text-blue-800'
                                                     }`}
                                             >
                                                 {user.isAdmin ? 'Administrador' : 'Utilizador'}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Badge = ({ children, variant = "default", className = "" }) => {
   const base =
-    "inline-flex items-center rounded-full px-3 py-1 text-[11px] font-medium tracking-[0.25em] uppercase transition-colors";
+    "inline-flex items-center px-3 py-1 text-[11px] font-medium tracking-[0.25em] uppercase transition-colors";
   const variants = {
     default: "bg-[#CA1818] text-white",
     accent: "bg-[#FEB7B0] text-[#CA1818]",

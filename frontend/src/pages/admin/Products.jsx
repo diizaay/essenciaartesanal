@@ -87,7 +87,7 @@ const Products = () => {
                 </div>
                 <Link
                     to="/admin/produtos/novo"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-['Poppins'] font-medium shadow-md"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white hover:opacity-90 transition-opacity font-['Poppins'] font-medium shadow-md"
                 >
                     <Plus className="w-5 h-5" />
                     Novo Produto
@@ -95,7 +95,7 @@ const Products = () => {
             </div>
 
             {/* Search Bar */}
-            <div className="mb-6 bg-white rounded-lg shadow-md p-4">
+            <div className="mb-6 bg-white shadow-md p-4">
                 <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
@@ -103,13 +103,13 @@ const Products = () => {
                         placeholder="Pesquisar produtos por nome ou categoria..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent font-['Poppins']"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent font-['Poppins']"
                     />
                 </div>
             </div>
 
             {/* Products Table */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div className="bg-white shadow-md overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead className="bg-gray-50">
@@ -146,7 +146,7 @@ const Products = () => {
                                                 <img
                                                     src={product.images[0]}
                                                     alt={product.name}
-                                                    className="w-12 h-12 rounded-lg object-cover mr-4"
+                                                    className="w-12 h-12 object-cover mr-4"
                                                 />
                                                 <div>
                                                     <div className="text-sm font-['Poppins'] font-medium text-gray-900">
@@ -169,8 +169,8 @@ const Products = () => {
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span
                                                 className={`px-2 py-1 rounded-full text-xs font-['Poppins'] font-medium ${product.inStock
-                                                        ? 'bg-green-100 text-green-800'
-                                                        : 'bg-red-100 text-red-800'
+                                                    ? 'bg-green-100 text-green-800'
+                                                    : 'bg-red-100 text-red-800'
                                                     }`}
                                             >
                                                 {product.inStock ? 'Em Stock' : 'Esgotado'}
@@ -180,14 +180,14 @@ const Products = () => {
                                             <div className="flex items-center gap-2">
                                                 <Link
                                                     to={`/admin/produtos/editar/${product.id}`}
-                                                    className="text-blue-600 hover:text-blue-900 p-2 hover:bg-blue-50 rounded-lg transition-colors"
+                                                    className="text-blue-600 hover:text-blue-900 p-2 hover:bg-blue-50 transition-colors"
                                                     title="Editar"
                                                 >
                                                     <Edit className="w-5 h-5" />
                                                 </Link>
                                                 <button
                                                     onClick={() => handleDelete(product.id, product.name)}
-                                                    className="text-red-600 hover:text-red-900 p-2 hover:bg-red-50 rounded-lg transition-colors"
+                                                    className="text-red-600 hover:text-red-900 p-2 hover:bg-red-50 transition-colors"
                                                     title="Eliminar"
                                                 >
                                                     <Trash2 className="w-5 h-5" />

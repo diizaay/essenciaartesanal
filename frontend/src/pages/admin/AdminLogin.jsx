@@ -52,7 +52,7 @@ const AdminLogin = () => {
                     </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-[var(--color-border)]">
+                <div className="bg-white shadow-xl p-8 border-2 border-[var(--color-border)]">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label className="block text-sm font-['Poppins'] font-medium text-[var(--color-text)] mb-2">

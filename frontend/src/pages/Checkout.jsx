@@ -303,7 +303,7 @@ const Checkout = () => {
 
             {/* Payment Notice Banner */}
             <div className="max-w-[1200px] mx-auto px-4 -mt-8 mb-8">
-                <div className="bg-blue-50 border-2 border-blue-200 p-6 rounded-lg">
+                <div className="bg-blue-50 border-2 border-blue-200 p-6">
                     <div className="flex items-start gap-4">
                         <MessageCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
                         <div>
