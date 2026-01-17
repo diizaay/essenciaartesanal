@@ -12,7 +12,6 @@
   --color-text: #2C2C2C;
   --color-muted: #6B6B6B;
   --color-border: #d3af37;
-  --color-border-soft: rgba(211, 175, 55, 0.2);
   --color-success: #4CAF50;
   --color-warning: #FF9800;
 }
@@ -53,7 +52,7 @@ code {
     --border: 46 65% 62%;
     --input: 46 65% 62%;
     --ring: 353 76% 21%;
-    --radius: 0;
+    --radius: 1.5rem;
   }
 
   .dark {

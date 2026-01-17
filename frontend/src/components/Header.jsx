@@ -46,7 +46,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[var(--color-border-soft)]">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[var(--color-border)]">
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-8">
           {/* Logo */}
@@ -82,14 +82,14 @@ const Header = () => {
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label="Pesquisar"
-              className="h-11 w-11 grid place-items-center bg-white border border-[var(--color-border-soft)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
+              className="h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
             >
               <Search className="h-5 w-5" />
             </button>
             <Link
               to="/favoritos"
               aria-label={`Favoritos (${totalFavorites} itens)`}
-              className="relative h-11 w-11 grid place-items-center bg-white border border-[var(--color-border-soft)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
+              className="relative h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
             >
               <Heart className="h-5 w-5" />
               {totalFavorites > 0 && (
@@ -101,7 +101,7 @@ const Header = () => {
             <Link
               to="/carrinho"
               aria-label={`Carrinho (${totalQty} itens)`}
-              className="relative h-11 w-11 grid place-items-center bg-white border border-[var(--color-border-soft)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
+              className="relative h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
             >
               <ShoppingBag className="h-5 w-5" />
               {totalQty > 0 && (
@@ -113,7 +113,7 @@ const Header = () => {
             <Link
               to="/conta"
               aria-label="Minha conta"
-              className="h-11 w-11 grid place-items-center bg-white border border-[var(--color-border-soft)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
+              className="h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)] hover:text-[var(--color-primary)] hover:shadow-sm hover:-translate-y-0.5 transition"
             >
               <User className="h-5 w-5" />
             </Link>
@@ -122,7 +122,7 @@ const Header = () => {
                 type="button"
                 onClick={handleLogout}
                 aria-label="Sair"
-                className="h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border-soft)] text-[var(--color-text)] hover:text-red-600 hover:shadow-sm hover:-translate-y-0.5 transition"
+                className="h-11 w-11 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)] hover:text-red-600 hover:shadow-sm hover:-translate-y-0.5 transition"
               >
                 <LogOut className="h-5 w-5" />
               </button>
@@ -135,7 +135,7 @@ const Header = () => {
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label="Pesquisar"
-              className="h-10 w-10 grid place-items-center bg-white border border-[var(--color-border-soft)] text-[var(--color-text)]"
+              className="h-10 w-10 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)]"
             >
               <Search className="h-5 w-5" />
             </button>
@@ -143,7 +143,7 @@ const Header = () => {
             <Link
               to="/carrinho"
               aria-label={`Carrinho (${totalQty} itens)`}
-              className="relative h-10 w-10 grid place-items-center bg-white border border-[var(--color-border-soft)] text-[var(--color-text)]"
+              className="relative h-10 w-10 grid place-items-center rounded-full bg-white border border-[var(--color-border)] text-[var(--color-text)]"
             >
               <ShoppingBag className="h-5 w-5" />
               {totalQty > 0 && (
@@ -154,7 +154,7 @@ const Header = () => {
             </Link>
 
             <button
-              className="h-10 w-10 grid place-items-center border border-[var(--color-border-soft)] text-[var(--color-primary)]"
+              className="h-10 w-10 grid place-items-center rounded-full border border-[var(--color-border)] text-[var(--color-primary)]"
               onClick={() => setMobileOpen((s) => !s)}
               aria-label="Abrir menu"
             >
@@ -165,7 +165,7 @@ const Header = () => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden border-t border-[var(--color-border-soft)] bg-[var(--color-bg-soft)] px-6 py-6 space-y-4 shadow-lg">
+        <div className="lg:hidden border-t border-[var(--color-border)] bg-[var(--color-bg-soft)] px-6 py-6 space-y-4 shadow-lg">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -178,7 +178,7 @@ const Header = () => {
           ))}
 
           {/* Separator */}
-          <div className="border-t border-[var(--color-border-soft)] my-4"></div>
+          <div className="border-t border-[var(--color-border)] my-4"></div>
 
           {/* Account link */}
           <Link

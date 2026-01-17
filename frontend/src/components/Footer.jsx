@@ -31,7 +31,7 @@ const columns = [
 ];
 
 const Footer = () => (
-  <footer className="px-4 sm:px-6 lg:px-8 bg-white border-t border-[var(--color-border-soft)]">
+  <footer className="px-4 sm:px-6 lg:px-8 bg-white border-t border-[var(--color-border)]">
     <div className="max-w-[1200px] mx-auto py-16 space-y-12">
       <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
         {/* Logo e Info */}
@@ -110,7 +110,7 @@ const Footer = () => (
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-[var(--color-border-soft)] pt-6 text-center text-sm text-gray-600 space-y-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+      <div className="border-t border-[var(--color-border)] pt-6 text-center text-sm text-gray-600 space-y-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
         <p>© {new Date().getFullYear()} Essência Artesanal · Todos os direitos reservados</p>
         <p>
           Desenvolvido por{' '}

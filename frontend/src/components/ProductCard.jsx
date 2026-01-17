@@ -27,7 +27,7 @@ const ProductCard = ({ product, featured, hideTags = false }) => {
   return (
     <article
       onClick={() => navigate(`/produtos/${product.id}`)}
-      className="group relative border border-[var(--color-border-soft)] bg-white overflow-hidden transition-all hover-lift h-full flex flex-col cursor-pointer shadow-sm"
+      className="group relative border-2 border-[var(--color-accent)]/30 bg-white overflow-hidden transition-all hover-lift h-full flex flex-col cursor-pointer"
     >
       <div className="relative">
         <img
@@ -43,7 +43,7 @@ const ProductCard = ({ product, featured, hideTags = false }) => {
         <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-2 opacity-0 translate-y-3 transition-all group-hover:opacity-100 group-hover:translate-y-0">
           <button
             onClick={(e) => { e.stopPropagation(); handleAdd(e); }}
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] text-white px-4 py-2 text-[12px] font-bold transition-all duration-300 hover:brightness-110 active:scale-95 shadow-sm"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] text-[var(--color-primary)] px-4 py-2 text-[12px] font-semibold hover:bg-[var(--color-primary)] hover:text-white transition-all shadow-sm"
             aria-label={`Adicionar ${product.name} ao carrinho`}
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
@@ -53,7 +53,7 @@ const ProductCard = ({ product, featured, hideTags = false }) => {
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); handleFavorite(e); }}
-            className={`h-10 w-10 grid place-items-center border transition-all shadow-sm ${favorited ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]' : 'bg-white text-[var(--color-primary)] border-[var(--color-border-soft)] hover:border-[var(--color-accent)]'
+            className={`h-10 w-10 grid place-items-center rounded-full border-2 transition-all shadow-sm ${favorited ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]' : 'bg-white text-[var(--color-primary)] border-[var(--color-accent)]/30 hover:border-[var(--color-accent)]'
               }`}
             aria-label="Adicionar aos favoritos"
           >

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const GiftIdeasBanner = () => (
   <section className="px-4 sm:px-6 lg:px-8 py-12 fade-in">
     <div className="max-w-[1200px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] border border-[var(--color-border-soft)] bg-[var(--color-bg-soft)] overflow-hidden shadow-lg min-h-[350px] lg:min-h-[400px]">
+      <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] border-2 border-[var(--color-accent)]/30 bg-[var(--color-bg-soft)] overflow-hidden shadow-lg min-h-[350px] lg:min-h-[400px]">
 
         {/* Imagem à Esquerda */}
         <div className="bg-[var(--color-bg-soft)] overflow-hidden order-2 lg:order-1">
@@ -32,7 +32,7 @@ const GiftIdeasBanner = () => (
           </p>
 
           <Link to="/produtos" className="inline-flex self-start">
-            <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110 active:scale-95 uppercase tracking-wide shadow-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white hover:-translate-y-1 hover:shadow-lg uppercase tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Vamos lá
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>

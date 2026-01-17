@@ -139,7 +139,7 @@ const Orders = () => {
                     </div>
                 ) : (
                     orders.map((order) => (
-                        <div key={order.id} className="bg-white shadow-md overflow-hidden">
+                        <div key={order.id} className="bg-white rounded-xl shadow-md overflow-hidden">
                             {/* Order Header - Clickable */}
                             <div
                                 className="p-4 cursor-pointer hover:bg-gray-50 transition-colors"

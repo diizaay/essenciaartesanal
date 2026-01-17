@@ -92,8 +92,7 @@ const ProductDetail = () => {
                     <p className="text-gray-600 mb-4">Produto não encontrado</p>
                     <button
                         onClick={() => navigate('/produtos')}
-                        className="bg-[var(--color-accent)] text-white px-8 py-3 font-bold hover:brightness-110 active:scale-95 transition-all shadow-md uppercase tracking-wide"
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
+                        className="bg-[var(--color-accent)] text-[var(--color-primary)] px-6 py-2 font-bold hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                     >
                         Ver Todos os Produtos
                     </button>
@@ -340,8 +339,7 @@ const ProductDetail = () => {
                         <div className="space-y-4 pt-4">
                             <button
                                 onClick={handleAddToCart}
-                                className="w-full flex items-center justify-center gap-3 bg-[var(--color-accent)] text-white px-8 py-4 font-bold hover:brightness-110 active:scale-95 transition-all shadow-md uppercase tracking-wide"
-                                style={{ fontFamily: 'Poppins, sans-serif' }}
+                                className="w-full flex items-center justify-center gap-3 bg-[var(--color-accent)] text-[var(--color-primary)] px-8 py-4 font-bold hover:bg-[var(--color-primary)] hover:text-white transition-colors"
                             >
                                 <ShoppingBag className="h-5 w-5" />
                                 Adicionar ao Carrinho

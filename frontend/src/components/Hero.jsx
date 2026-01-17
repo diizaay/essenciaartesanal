@@ -41,7 +41,7 @@ const Hero = () => {
             </p>
 
             <Link to="/produtos" className="inline-flex self-start">
-              <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110 active:scale-95 uppercase tracking-wide shadow-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <button className="inline-flex items-center gap-2 bg-[var(--color-accent)] px-8 py-3 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Explorar Produtos
                 <ArrowRight className="h-5 w-5" />
               </button>

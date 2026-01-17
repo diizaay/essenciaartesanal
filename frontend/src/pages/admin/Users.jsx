@@ -53,7 +53,7 @@ const Users = () => {
                 <p className="text-gray-500 font-['Poppins'] mt-1">{users.length} utilizadores no total</p>
             </div>
 
-            <div className="bg-white shadow-md overflow-hidden">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead className="bg-gray-50">

@@ -134,7 +134,7 @@ const DeliveryZonesAdmin = () => {
                 </button>
             </div>
 
-            <div className="bg-white shadow-md overflow-x-auto border-2 border-[var(--color-border)]">
+            <div className="bg-white rounded-xl shadow-md overflow-x-auto border-2 border-[var(--color-border)]">
                 <table className="w-full">
                     <thead className="bg-[var(--color-bg-soft)]">
                         <tr className="text-left">
