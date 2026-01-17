@@ -134,7 +134,7 @@ const DeliveryZonesAdmin = () => {
                 </button>
             </div>
 
-            <div className="bg-white rounded-xl shadow-md overflow-x-auto border-2 border-[var(--color-border)]">
+            <div className="bg-white rounded-xl shadow-md overflow-x-auto border border-[var(--color-border)]">
                 <table className="w-full">
                     <thead className="bg-[var(--color-bg-soft)]">
                         <tr className="text-left">
@@ -198,7 +198,7 @@ const DeliveryZonesAdmin = () => {
                                     type="text"
                                     value={formData.province}
                                     onChange={(e) => setFormData({ ...formData, province: e.target.value })}
-                                    className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                    className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     placeholder="Ex: Luanda"
                                     required
                                 />
@@ -210,7 +210,7 @@ const DeliveryZonesAdmin = () => {
                                     type="text"
                                     value={formData.city}
                                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                                    className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                    className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     placeholder="Ex: Viana"
                                     required
                                 />
@@ -223,7 +223,7 @@ const DeliveryZonesAdmin = () => {
                                     step="0.01"
                                     value={formData.fee}
                                     onChange={(e) => setFormData({ ...formData, fee: e.target.value })}
-                                    className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                    className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     placeholder="500.00"
                                     required
                                 />
@@ -235,7 +235,7 @@ const DeliveryZonesAdmin = () => {
                                     type="text"
                                     value={formData.estimatedDays}
                                     onChange={(e) => setFormData({ ...formData, estimatedDays: e.target.value })}
-                                    className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                    className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     placeholder="1-3 dias"
                                 />
                             </div>
@@ -259,7 +259,7 @@ const DeliveryZonesAdmin = () => {
                                         setEditingZone(null);
                                         resetForm();
                                     }}
-                                    className="flex-1 px-6 py-3 border-2 border-[var(--color-border)] text-[var(--color-text)] font-semibold hover:bg-[var(--color-bg-soft)] transition-colors"
+                                    className="flex-1 px-6 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-semibold hover:bg-[var(--color-bg-soft)] transition-colors"
                                 >
                                     Cancelar
                                 </button>

@@ -98,7 +98,7 @@ const Products = () => {
                 variant={!categoryParam ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setSearchParams({})}
-                className={!categoryParam ? 'bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white' : 'border-2 border-[var(--color-border)] hover:border-[var(--color-primary)]'}
+                className={!categoryParam ? 'bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white' : 'border border-[var(--color-border)] hover:border-[var(--color-primary)]'}
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Todos
@@ -109,7 +109,7 @@ const Products = () => {
                   variant={categoryParam === cat.slug ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => setSearchParams({ categoria: cat.slug })}
-                  className={categoryParam === cat.slug ? 'bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white' : 'border-2 border-[var(--color-border)] hover:border-[var(--color-primary)]'}
+                  className={categoryParam === cat.slug ? 'bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white' : 'border border-[var(--color-border)] hover:border-[var(--color-primary)]'}
                   style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   {cat.name}
@@ -119,7 +119,7 @@ const Products = () => {
           </div>
 
           {/* Sort */}
-          <div className="flex items-center gap-3 bg-[var(--color-bg-soft)] px-6 py-3 border-2 border-[var(--color-border)]">
+          <div className="flex items-center gap-3 bg-[var(--color-bg-soft)] px-6 py-3 border border-[var(--color-border)]">
             <Filter className="h-5 w-5 text-[var(--color-primary)]" />
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[220px] border-0 focus:ring-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -144,7 +144,7 @@ const Products = () => {
           </div>
         ) : (
           <div className="text-center py-20">
-            <div className="w-24 h-24 bg-[var(--color-bg-soft)] mx-auto mb-6 flex items-center justify-center border-2 border-[var(--color-border)]">
+            <div className="w-24 h-24 bg-[var(--color-bg-soft)] mx-auto mb-6 flex items-center justify-center border border-[var(--color-border)]">
               <Package className="h-12 w-12 text-[var(--color-primary)]" />
             </div>
             <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>

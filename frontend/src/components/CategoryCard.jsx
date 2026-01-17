@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CategoryCard = ({ category, index }) => (
-  <article className="group border-2 border-[var(--color-accent)]/30 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[var(--color-accent)]">
+  <article className="group border border-[var(--color-accent)]/30 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[var(--color-accent)]">
     <div className="overflow-hidden">
       <img
         src={category.image}

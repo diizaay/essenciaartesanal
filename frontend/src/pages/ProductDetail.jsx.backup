@@ -189,7 +189,7 @@ const ProductDetail = () => {
                 <div className="grid md:grid-cols-2 gap-12 mb-16">
                     {/* Image Gallery */}
                     <div>
-                        <div className="border-2 border-[var(--color-border)] mb-4 overflow-hidden">
+                        <div className="border border-[var(--color-border)] mb-4 overflow-hidden">
                             <img
                                 src={images[selectedImage]}
                                 alt={product.name}
@@ -202,7 +202,7 @@ const ProductDetail = () => {
                                     <button
                                         key={index}
                                         onClick={() => setSelectedImage(index)}
-                                        className={`border-2 overflow-hidden transition-all ${selectedImage === index
+                                        className={`border overflow-hidden transition-all ${selectedImage === index
                                             ? 'border-[var(--color-primary)]'
                                             : 'border-[var(--color-border)] hover:border-[var(--color-accent)]'
                                             }`}
@@ -250,7 +250,7 @@ const ProductDetail = () => {
 
                         {product.category && (
                             <div>
-                                <span className="inline-block bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)]">
+                                <span className="inline-block bg-[var(--color-bg-soft)] border border-[var(--color-border)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)]">
                                     {product.category}
                                 </span>
                             </div>
@@ -262,14 +262,14 @@ const ProductDetail = () => {
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                    className="h-12 w-12 grid place-items-center border-2 border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
+                                    className="h-12 w-12 grid place-items-center border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
                                 >
                                     -
                                 </button>
                                 <span className="text-xl font-bold min-w-[60px] text-center">{quantity}</span>
                                 <button
                                     onClick={() => setQuantity(quantity + 1)}
-                                    className="h-12 w-12 grid place-items-center border-2 border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
+                                    className="h-12 w-12 grid place-items-center border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
                                 >
                                     +
                                 </button>
@@ -299,7 +299,7 @@ const ProductDetail = () => {
                         {/* Favorite Button */}
                         <button
                             onClick={handleToggleFavorite}
-                            className={`w-full flex items-center justify-center gap-2 border-2 py-3 transition-all ${favorited
+                            className={`w-full flex items-center justify-center gap-2 border py-3 transition-all ${favorited
                                 ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
                                 : 'bg-white text-[var(--color-primary)] border-[var(--color-border)] hover:border-[var(--color-primary)]'
                                 }`}

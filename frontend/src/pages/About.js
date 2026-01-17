@@ -6,7 +6,7 @@ const About = () => (
     {/* Hero Section */}
     <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
       <div className="max-w-[1200px] mx-auto text-center relative z-10">
-        <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+        <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
           <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
             SOBRE NÓS
           </span>
@@ -109,7 +109,7 @@ const About = () => (
                   { icon: Users, title: 'Impacto Social', desc: 'Apoio direto a comunidades artesanais locais.' },
                   { icon: Palette, title: 'Experiência', desc: 'Design contemporâneo que combina tradição e modernidade.' }
                 ].map((item, idx) => (
-                  <div key={idx} className="p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
+                  <div key={idx} className="p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
                     <item.icon className="h-10 w-10 text-[var(--color-primary)] mb-4" />
                     <h3 className="text-lg font-bold text-[var(--color-primary)] mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                       {item.title}
@@ -127,7 +127,7 @@ const About = () => (
         {/* Sidebar - Takes 1 column */}
         <div className="lg:col-span-1 space-y-6">
           {/* Como trabalhamos */}
-          <div className="bg-white p-8 shadow-xl border-2 border-[var(--color-border)]">
+          <div className="bg-white p-8 shadow-xl border border-[var(--color-border)]">
             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Como Trabalhamos
             </h3>
@@ -156,7 +156,7 @@ const About = () => (
           </div>
 
           {/* Nosso Compromisso */}
-          <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-8 shadow-xl">
+          <div className="bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-8 shadow-xl">
             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Nosso Compromisso
             </h3>
@@ -189,7 +189,7 @@ const About = () => (
               </a>
               <a
                 href="/contacto"
-                className="flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-6 py-3 font-bold text-sm hover:bg-white hover:text-[var(--color-primary)] transition-all duration-300 w-full"
+                className="flex items-center justify-center gap-2 bg-transparent border border-white text-white px-6 py-3 font-bold text-sm hover:bg-white hover:text-[var(--color-primary)] transition-all duration-300 w-full"
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Fale Connosco

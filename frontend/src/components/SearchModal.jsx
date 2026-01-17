@@ -88,14 +88,14 @@ const SearchModal = ({ isOpen, onClose }) => {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 placeholder="Pesquisar produtos..."
-                                className="w-full pl-12 pr-4 py-4 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] focus:outline-none text-lg"
+                                className="w-full pl-12 pr-4 py-4 border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:outline-none text-lg"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}
                                 autoFocus
                             />
                         </div>
                         <button
                             onClick={onClose}
-                            className="h-12 w-12 flex items-center justify-center border-2 border-[var(--color-border)] text-gray-600 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition"
+                            className="h-12 w-12 flex items-center justify-center border border-[var(--color-border)] text-gray-600 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition"
                             aria-label="Fechar pesquisa"
                         >
                             <X className="h-6 w-6" />
@@ -129,7 +129,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                                         key={product.id}
                                         to={`/produto/${product.slug}`}
                                         onClick={onClose}
-                                        className="flex items-center gap-4 p-4 bg-[var(--color-bg-soft)] hover:bg-[var(--color-accent)]/30 transition border-2 border-transparent hover:border-[var(--color-accent)]"
+                                        className="flex items-center gap-4 p-4 bg-[var(--color-bg-soft)] hover:bg-[var(--color-accent)]/30 transition border border-transparent hover:border-[var(--color-accent)]"
                                     >
                                         <img
                                             src={product.image}

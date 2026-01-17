@@ -236,7 +236,7 @@ const Account = () => {
         return (
             <div className="min-h-screen bg-[var(--color-bg-soft)] py-12">
                 <div className="max-w-md mx-auto px-4">
-                    <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                    <div className="bg-white border border-[var(--color-border)] p-8">
                         {/* Logo/Title */}
                         <div className="text-center mb-8">
                             <h1 className="text-3xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins' }}>
@@ -278,7 +278,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="seu@email.com"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -290,7 +290,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="••••••••"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     />
                                 </div>
                                 <button
@@ -325,7 +325,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="Seu nome"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -337,7 +337,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="seu@email.com"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -348,7 +348,7 @@ const Account = () => {
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         placeholder="+244 900 000 000"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -360,7 +360,7 @@ const Account = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="Mínimo 6 caracteres"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none transition-colors"
                                     />
                                 </div>
                                 <button
@@ -395,7 +395,7 @@ const Account = () => {
         <div className="min-h-screen bg-white py-12">
             <div className="max-w-[1200px] mx-auto px-4">
                 {/* Header do usuário */}
-                <div className="bg-white border-2 border-[var(--color-border)] p-6 mb-8 flex items-center justify-between">
+                <div className="bg-white border border-[var(--color-border)] p-6 mb-8 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <div className="w-16 h-16 bg-[var(--color-primary)] flex items-center justify-center text-white text-2xl font-bold">
                             {formData.name ? formData.name.charAt(0).toUpperCase() : 'U'}
@@ -420,7 +420,7 @@ const Account = () => {
                             onClick={() => setActiveTab('dados')}
                             className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'dados'
                                 ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                                : 'bg-white border border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
                         >
                             <User className="h-5 w-5" /> Dados pessoais
                         </button>
@@ -428,7 +428,7 @@ const Account = () => {
                             onClick={() => setActiveTab('enderecos')}
                             className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'enderecos'
                                 ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                                : 'bg-white border border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
                         >
                             <MapPin className="h-5 w-5" /> Endereços
                         </button>
@@ -436,7 +436,7 @@ const Account = () => {
                             onClick={() => setActiveTab('seguranca')}
                             className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'seguranca'
                                 ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                                : 'bg-white border border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
                         >
                             <Lock className="h-5 w-5" /> Segurança
                         </button>
@@ -444,7 +444,7 @@ const Account = () => {
                             onClick={() => setActiveTab('desejos')}
                             className={`w-full flex items-center gap-3 px-4 py-3 font-semibold ${activeTab === 'desejos'
                                 ? 'bg-[var(--color-primary)] text-white'
-                                : 'bg-white border-2 border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
+                                : 'bg-white border border-[var(--color-border)] text-gray-700 hover:border-[var(--color-primary)]'}`}
                         >
                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                             Lista de desejos
@@ -452,7 +452,7 @@ const Account = () => {
                     </div>
 
                     {/* Conteúdo principal */}
-                    <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                    <div className="bg-white border border-[var(--color-border)] p-8">
                         {/* Dados pessoais */}
                         {activeTab === 'dados' && (
                             <div>
@@ -460,15 +460,15 @@ const Account = () => {
                                 <div className="space-y-4">
                                     <div>
                                         <label className="block font-semibold mb-2">Nome</label>
-                                        <input type="text" value={formData.name} disabled className="w-full px-4 py-3 border-2 border-[var(--color-border)] bg-gray-50" />
+                                        <input type="text" value={formData.name} disabled className="w-full px-4 py-3 border border-[var(--color-border)] bg-gray-50" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Email</label>
-                                        <input type="email" value={formData.email} disabled className="w-full px-4 py-3 border-2 border-[var(--color-border)] bg-gray-50" />
+                                        <input type="email" value={formData.email} disabled className="w-full px-4 py-3 border border-[var(--color-border)] bg-gray-50" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Telefone</label>
-                                        <input type="tel" value={formData.phone} disabled className="w-full px-4 py-3 border-2 border-[var(--color-border)] bg-gray-50" />
+                                        <input type="tel" value={formData.phone} disabled className="w-full px-4 py-3 border border-[var(--color-border)] bg-gray-50" />
                                     </div>
                                 </div>
                             </div>
@@ -480,7 +480,7 @@ const Account = () => {
                                 <h2 className="text-2xl font-bold mb-4">Meus Endereços</h2>
                                 <div className="space-y-4 mb-8">
                                     {addresses.map((addr) => (
-                                        <div key={addr.id} className="border-2 border-[var(--color-border)] p-4 flex justify-between">
+                                        <div key={addr.id} className="border border-[var(--color-border)] p-4 flex justify-between">
                                             <div>
                                                 <p className="font-bold">{addr.contactName}</p>
                                                 <p>{addr.street}, {addr.neighborhood}</p>
@@ -498,27 +498,27 @@ const Account = () => {
                                     <div className="grid md:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block font-semibold mb-2">Nome Contato</label>
-                                            <input type="text" name="contactName" value={newAddress.contactName} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="contactName" value={newAddress.contactName} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Telefone</label>
-                                            <input type="tel" name="phone" value={newAddress.phone} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="tel" name="phone" value={newAddress.phone} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Província</label>
-                                            <input type="text" name="province" value={newAddress.province} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="province" value={newAddress.province} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Município</label>
-                                            <input type="text" name="city" value={newAddress.city} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="city" value={newAddress.city} onChange={handleAddressInputChange} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Bairro</label>
-                                            <input type="text" name="neighborhood" value={newAddress.neighborhood} onChange={handleAddressInputChange} className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="neighborhood" value={newAddress.neighborhood} onChange={handleAddressInputChange} className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                         </div>
                                         <div>
                                             <label className="block font-semibold mb-2">Rua</label>
-                                            <input type="text" name="street" value={newAddress.street} onChange={handleAddressInputChange} className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                            <input type="text" name="street" value={newAddress.street} onChange={handleAddressInputChange} className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                         </div>
                                     </div>
                                     <button type="submit" disabled={loading} className="bg-[var(--color-accent)] text-[var(--color-primary)] px-8 py-3 font-bold hover:bg-[var(--color-primary)] hover:text-white">
@@ -536,15 +536,15 @@ const Account = () => {
                                 <form onSubmit={handlePasswordChange} className="space-y-4 max-w-md">
                                     <div>
                                         <label className="block font-semibold mb-2">Senha atual</label>
-                                        <input type="password" name="currentPassword" value={passwordData.currentPassword} onChange={(e) => setPasswordData({ ...passwordData, currentPassword: e.target.value })} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                        <input type="password" name="currentPassword" value={passwordData.currentPassword} onChange={(e) => setPasswordData({ ...passwordData, currentPassword: e.target.value })} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Nova senha</label>
-                                        <input type="password" name="newPassword" value={passwordData.newPassword} onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                        <input type="password" name="newPassword" value={passwordData.newPassword} onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                     </div>
                                     <div>
                                         <label className="block font-semibold mb-2">Confirmar nova senha</label>
-                                        <input type="password" name="confirmPassword" value={passwordData.confirmPassword} onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })} required className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
+                                        <input type="password" name="confirmPassword" value={passwordData.confirmPassword} onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })} required className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none" />
                                     </div>
                                     <button type="submit" disabled={loading} className="bg-[var(--color-primary)] text-white px-6 py-2 font-bold hover:opacity-90">
                                         {loading ? 'Alterando...' : 'Alterar senha'}
@@ -561,7 +561,7 @@ const Account = () => {
                                 {favoriteProducts.length > 0 ? (
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {favoriteProducts.map((product) => (
-                                            <div key={product.id} className="border-2 border-[var(--color-border)] p-4 hover:shadow-lg transition-shadow">
+                                            <div key={product.id} className="border border-[var(--color-border)] p-4 hover:shadow-lg transition-shadow">
                                                 <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4" />
                                                 <h3 className="font-bold text-lg mb-2">{product.name}</h3>
                                                 <p className="text-[var(--color-primary)] font-bold text-xl mb-4">{product.price.toFixed(2)} KZ</p>

@@ -37,7 +37,7 @@ const Features = () => (
         {featureItems.map(({ title, description, icon }, index) => (
           <div
             key={title}
-            className="group relative bg-white border-2 border-[var(--color-accent)]/30 p-8 transition-all duration-500 hover:border-[var(--color-accent)] hover:shadow-xl hover:-translate-y-2 fade-in"
+            className="group relative bg-white border border-[var(--color-accent)]/30 p-8 transition-all duration-500 hover:border-[var(--color-accent)] hover:shadow-xl hover:-translate-y-2 fade-in"
             style={{ animationDelay: `${index * 0.15}s` }}
           >
             {/* Icon */}

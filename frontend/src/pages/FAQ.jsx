@@ -113,7 +113,7 @@ const FAQ = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             FAQ • APOIO AO CLIENTE
                         </span>
@@ -193,7 +193,7 @@ const FAQ = () => {
                                             return (
                                                 <div
                                                     key={index}
-                                                    className="border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300"
+                                                    className="border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300"
                                                 >
                                                     <button
                                                         onClick={() => toggleFAQ(globalIndex)}

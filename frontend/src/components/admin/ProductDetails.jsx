@@ -34,7 +34,7 @@ const ProductDetails = ({ details, setDetails }) => {
             </div>
 
             {/* Add Detail Form */}
-            <div className="bg-gray-50 border-2 border-gray-200 p-4">
+            <div className="bg-gray-50 border border-gray-200 p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
                         <input
@@ -42,7 +42,7 @@ const ProductDetails = ({ details, setDetails }) => {
                             placeholder="Título (ex: Materiais)"
                             value={newDetail.label}
                             onChange={(e) => setNewDetail({ ...newDetail, label: e.target.value })}
-                            className="w-full px-3 py-2 border-2 border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
                         />
                     </div>
                     <div className="flex gap-2">
@@ -51,7 +51,7 @@ const ProductDetails = ({ details, setDetails }) => {
                             placeholder="Valor (ex: Prata de lei, 14k banhado a ouro)"
                             value={newDetail.value}
                             onChange={(e) => setNewDetail({ ...newDetail, value: e.target.value })}
-                            className="flex-1 px-3 py-2 border-2 border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
+                            className="flex-1 px-3 py-2 border border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
                         />
                         <button
                             type="button"
@@ -72,7 +72,7 @@ const ProductDetails = ({ details, setDetails }) => {
                     {details.map((detail, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-between bg-white border-2 border-gray-200 p-3"
+                            className="flex items-center justify-between bg-white border border-gray-200 p-3"
                         >
                             <div className="flex-1">
                                 <span className="font-semibold text-sm">{detail.label}:</span>

@@ -6,7 +6,7 @@ const Shipping = () => (
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
             <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                     <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                         ENVIOS & ENTREGAS
                     </span>
@@ -99,7 +99,7 @@ const Shipping = () => (
                         <div className="p-8">
                             <div className="space-y-6">
                                 {/* Luanda */}
-                                <div className="p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300">
+                                <div className="p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300">
                                     <div className="flex items-start justify-between mb-3">
                                         <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             LUANDA - ZONA URBANA
@@ -114,7 +114,7 @@ const Shipping = () => (
                                 </div>
 
                                 {/* Outras Zonas Luanda */}
-                                <div className="p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300">
+                                <div className="p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300">
                                     <div className="flex items-start justify-between mb-3">
                                         <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             LUANDA - PERIFERIAS
@@ -129,7 +129,7 @@ const Shipping = () => (
                                 </div>
 
                                 {/* Outras Províncias */}
-                                <div className="p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300">
+                                <div className="p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300">
                                     <div className="flex items-start justify-between mb-3">
                                         <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             OUTRAS PROVÍNCIAS
@@ -200,7 +200,7 @@ const Shipping = () => (
                 {/* Sidebar - Takes 1 column */}
                 <div className="lg:col-span-1 space-y-6">
                     {/* Custos de Envio */}
-                    <div className="bg-white p-8 shadow-xl border-2 border-[var(--color-border)]">
+                    <div className="bg-white p-8 shadow-xl border border-[var(--color-border)]">
                         <div className="flex items-center gap-3 mb-6">
                             <DollarSign className="h-8 w-8 text-[var(--color-primary)]" />
                             <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -215,7 +215,7 @@ const Shipping = () => (
                     </div>
 
                     {/* Preparação de encomenda */}
-                    <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-8 shadow-xl">
+                    <div className="bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-8 shadow-xl">
                         <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             Preparação de encomenda
                         </h3>
@@ -250,7 +250,7 @@ const Shipping = () => (
                     </div>
 
                     {/* Dúvidas */}
-                    <div className="bg-white border-2 border-[var(--color-border)] p-8 shadow-xl">
+                    <div className="bg-white border border-[var(--color-border)] p-8 shadow-xl">
                         <h3 className="text-lg font-bold text-[var(--color-primary)] mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             Ainda com dúvidas sobre envios?
                         </h3>
@@ -267,7 +267,7 @@ const Shipping = () => (
                             </a>
                             <a
                                 href="/contacto"
-                                className="block text-center border-2 border-[var(--color-border)] text-[var(--color-primary)] px-6 py-3 font-bold text-sm hover:border-[var(--color-primary)] transition-all duration-300"
+                                className="block text-center border border-[var(--color-border)] text-[var(--color-primary)] px-6 py-3 font-bold text-sm hover:border-[var(--color-primary)] transition-all duration-300"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}
                             >
                                 Fala Connosco

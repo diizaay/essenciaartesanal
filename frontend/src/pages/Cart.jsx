@@ -28,7 +28,7 @@ const Cart = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             CARRINHO DE COMPRAS
                         </span>
@@ -51,7 +51,7 @@ const Cart = () => {
                         {/* Cart Items */}
                         <div className="lg:col-span-2 space-y-4">
                             {items.map((item) => (
-                                <div key={item.productId || item.id} className="flex gap-4 p-4 border-2 border-[var(--color-border)] bg-white hover:shadow-md transition-shadow">
+                                <div key={item.productId || item.id} className="flex gap-4 p-4 border border-[var(--color-border)] bg-white hover:shadow-md transition-shadow">
                                     {/* Product Image */}
                                     <div className="w-24 h-24 flex-shrink-0 bg-[var(--color-bg-soft)] border border-[var(--color-border)]">
                                         <img
@@ -74,7 +74,7 @@ const Cart = () => {
 
                                         {/* Quantity Controls */}
                                         <div className="flex items-center gap-4 mt-2">
-                                            <div className="flex items-center border-2 border-[var(--color-border)]">
+                                            <div className="flex items-center border border-[var(--color-border)]">
                                                 <button
                                                     onClick={() => handleDecrement(item)}
                                                     className="p-2 hover:bg-[var(--color-bg-soft)] transition-colors"
@@ -119,7 +119,7 @@ const Cart = () => {
 
                         {/* Order Summary */}
                         <div className="lg:col-span-1">
-                            <div className="border-2 border-[var(--color-border)] p-6 bg-[var(--color-bg-soft)] sticky top-4">
+                            <div className="border border-[var(--color-border)] p-6 bg-[var(--color-bg-soft)] sticky top-4">
                                 <h2 className="text-2xl font-bold text-gray-800 mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                     Resumo do Pedido
                                 </h2>
@@ -149,7 +149,7 @@ const Cart = () => {
                                 </Link>
 
                                 <Link to="/produtos">
-                                    <button className="w-full mt-3 bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] py-4 font-bold text-sm transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                    <button className="w-full mt-3 bg-white border border-[var(--color-primary)] text-[var(--color-primary)] py-4 font-bold text-sm transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                         CONTINUAR COMPRANDO
                                     </button>
                                 </Link>
@@ -158,7 +158,7 @@ const Cart = () => {
                     </div>
                 ) : (
                     <div className="text-center py-16">
-                        <div className="inline-flex items-center justify-center w-24 h-24 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] mb-6">
+                        <div className="inline-flex items-center justify-center w-24 h-24 bg-[var(--color-bg-soft)] border border-[var(--color-border)] mb-6">
                             <ShoppingBag className="h-12 w-12 text-gray-300" />
                         </div>
                         <h2 className="text-2xl font-bold text-gray-700 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>

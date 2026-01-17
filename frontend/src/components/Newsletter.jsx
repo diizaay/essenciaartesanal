@@ -19,7 +19,7 @@ const Newsletter = () => {
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-4">
-      <div className="max-w-[1200px] mx-auto border-2 border-[var(--color-accent)]/30 bg-white p-8 sm:p-10 md:p-12 grid gap-8 md:gap-10 lg:grid-cols-[1.1fr_0.9fr] shadow-lg">
+      <div className="max-w-[1200px] mx-auto border border-[var(--color-accent)]/30 bg-white p-8 sm:p-10 md:p-12 grid gap-8 md:gap-10 lg:grid-cols-[1.1fr_0.9fr] shadow-lg">
         <div className="bg-[var(--color-bg-soft)] overflow-hidden fade-in">
           <img
             src="DSC_0050.webp"
@@ -45,7 +45,7 @@ const Newsletter = () => {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Seu e-mail"
-              className="flex-1 border-2 border-gray-300 px-5 py-3 text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+              className="flex-1 border border-gray-300 px-5 py-3 text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
               style={{ fontFamily: 'Poppins, sans-serif' }}
               aria-label="Digite seu e-mail"
               required

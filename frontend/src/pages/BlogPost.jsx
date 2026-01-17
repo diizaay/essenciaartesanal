@@ -68,7 +68,7 @@ const BlogPost = () => {
                         Voltar ao Blog
                     </Link>
 
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase font-['Poppins']">
                             {post.category}
                         </span>

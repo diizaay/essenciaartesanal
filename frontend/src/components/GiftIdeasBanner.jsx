@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const GiftIdeasBanner = () => (
   <section className="px-4 sm:px-6 lg:px-8 py-12 fade-in">
     <div className="max-w-[1200px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] border-2 border-[var(--color-accent)]/30 bg-[var(--color-bg-soft)] overflow-hidden shadow-lg min-h-[350px] lg:min-h-[400px]">
+      <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] border border-[var(--color-accent)]/30 bg-[var(--color-bg-soft)] overflow-hidden shadow-lg min-h-[350px] lg:min-h-[400px]">
 
         {/* Imagem à Esquerda */}
         <div className="bg-[var(--color-bg-soft)] overflow-hidden order-2 lg:order-1">

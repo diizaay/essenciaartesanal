@@ -136,7 +136,7 @@ const BlogForm = () => {
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="bg-white shadow-md p-8 space-y-6 border-2 border-[var(--color-border)]">
+                <form onSubmit={handleSubmit} className="bg-white shadow-md p-8 space-y-6 border border-[var(--color-border)]">
                     {/* Title */}
                     <div>
                         <label className="block text-sm font-['Poppins'] font-medium text-[var(--color-text)] mb-2">
@@ -148,7 +148,7 @@ const BlogForm = () => {
                             value={formData.title}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
                         />
                     </div>
 
@@ -162,7 +162,7 @@ const BlogForm = () => {
                             name="slug"
                             value={formData.slug}
                             readOnly
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] font-['Poppins'] bg-gray-50"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] font-['Poppins'] bg-gray-50"
                         />
                         <p className="text-xs text-[var(--color-muted)] mt-1 font-['Poppins']">Gerado automaticamente</p>
                     </div>
@@ -177,7 +177,7 @@ const BlogForm = () => {
                             value={formData.category}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
                         >
                             {categories.map((cat) => (
                                 <option key={cat} value={cat}>{cat}</option>
@@ -196,7 +196,7 @@ const BlogForm = () => {
                             onChange={handleChange}
                             required
                             rows="3"
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] resize-none"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] resize-none"
                         />
                     </div>
 
@@ -211,7 +211,7 @@ const BlogForm = () => {
                             onChange={handleChange}
                             required
                             rows="10"
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] resize-none"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] resize-none"
                         />
                     </div>
 
@@ -238,7 +238,7 @@ const BlogForm = () => {
                                 <img
                                     src={formData.image}
                                     alt="Destaque"
-                                    className="w-full max-w-md h-48 object-cover border-2 border-[var(--color-border)] transition-transform duration-300 hover:scale-105"
+                                    className="w-full max-w-md h-48 object-cover border border-[var(--color-border)] transition-transform duration-300 hover:scale-105"
                                 />
                                 <button
                                     type="button"
@@ -259,7 +259,7 @@ const BlogForm = () => {
                                 name="published"
                                 checked={formData.published}
                                 onChange={handleChange}
-                                className="w-5 h-5 border-2 border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
+                                className="w-5 h-5 border border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
                             />
                             <span className="font-['Poppins'] text-[var(--color-text)]">Publicar artigo</span>
                         </label>

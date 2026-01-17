@@ -27,7 +27,7 @@ const ProductCard = ({ product, featured, hideTags = false }) => {
   return (
     <article
       onClick={() => navigate(`/produtos/${product.id}`)}
-      className="group relative border-2 border-[var(--color-accent)]/30 bg-white overflow-hidden transition-all hover-lift h-full flex flex-col cursor-pointer"
+      className="group relative border border-[var(--color-accent)]/30 bg-white overflow-hidden transition-all hover-lift h-full flex flex-col cursor-pointer"
     >
       <div className="relative">
         <img
@@ -53,7 +53,7 @@ const ProductCard = ({ product, featured, hideTags = false }) => {
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); handleFavorite(e); }}
-            className={`h-10 w-10 grid place-items-center rounded-full border-2 transition-all shadow-sm ${favorited ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]' : 'bg-white text-[var(--color-primary)] border-[var(--color-accent)]/30 hover:border-[var(--color-accent)]'
+            className={`h-10 w-10 grid place-items-center rounded-full border transition-all shadow-sm ${favorited ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]' : 'bg-white text-[var(--color-primary)] border-[var(--color-accent)]/30 hover:border-[var(--color-accent)]'
               }`}
             aria-label="Adicionar aos favoritos"
           >

@@ -112,7 +112,7 @@ const Dashboard = () => {
 
             {/* Overview Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white shadow-md p-6 border-2 border-[var(--color-border)]">
+                <div className="bg-white shadow-md p-6 border border-[var(--color-border)]">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-lg font-['Poppins'] font-bold text-[var(--color-text)]">
                             Visão de Pedidos
@@ -162,7 +162,7 @@ const Dashboard = () => {
             </div>
 
             {/* Recent Orders */}
-            <div className="bg-white shadow-md p-6 border-2 border-[var(--color-border)]">
+            <div className="bg-white shadow-md p-6 border border-[var(--color-border)]">
                 <h3 className="text-xl font-['Poppins'] font-bold text-[var(--color-primary)] mb-6">
                     Pedidos Recentes
                 </h3>

@@ -27,7 +27,7 @@ const Contact = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             APOIO AO CLIENTE
                         </span>
@@ -133,7 +133,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full border-2 border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
+                                            className="w-full border border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
                                             placeholder="João Silva"
                                             style={{ fontFamily: 'Poppins, sans-serif' }}
                                         />
@@ -149,7 +149,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full border-2 border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
+                                            className="w-full border border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
                                             placeholder="exemplo@email.com"
                                             style={{ fontFamily: 'Poppins, sans-serif' }}
                                         />
@@ -166,7 +166,7 @@ const Contact = () => {
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
-                                            className="w-full border-2 border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
+                                            className="w-full border border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
                                             placeholder="923 456 789"
                                             style={{ fontFamily: 'Poppins, sans-serif' }}
                                         />
@@ -181,7 +181,7 @@ const Contact = () => {
                                             name="subject"
                                             value={formData.subject}
                                             onChange={handleChange}
-                                            className="w-full border-2 border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
+                                            className="w-full border border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all bg-[var(--color-bg-soft)]"
                                             placeholder="Questão sobre produto"
                                             style={{ fontFamily: 'Poppins, sans-serif' }}
                                         />
@@ -198,7 +198,7 @@ const Contact = () => {
                                         onChange={handleChange}
                                         required
                                         rows="6"
-                                        className="w-full border-2 border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all resize-none bg-[var(--color-bg-soft)]"
+                                        className="w-full border border-[var(--color-border)] px-4 py-3 focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-accent)]/30 transition-all resize-none bg-[var(--color-bg-soft)]"
                                         placeholder="Escreve aqui a tua mensagem..."
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     />
@@ -223,7 +223,7 @@ const Contact = () => {
                     {/* Sidebar Info - Takes 2 columns */}
                     <div className="lg:col-span-2 space-y-6">
                         {/* Priority Support */}
-                        <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-8 shadow-xl">
+                        <div className="bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-8 shadow-xl">
                             <div className="flex items-start gap-4 mb-4">
                                 <div className="w-12 h-12 bg-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
                                     <Clock className="h-6 w-6 text-[var(--color-primary)]" />
@@ -240,7 +240,7 @@ const Contact = () => {
                         </div>
 
                         {/* Business Hours */}
-                        <div className="bg-white p-8 shadow-xl border-2 border-[var(--color-border)]">
+                        <div className="bg-white p-8 shadow-xl border border-[var(--color-border)]">
                             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 Horário de Atendimento
                             </h3>

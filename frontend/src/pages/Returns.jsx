@@ -8,7 +8,7 @@ const Returns = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             DEVOLUÇÕES
                         </span>
@@ -27,7 +27,7 @@ const Returns = () => {
                     {/* Main Content */}
                     <div className="space-y-8">
                         {/* Processo de Devolução */}
-                        <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                        <div className="bg-white border border-[var(--color-border)] p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <RotateCcw className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h2 className="text-2xl font-bold text-gray-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -36,7 +36,7 @@ const Returns = () => {
                             </div>
 
                             <div className="grid md:grid-cols-4 gap-4">
-                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)]">
+                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border border-[var(--color-border)]">
                                     <div className="w-12 h-12 bg-[var(--color-primary)] text-white flex items-center justify-center mx-auto mb-4 font-bold text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                         1
                                     </div>
@@ -48,7 +48,7 @@ const Returns = () => {
                                     </p>
                                 </div>
 
-                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)]">
+                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border border-[var(--color-border)]">
                                     <div className="w-12 h-12 bg-[var(--color-primary)] text-white flex items-center justify-center mx-auto mb-4 font-bold text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                         2
                                     </div>
@@ -60,7 +60,7 @@ const Returns = () => {
                                     </p>
                                 </div>
 
-                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)]">
+                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border border-[var(--color-border)]">
                                     <div className="w-12 h-12 bg-[var(--color-primary)] text-white flex items-center justify-center mx-auto mb-4 font-bold text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                         3
                                     </div>
@@ -72,7 +72,7 @@ const Returns = () => {
                                     </p>
                                 </div>
 
-                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)]">
+                                <div className="text-center p-6 bg-[var(--color-bg-soft)] border border-[var(--color-border)]">
                                     <div className="w-12 h-12 bg-[var(--color-primary)] text-white flex items-center justify-center mx-auto mb-4 font-bold text-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                         4
                                     </div>
@@ -87,7 +87,7 @@ const Returns = () => {
                         </div>
 
                         {/* Nossa Política */}
-                        <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                        <div className="bg-white border border-[var(--color-border)] p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <Shield className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h2 className="text-2xl font-bold text-gray-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -107,7 +107,7 @@ const Returns = () => {
                         </div>
 
                         {/* Condições para Devolução */}
-                        <div className="bg-white border-2 border-[var(--color-border)] p-8">
+                        <div className="bg-white border border-[var(--color-border)] p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <CheckCircle className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h2 className="text-2xl font-bold text-gray-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -124,7 +124,7 @@ const Returns = () => {
                         </div>
 
                         {/* Reembolso */}
-                        <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-8">
+                        <div className="bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-8">
                             <div className="flex items-center gap-3 mb-6">
                                 <Package className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h2 className="text-2xl font-bold text-gray-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -147,7 +147,7 @@ const Returns = () => {
                     {/* Sidebar */}
                     <div className="space-y-8">
                         {/* Resumo Rápido */}
-                        <div className="bg-[var(--color-bg-soft)] p-8 border-2 border-[var(--color-border)]">
+                        <div className="bg-[var(--color-bg-soft)] p-8 border border-[var(--color-border)]">
                             <div className="flex items-center gap-3 mb-4">
                                 <Clock className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h3 className="text-xl font-bold text-gray-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -175,7 +175,7 @@ const Returns = () => {
                         </div>
 
                         {/* Precisa de Ajuda */}
-                        <div className="bg-white p-8 border-2 border-[var(--color-border)]">
+                        <div className="bg-white p-8 border border-[var(--color-border)]">
                             <div className="flex items-center gap-3 mb-4">
                                 <HelpCircle className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h3 className="text-xl font-bold text-gray-700" style={{ fontFamily: 'Poppins, sans-serif' }}>

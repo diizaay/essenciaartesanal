@@ -131,7 +131,7 @@ const CategoryForm = () => {
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-8 space-y-6 border-2 border-[var(--color-border)]">
+                <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-8 space-y-6 border border-[var(--color-border)]">
                     {/* Name */}
                     <div>
                         <label className="block text-sm font-['Poppins'] font-medium text-[var(--color-text)] mb-2">
@@ -143,7 +143,7 @@ const CategoryForm = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
                         />
                     </div>
 
@@ -158,7 +158,7 @@ const CategoryForm = () => {
                             value={formData.slug}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border-2 border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] bg-gray-50"
+                            className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] bg-gray-50"
                             readOnly
                         />
                         <p className="text-xs text-[var(--color-muted)] mt-1 font-['Poppins']">Gerado automaticamente a partir do nome</p>
@@ -189,7 +189,7 @@ const CategoryForm = () => {
                                 <img
                                     src={formData.image}
                                     alt="Categoria"
-                                    className="w-full max-w-sm h-48 object-cover rounded-lg border-2 border-[var(--color-border)] transition-transform duration-300 hover:scale-105"
+                                    className="w-full max-w-sm h-48 object-cover rounded-lg border border-[var(--color-border)] transition-transform duration-300 hover:scale-105"
                                 />
                                 <button
                                     type="button"

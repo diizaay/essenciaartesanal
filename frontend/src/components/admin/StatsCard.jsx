@@ -10,7 +10,7 @@ const StatsCard = ({ title, value, icon: Icon, trend, trendLabel, color = 'prima
     };
 
     return (
-        <div className={`${colorClasses[color]} shadow-md p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-2 border-[var(--color-border)]`}>
+        <div className={`${colorClasses[color]} shadow-md p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[var(--color-border)]`}>
             <div className="flex items-center justify-between">
                 <div className="flex-1">
                     <p className="text-sm font-['Poppins'] font-medium mb-1 opacity-90">{title}</p>

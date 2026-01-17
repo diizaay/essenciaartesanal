@@ -47,7 +47,7 @@ const Blog = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             BLOG
                         </span>
@@ -76,7 +76,7 @@ const Blog = () => {
                             onClick={() => setSelectedCategory(category)}
                             className={`px-6 py-2 font-semibold transition-all duration-300 ${selectedCategory === category
                                 ? 'bg-[var(--color-primary)] text-white'
-                                : 'border-2 border-[var(--color-border)] text-gray-600 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+                                : 'border border-[var(--color-border)] text-gray-600 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
                                 }`}
                             style={{ fontFamily: 'Poppins, sans-serif' }}
                         >
@@ -92,7 +92,7 @@ const Blog = () => {
                     {filteredPosts.map((post) => (
                         <article
                             key={post.id}
-                            className="group bg-white border-2 border-[var(--color-border)] overflow-hidden hover:border-[var(--color-accent)] transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+                            className="group bg-white border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-accent)] transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
                         >
                             {/* Image */}
                             {post.image ? (

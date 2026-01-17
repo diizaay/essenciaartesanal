@@ -52,7 +52,7 @@ const AdminLogin = () => {
                     </p>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-[var(--color-border)]">
+                <div className="bg-white rounded-2xl shadow-xl p-8 border border-[var(--color-border)]">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label className="block text-sm font-['Poppins'] font-medium text-[var(--color-text)] mb-2">
@@ -63,7 +63,7 @@ const AdminLogin = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="w-full px-4 py-3 border-2 border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
+                                className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
                             />
                         </div>
 
@@ -76,7 +76,7 @@ const AdminLogin = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                className="w-full px-4 py-3 border-2 border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
+                                className="w-full px-4 py-3 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] transition-colors"
                                 placeholder="••••••••"
                             />
                         </div>
@@ -88,7 +88,7 @@ const AdminLogin = () => {
                         >
                             {loading ? (
                                 <>
-                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                    <div className="w-5 h-5 border border-white border-t-transparent rounded-full animate-spin"></div>
                                     A entrar...
                                 </>
                             ) : (

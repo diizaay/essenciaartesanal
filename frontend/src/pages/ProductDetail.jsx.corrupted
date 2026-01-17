@@ -173,7 +173,7 @@ const ProductDetail = () => {
                 <div className="grid lg:grid-cols-2 gap-8 mb-12">
                     {/* Images */}
                     <div className="space-y-4">
-                        <div className="border-2 border-[var(--color-border)] overflow-hidden">
+                        <div className="border border-[var(--color-border)] overflow-hidden">
                             <img
                                 src={images[selectedImage]}
                                 alt={product.name}
@@ -186,7 +186,7 @@ const ProductDetail = () => {
                                     <button
                                         key={index}
                                         onClick={() => setSelectedImage(index)}
-                                        className={`border-2 overflow-hidden ${selectedImage === index ? 'border-[var(--color-primary)]' : 'border-[var(--color-border)]'}`}
+                                        className={`border overflow-hidden ${selectedImage === index ? 'border-[var(--color-primary)]' : 'border-[var(--color-border)]'}`}
                                     >
                                         <img src={img} alt={`${product.name} ${index + 1}`} className="w-full aspect-square object-cover" />
                                     </button>
@@ -228,14 +228,14 @@ const ProductDetail = () => {
                             <div className="flex items-center gap-4">
                                 <button
                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                    className="border-2 border-[var(--color-border)] px-4 py-2 font-bold hover:border-[var(--color-primary)]"
+                                    className="border border-[var(--color-border)] px-4 py-2 font-bold hover:border-[var(--color-primary)]"
                                 >
                                     -
                                 </button>
                                 <span className="text-xl font-bold w-12 text-center">{quantity}</span>
                                 <button
                                     onClick={() => setQuantity(quantity + 1)}
-                                    className="border-2 border-[var(--color-border)] px-4 py-2 font-bold hover:border-[var(--color-primary)]"
+                                    className="border border-[var(--color-border)] px-4 py-2 font-bold hover:border-[var(--color-primary)]"
                                 >
                                     +
                                 </button>
@@ -265,7 +265,7 @@ const ProductDetail = () => {
                         {/* Favorite */}
                         <button
                             onClick={handleToggleFavorite}
-                            className={`w-full flex items-center justify-center gap-2 border-2 py-3 ${favorited
+                            className={`w-full flex items-center justify-center gap-2 border py-3 ${favorited
                                 ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
                                 : 'bg-white text-[var(--color-primary)] border-[var(--color-border)] hover:border-[var(--color-primary)]'
                                 }`}
@@ -291,7 +291,7 @@ const ProductDetail = () => {
 
                     {/* Form */}
                     {currentUser ? (
-                        <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-4 mb-4">
+                        <div className="bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-4 mb-4">
                             <form onSubmit={handleSubmitReview} className="flex gap-3 items-start">
                                 <div className="flex-1">
                                     <textarea
@@ -300,7 +300,7 @@ const ProductDetail = () => {
                                         required
                                         rows="3"
                                         placeholder="Deixe sua opinião..."
-                                        className="w-full px-3 py-2 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none resize-none text-sm"
+                                        className="w-full px-3 py-2 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none resize-none text-sm"
                                     />
                                 </div>
                                 <div className="flex flex-col gap-2">
@@ -329,7 +329,7 @@ const ProductDetail = () => {
                     <div className="space-y-3">
                         {reviews.length > 0 ? (
                             reviews.slice(0, 3).map((review) => (
-                                <div key={review.id} className="border-2 border-[var(--color-border)] p-3">
+                                <div key={review.id} className="border border-[var(--color-border)] p-3">
                                     <div className="flex items-center justify-between mb-1">
                                         <div className="flex items-center gap-2">
                                             <span className="font-semibold text-sm">{review.userName}</span>

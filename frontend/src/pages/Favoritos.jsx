@@ -12,7 +12,7 @@ const Favoritos = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             LISTA DE DESEJOS
                         </span>
@@ -38,7 +38,7 @@ const Favoritos = () => {
                     </div>
                 ) : (
                     <div className="text-center py-16">
-                        <div className="inline-flex items-center justify-center w-24 h-24 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] mb-6">
+                        <div className="inline-flex items-center justify-center w-24 h-24 bg-[var(--color-bg-soft)] border border-[var(--color-border)] mb-6">
                             <Heart className="h-12 w-12 text-gray-300" />
                         </div>
                         <h2 className="text-2xl font-bold text-gray-700 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>

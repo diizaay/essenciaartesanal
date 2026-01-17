@@ -68,7 +68,7 @@ const Terms = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             TERMOS & CONDIÇÕES
                         </span>
@@ -92,7 +92,7 @@ const Terms = () => {
                         {sections.map((section, index) => {
                             const Icon = section.icon;
                             return (
-                                <div key={index} className="bg-white border-2 border-[var(--color-border)] p-8 hover:border-[var(--color-accent)] transition-all duration-300">
+                                <div key={index} className="bg-white border border-[var(--color-border)] p-8 hover:border-[var(--color-accent)] transition-all duration-300">
                                     <div className="flex items-start gap-4 mb-4">
                                         <div className="w-12 h-12 bg-[var(--color-primary)] flex items-center justify-center flex-shrink-0">
                                             <Icon className="h-6 w-6 text-white" />
@@ -142,7 +142,7 @@ const Terms = () => {
                     {/* Sidebar */}
                     <div className="space-y-8">
                         {/* Em resumo */}
-                        <div className="bg-[var(--color-bg-soft)] p-8 border-2 border-[var(--color-border)]">
+                        <div className="bg-[var(--color-bg-soft)] p-8 border border-[var(--color-border)]">
                             <div className="flex items-center gap-3 mb-4">
                                 <AlertCircle className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -155,7 +155,7 @@ const Terms = () => {
                         </div>
 
                         {/* Ligações úteis */}
-                        <div className="bg-white p-8 border-2 border-[var(--color-border)]">
+                        <div className="bg-white p-8 border border-[var(--color-border)]">
                             <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 Ligações úteis
                             </h3>

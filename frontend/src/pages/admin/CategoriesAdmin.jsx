@@ -73,7 +73,7 @@ const CategoriesAdmin = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {categories.map((category) => (
-                    <div key={category.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-[var(--color-border)]">
+                    <div key={category.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[var(--color-border)]">
                         <img
                             src={category.image}
                             alt={category.name}

@@ -6,7 +6,7 @@ const Help = () => (
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
             <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                     <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                         APOIO AO CLIENTE
                     </span>
@@ -95,7 +95,7 @@ const Help = () => (
                         <div className="p-8">
                             <div className="grid md:grid-cols-2 gap-6">
                                 {/* Envios e entregas */}
-                                <a href="/envios" className="group p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
+                                <a href="/envios" className="group p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-[var(--color-bg-soft)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-accent)] transition-colors">
                                             <Package className="h-6 w-6 text-[var(--color-primary)]" />
@@ -115,7 +115,7 @@ const Help = () => (
                                 </a>
 
                                 {/* Devoluções e trocas */}
-                                <a href="/devolucoes" className="group p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
+                                <a href="/devolucoes" className="group p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-[var(--color-bg-soft)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-accent)] transition-colors">
                                             <RefreshCw className="h-6 w-6 text-[var(--color-primary)]" />
@@ -135,7 +135,7 @@ const Help = () => (
                                 </a>
 
                                 {/* Pagamentos e Multicaixa */}
-                                <a href="/faq" className="group p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
+                                <a href="/faq" className="group p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-[var(--color-bg-soft)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-accent)] transition-colors">
                                             <CreditCard className="h-6 w-6 text-[var(--color-primary)]" />
@@ -155,7 +155,7 @@ const Help = () => (
                                 </a>
 
                                 {/* Pedidos e estado de encomenda */}
-                                <a href="/faq" className="group p-6 border-2 border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
+                                <a href="/faq" className="group p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-lg">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-[var(--color-bg-soft)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-accent)] transition-colors">
                                             <Clock className="h-6 w-6 text-[var(--color-primary)]" />
@@ -181,7 +181,7 @@ const Help = () => (
                 {/* Sidebar - Takes 1 column */}
                 <div className="lg:col-span-1 space-y-6">
                     {/* Quick Tips */}
-                    <div className="bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-8 shadow-xl">
+                    <div className="bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-8 shadow-xl">
                         <div className="flex items-start gap-4 mb-4">
                             <div className="w-12 h-12 bg-[var(--color-accent)] flex items-center justify-center flex-shrink-0">
                                 <Mail className="h-6 w-6 text-[var(--color-primary)]" />
@@ -198,7 +198,7 @@ const Help = () => (
                     </div>
 
                     {/* Business Hours */}
-                    <div className="bg-white p-8 shadow-xl border-2 border-[var(--color-border)]">
+                    <div className="bg-white p-8 shadow-xl border border-[var(--color-border)]">
                         <h3 className="text-xl font-bold text-[var(--color-primary)] mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             Horário de Atendimento
                         </h3>

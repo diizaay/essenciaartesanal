@@ -35,7 +35,7 @@ const ProductVariants = ({ variants, setVariants }) => {
             </div>
 
             {/* Add Variant Form */}
-            <div className="bg-gray-50 border-2 border-gray-200 p-4">
+            <div className="bg-gray-50 border border-gray-200 p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
                         <input
@@ -43,7 +43,7 @@ const ProductVariants = ({ variants, setVariants }) => {
                             placeholder="Nome da variante (ex: Brinco Normal)"
                             value={newVariant.name}
                             onChange={(e) => setNewVariant({ ...newVariant, name: e.target.value })}
-                            className="w-full px-3 py-2 border-2 border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
                         />
                     </div>
                     <div className="flex gap-2">
@@ -52,7 +52,7 @@ const ProductVariants = ({ variants, setVariants }) => {
                             placeholder="Preço (KZ)"
                             value={newVariant.price}
                             onChange={(e) => setNewVariant({ ...newVariant, price: e.target.value })}
-                            className="flex-1 px-3 py-2 border-2 border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
+                            className="flex-1 px-3 py-2 border border-gray-300 focus:border-[var(--color-primary)] outline-none text-sm"
                             step="0.01"
                             min="0"
                         />
@@ -75,7 +75,7 @@ const ProductVariants = ({ variants, setVariants }) => {
                     {variants.map((variant) => (
                         <div
                             key={variant.id}
-                            className="flex items-center justify-between bg-white border-2 border-gray-200 p-3"
+                            className="flex items-center justify-between bg-white border border-gray-200 p-3"
                         >
                             <div>
                                 <span className="font-semibold">{variant.name}</span>

@@ -211,7 +211,7 @@ const ProductDetail = () => {
                 <div className="grid md:grid-cols-2 gap-12 mb-16">
                     {/* Image Gallery */}
                     <div>
-                        <div className="border-2 border-[var(--color-border)] mb-4 overflow-hidden">
+                        <div className="border border-[var(--color-border)] mb-4 overflow-hidden">
                             <img
                                 src={images[selectedImage]}
                                 alt={product.name}
@@ -224,7 +224,7 @@ const ProductDetail = () => {
                                     <button
                                         key={index}
                                         onClick={() => setSelectedImage(index)}
-                                        className={`border-2 overflow-hidden transition-all ${selectedImage === index
+                                        className={`border overflow-hidden transition-all ${selectedImage === index
                                             ? 'border-[var(--color-primary)]'
                                             : 'border-[var(--color-border)] hover:border-[var(--color-accent)]'
                                             }`}
@@ -295,7 +295,7 @@ const ProductDetail = () => {
                                         <button
                                             key={variant.id}
                                             onClick={() => setSelectedVariant(variant)}
-                                            className={`px-4 py-2 border-2 transition-all text-sm font-medium ${selectedVariant?.id === variant.id
+                                            className={`px-4 py-2 border transition-all text-sm font-medium ${selectedVariant?.id === variant.id
                                                 ? 'border-[var(--color-primary)] bg-[var(--color-accent)] bg-opacity-20 text-[var(--color-primary)]'
                                                 : 'border-[var(--color-border)] hover:border-[var(--color-primary)] text-gray-700'
                                                 }`}
@@ -309,7 +309,7 @@ const ProductDetail = () => {
 
                         {product.category && (
                             <div>
-                                <span className="inline-block bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)]">
+                                <span className="inline-block bg-[var(--color-bg-soft)] border border-[var(--color-border)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)]">
                                     {product.category}
                                 </span>
                             </div>
@@ -321,14 +321,14 @@ const ProductDetail = () => {
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                    className="h-12 w-12 grid place-items-center border-2 border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
+                                    className="h-12 w-12 grid place-items-center border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
                                 >
                                     -
                                 </button>
                                 <span className="text-xl font-bold min-w-[60px] text-center">{quantity}</span>
                                 <button
                                     onClick={() => setQuantity(quantity + 1)}
-                                    className="h-12 w-12 grid place-items-center border-2 border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
+                                    className="h-12 w-12 grid place-items-center border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors font-bold text-xl"
                                 >
                                     +
                                 </button>
@@ -358,7 +358,7 @@ const ProductDetail = () => {
                         {/* Favorite Button */}
                         <button
                             onClick={handleToggleFavorite}
-                            className={`w-full flex items-center justify-center gap-2 border-2 py-3 transition-all ${favorited
+                            className={`w-full flex items-center justify-center gap-2 border py-3 transition-all ${favorited
                                 ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
                                 : 'bg-white text-[var(--color-primary)] border-[var(--color-border)] hover:border-[var(--color-primary)]'
                                 }`}
@@ -375,7 +375,7 @@ const ProductDetail = () => {
                         <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-4" style={{ fontFamily: 'Poppins' }}>
                             Detalhes do Produto
                         </h3>
-                        <div className="bg-gray-50 border-2 border-[var(--color-border)] p-6 space-y-3">
+                        <div className="bg-gray-50 border border-[var(--color-border)] p-6 space-y-3">
                             {product.details.map((detail, index) => (
                                 <div key={index} className="flex gap-4">
                                     <span className="font-semibold min-w-[150px]">

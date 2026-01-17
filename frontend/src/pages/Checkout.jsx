@@ -303,7 +303,7 @@ const Checkout = () => {
 
             {/* Payment Notice Banner */}
             <div className="max-w-[1200px] mx-auto px-4 -mt-8 mb-8">
-                <div className="bg-blue-50 border-2 border-blue-200 p-6 rounded-lg">
+                <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg">
                     <div className="flex items-start gap-4">
                         <MessageCircle className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
                         <div>
@@ -324,7 +324,7 @@ const Checkout = () => {
                 <form onSubmit={handleSubmit} className="grid lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2 space-y-6">
                         {/* Dados Pessoais */}
-                        <div className="border-2 border-[var(--color-border)] p-6">
+                        <div className="border border-[var(--color-border)] p-6">
                             <div className="flex items-center gap-2 mb-6">
                                 <User className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h2 className="text-2xl font-bold" style={{ fontFamily: 'Poppins' }}>Dados Pessoais</h2>
@@ -339,7 +339,7 @@ const Checkout = () => {
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     />
                                 </div>
 
@@ -350,7 +350,7 @@ const Checkout = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     />
                                 </div>
 
@@ -363,14 +363,14 @@ const Checkout = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="+244 923 456 789"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     />
                                 </div>
                             </div>
                         </div>
 
                         {/* Endereço e Zona de Entrega */}
-                        <div className="border-2 border-[var(--color-border)] p-6">
+                        <div className="border border-[var(--color-border)] p-6">
                             <div className="flex items-center gap-2 mb-6">
                                 <MapPin className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h2 className="text-2xl font-bold" style={{ fontFamily: 'Poppins' }}>Endereço de Entrega</h2>
@@ -382,7 +382,7 @@ const Checkout = () => {
                                     <select
                                         value={selectedAddressId}
                                         onChange={handleAddressSelect}
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     >
                                         <option value="">Novo endereço</option>
                                         {addresses.map(addr => (
@@ -403,7 +403,7 @@ const Checkout = () => {
                                         value={formData.neighborhood}
                                         onChange={handleInputChange}
                                         placeholder="Ex: Viana"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     />
                                 </div>
 
@@ -416,7 +416,7 @@ const Checkout = () => {
                                         onChange={handleInputChange}
                                         required
                                         placeholder="Ex: Rua 123, Casa 45"
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none"
                                     />
                                 </div>
 
@@ -428,7 +428,7 @@ const Checkout = () => {
                                         onChange={handleInputChange}
                                         rows="3"
                                         placeholder="Ponto de referência, instruções de entrega..."
-                                        className="w-full px-4 py-3 border-2 border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none resize-none"
+                                        className="w-full px-4 py-3 border border-[var(--color-border)] focus:border-[var(--color-primary)] outline-none resize-none"
                                     />
                                 </div>
                             </div>
@@ -437,7 +437,7 @@ const Checkout = () => {
 
                     {/* Summary */}
                     <div className="lg:col-span-1">
-                        <div className="border-2 border-[var(--color-border)] p-6 bg-[var(--color-bg-soft)] sticky top-4">
+                        <div className="border border-[var(--color-border)] p-6 bg-[var(--color-bg-soft)] sticky top-4">
                             <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: 'Poppins' }}>
                                 Resumo do Pedido
                             </h2>
@@ -477,7 +477,7 @@ const Checkout = () => {
                                         <button
                                             type="button"
                                             onClick={() => setIsZoneDropdownOpen(!isZoneDropdownOpen)}
-                                            className={`w-full flex items-center justify-between p-3 border-2 text-sm text-left transition-all ${selectedZoneId
+                                            className={`w-full flex items-center justify-between p-3 border text-sm text-left transition-all ${selectedZoneId
                                                 ? 'border-[var(--color-primary)] bg-white'
                                                 : 'border-gray-300 bg-white hover:border-gray-400'
                                                 }`}
@@ -506,7 +506,7 @@ const Checkout = () => {
 
                                         {/* Dropdown Options */}
                                         {isZoneDropdownOpen && (
-                                            <div className="absolute z-10 w-full mt-1 bg-white border-2 border-gray-200 shadow-lg max-h-48 overflow-y-auto">
+                                            <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 shadow-lg max-h-48 overflow-y-auto">
                                                 {deliveryZones.map(zone => (
                                                     <button
                                                         type="button"
@@ -567,7 +567,7 @@ const Checkout = () => {
                                         type="checkbox"
                                         checked={acceptedTerms}
                                         onChange={(e) => setAcceptedTerms(e.target.checked)}
-                                        className="w-5 h-5 mt-0.5 border-2 border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)] cursor-pointer"
+                                        className="w-5 h-5 mt-0.5 border border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)] cursor-pointer"
                                     />
                                     <span className="text-sm text-gray-700 select-none">
                                         Aceito os{' '}
@@ -595,7 +595,7 @@ const Checkout = () => {
                             <Link to="/carrinho">
                                 <button
                                     type="button"
-                                    className="w-full bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] py-4 font-bold hover:bg-[var(--color-primary)] hover:text-white"
+                                    className="w-full bg-white border border-[var(--color-primary)] text-[var(--color-primary)] py-4 font-bold hover:bg-[var(--color-primary)] hover:text-white"
                                 >
                                     VOLTAR AO CARRINHO
                                 </button>

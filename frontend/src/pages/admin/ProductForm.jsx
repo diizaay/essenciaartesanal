@@ -175,7 +175,7 @@ const ProductForm = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-2 border-2 border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
+                            className="w-full px-4 py-2 border border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
                         />
                     </div>
 
@@ -190,7 +190,7 @@ const ProductForm = () => {
                             value={formData.slug}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-2 border-2 border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] bg-gray-50"
+                            className="w-full px-4 py-2 border border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] bg-gray-50"
                             readOnly
                         />
                         <p className="text-xs text-[var(--color-muted)] mt-1 font-['Poppins']">Gerado automaticamente a partir do nome</p>
@@ -207,7 +207,7 @@ const ProductForm = () => {
                                 value={formData.category}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-2 border-2 border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
+                                className="w-full px-4 py-2 border border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
                             >
                                 <option value="">Selecione uma categoria</option>
                                 {categories.map((cat) => (
@@ -228,7 +228,7 @@ const ProductForm = () => {
                                 required
                                 step="0.01"
                                 min="0"
-                                className="w-full px-4 py-2 border-2 border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
+                                className="w-full px-4 py-2 border border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins']"
                             />
                         </div>
                     </div>
@@ -244,7 +244,7 @@ const ProductForm = () => {
                             onChange={handleChange}
                             required
                             rows="4"
-                            className="w-full px-4 py-2 border-2 border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] resize-none"
+                            className="w-full px-4 py-2 border border-[var(--color-border)]  focus:outline-none focus:border-[var(--color-primary)] font-['Poppins'] resize-none"
                         />
                     </div>
 
@@ -276,7 +276,7 @@ const ProductForm = () => {
                                         <img
                                             src={img}
                                             alt={`Produto ${index + 1}`}
-                                            className="w-full h-32 object-cover  border-2 border-[var(--color-border)]"
+                                            className="w-full h-32 object-cover  border border-[var(--color-border)]"
                                         />
                                         <button
                                             type="button"
@@ -291,7 +291,7 @@ const ProductForm = () => {
                         )}
 
                         {formData.images.length === 0 && (
-                            <div className="mt-4 border-2 border-dashed border-[var(--color-border)]  p-8 text-center">
+                            <div className="mt-4 border border-dashed border-[var(--color-border)]  p-8 text-center">
                                 <ImageIcon className="w-12 h-12 text-[var(--color-muted)] mx-auto mb-2" />
                                 <p className="text-[var(--color-muted)] font-['Poppins']">Nenhuma imagem adicionada</p>
                             </div>
@@ -322,7 +322,7 @@ const ProductForm = () => {
                                 name="inStock"
                                 checked={formData.inStock}
                                 onChange={handleChange}
-                                className="w-5 h-5 border-2 border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
+                                className="w-5 h-5 border border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
                             />
                             <span className="font-['Poppins'] text-[var(--color-text)]">Produto em stock</span>
                         </label>
@@ -333,7 +333,7 @@ const ProductForm = () => {
                                 name="featured"
                                 checked={formData.featured}
                                 onChange={handleChange}
-                                className="w-5 h-5 border-2 border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
+                                className="w-5 h-5 border border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
                             />
                             <span className="font-['Poppins'] text-[var(--color-text)]">Produto em destaque</span>
                         </label>
@@ -344,7 +344,7 @@ const ProductForm = () => {
                                 name="isNew"
                                 checked={formData.isNew}
                                 onChange={handleChange}
-                                className="w-5 h-5 border-2 border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
+                                className="w-5 h-5 border border-[var(--color-border)] text-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]"
                             />
                             <span className="font-['Poppins'] text-[var(--color-text)]">Novidade (aparece em "Adicionados Recentemente")</span>
                         </label>

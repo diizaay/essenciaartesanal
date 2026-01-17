@@ -71,7 +71,7 @@ const Categories = () => {
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-[var(--color-bg-soft)] py-20 px-4">
                 <div className="max-w-[1200px] mx-auto text-center relative z-10">
-                    <div className="inline-block mb-4 px-6 py-2 border-2 border-[var(--color-primary)]">
+                    <div className="inline-block mb-4 px-6 py-2 border border-[var(--color-primary)]">
                         <span className="text-[var(--color-primary)] text-sm font-semibold tracking-wider uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
                             CATEGORIAS
                         </span>
@@ -97,7 +97,7 @@ const Categories = () => {
                                         <Link
                                             key={category.id}
                                             to={`/produtos?categoria=${category.slug || category.id}`}
-                                            className="group bg-white border-2 border-[var(--color-border)] p-8 hover:border-[var(--color-accent)] transition-all duration-300"
+                                            className="group bg-white border border-[var(--color-border)] p-8 hover:border-[var(--color-accent)] transition-all duration-300"
                                         >
                                             <div className="flex items-start gap-4 mb-4">
                                                 <div className="w-12 h-12 bg-[var(--color-primary)] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -127,7 +127,7 @@ const Categories = () => {
                                 })}
                             </div>
                         ) : (
-                            <div className="text-center py-12 bg-[var(--color-bg-soft)] border-2 border-[var(--color-border)] p-12">
+                            <div className="text-center py-12 bg-[var(--color-bg-soft)] border border-[var(--color-border)] p-12">
                                 <Grid3x3 className="h-16 w-16 text-[var(--color-primary)] mx-auto mb-4" />
                                 <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                     Nenhuma categoria disponível
@@ -142,7 +142,7 @@ const Categories = () => {
                     {/* Sidebar */}
                     <div className="space-y-8">
                         {/* Sobre as Categorias */}
-                        <div className="bg-[var(--color-bg-soft)] p-8 border-2 border-[var(--color-border)]">
+                        <div className="bg-[var(--color-bg-soft)] p-8 border border-[var(--color-border)]">
                             <div className="flex items-center gap-3 mb-4">
                                 <Grid3x3 className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -155,7 +155,7 @@ const Categories = () => {
                         </div>
 
                         {/* Produtos em Destaque */}
-                        <div className="bg-white p-8 border-2 border-[var(--color-border)]">
+                        <div className="bg-white p-8 border border-[var(--color-border)]">
                             <div className="flex items-center gap-3 mb-4">
                                 <Heart className="h-6 w-6 text-[var(--color-primary)]" />
                                 <h3 className="text-xl font-bold text-[var(--color-primary)]" style={{ fontFamily: 'Poppins, sans-serif' }}>

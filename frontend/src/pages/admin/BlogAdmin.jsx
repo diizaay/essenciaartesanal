@@ -88,7 +88,7 @@ const BlogAdmin = () => {
                 {posts.map((post) => (
                     <div
                         key={post.id}
-                        className="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-[var(--color-border)] flex flex-col md:flex-row"
+                        className="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-[var(--color-border)] flex flex-col md:flex-row"
                     >
                         <img
                             src={post.image}
