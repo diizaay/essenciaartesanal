@@ -36,8 +36,8 @@ const Footer = () => (
       <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
         {/* Logo e Info */}
         <div className="space-y-4">
-          <Link to="/" className="flex items-center gap-2" aria-label="Ir para a página inicial">
-            <img src="/logo.png" alt="Essência Artesanal" className="h-12 w-auto" />
+          <Link to="/" className="inline-block" aria-label="Ir para a página inicial">
+            <img src="/logo.png" alt="Lia" className="h-12 w-auto" />
           </Link>
           <div className="space-y-3 text-sm text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
             <div className="flex items-start gap-2">
@@ -52,8 +52,8 @@ const Footer = () => (
             </div>
             <div className="flex items-start gap-2">
               <Mail className="h-5 w-5 text-[var(--color-primary)] flex-shrink-0 mt-0.5" />
-              <a href="mailto:suporte@essenciaartesanal.ao" className="hover:text-[var(--color-primary)] transition-colors">
-                suporte@essenciaartesanal.ao
+              <a href="mailto:suporte@lia.ao" className="hover:text-[var(--color-primary)] transition-colors">
+                suporte@lia.ao
               </a>
             </div>
           </div>
@@ -62,7 +62,7 @@ const Footer = () => (
               href="https://www.instagram.com/essencia_artesanal0ficial?igsh=aDF3aDM0d2V0anM0"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram Essência Artesanal"
+              aria-label="Instagram Lia"
               className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
             >
               <Instagram className="h-5 w-5" />
@@ -71,16 +71,16 @@ const Footer = () => (
               href="https://www.facebook.com/profile.php?id=100095310111884"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Facebook Essência Artesanal"
+              aria-label="Facebook Lia"
               className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
             >
               <Facebook className="h-5 w-5" />
             </a>
             <a
-              href="https://www.tiktok.com/@essenciaartesanal?_r=1&_t=ZG-92H2VrcoOmm"
+              href="https://www.tiktok.com/@lia?_r=1&_t=ZG-92H2VrcoOmm"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="TikTok Essência Artesanal"
+              aria-label="TikTok Lia"
               className="text-gray-600 hover:text-[var(--color-primary)] transition-colors"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -111,7 +111,7 @@ const Footer = () => (
 
       {/* Copyright */}
       <div className="border-t border-[var(--color-border)] pt-6 text-center text-sm text-gray-600 space-y-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-        <p>© {new Date().getFullYear()} Essência Artesanal · Todos os direitos reservados</p>
+        <p>© {new Date().getFullYear()} Lia · Todos os direitos reservados</p>
         <p>
           Desenvolvido por{' '}
           <a

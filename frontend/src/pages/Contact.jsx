@@ -57,11 +57,11 @@ const Contact = () => {
                                 Resposta média: menos de 2 horas
                             </p>
                             <a
-                                href="mailto:suporte@essenciaartesanal.ao"
+                                href="mailto:suporte@lia.ao"
                                 className="text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors font-medium break-all"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}
                             >
-                                suporte@essenciaartesanal.ao
+                                suporte@lia.ao
                             </a>
                         </div>
                     </div>

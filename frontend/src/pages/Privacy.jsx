@@ -71,7 +71,7 @@ const Privacy = () => {
                 'Opor-te ao processamento de dados',
                 'Descarregar os dados (Google Analytics, etc.)'
             ],
-            note: 'Para exercer qualquer direito, contacta-nos através do email: suporte@essenciaartesanal.ao'
+            note: 'Para exercer qualquer direito, contacta-nos através do email: suporte@lia.ao'
         },
         {
             icon: Bell,

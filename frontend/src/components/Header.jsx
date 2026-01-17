@@ -51,7 +51,7 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between gap-8">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2" aria-label="Ir para a página inicial">
-            <img src="logo.png" alt="Essência Artesanal" className="h-12 w-auto" />
+            <img src="logo.png" alt="Lia" className="h-12 w-auto" />
           </Link>
 
           {/* Navigation - centered */}
